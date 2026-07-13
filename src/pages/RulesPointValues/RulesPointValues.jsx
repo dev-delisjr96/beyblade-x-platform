@@ -45,10 +45,11 @@ const VIEW_MODES = ["point", "part"];
  * Firebase RTDB, so any edit made there shows up here immediately
  * without a refresh.
  *
- * Admins (password-gated, see modules/adminAccess.js) can edit these
- * values. Editing always happens on a fresh duplicate of the currently
- * viewed date (see DuplicateDateModal) rather than mutating a date that
- * may have already been played.
+ * Admins (password-gated, see modules/adminAccess.js) can edit the
+ * currently viewed date's values directly. They can optionally create a
+ * fresh duplicate under a new date first (see DuplicateDateModal) when
+ * they want to preserve today's values as history rather than overwrite
+ * them in place.
  */
 /* eslint-disable-next-line no-unused-vars */
 const RulesPointValues = ({ additionalstyles, ...props }) => {
@@ -64,10 +65,12 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     "header-actions",
     "edit-button",
     "editing-badge",
+    "block-edit-icon",
     "view-toggle",
     "view-option",
     "active",
     "content",
+    "new-date-button",
     "add-row-button",
     "value-section",
     "value-header",
@@ -111,8 +114,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   // a chip toggles this instead — see the .chip-actions CSS.
   const [activeChipKey, setActiveChipKey] = useState(null);
 
-  const isEditMode =
-    isAdmin && adminAccess.isEditingTarget(tournament_format, club, date);
+  const isEditMode = isAdmin;
 
   // Tapping anywhere outside the active chip's frame collapses its
   // action buttons again.
@@ -173,21 +175,15 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   }
 
   function handleEditClick() {
-    if (!isAdmin) {
-      setShowAdminModal(true);
-    } else {
-      setShowDuplicateModal(true);
-    }
+    setShowAdminModal(true);
   }
 
   function handleAdminSuccess() {
     setIsAdmin(true);
     setShowAdminModal(false);
-    setShowDuplicateModal(true);
   }
 
   function handleDuplicateSuccess(newDate) {
-    adminAccess.setEditingTarget(tournament_format, club, newDate);
     setShowDuplicateModal(false);
     navigate(`/${tournament_format}/deck-builder/${club}/${newDate}/values`);
   }
@@ -423,6 +419,12 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
             <span className={classes_names["editing-badge"]}>
               <ion-icon name="create-outline"></ion-icon>
               {tAdmin("edit-button")}
+              <ion-icon
+                name="lock-open-outline"
+                title={tAdmin("duplicate.block-edit-button")}
+                className={classes_names["block-edit-icon"]}
+                onClick={handleBlockEdit}
+              ></ion-icon>
             </span>
           ) : (
             <button
@@ -440,6 +442,17 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
       <div className={classes_names["content"]}>
         {entries.length === 0 && (
           <p className={classes_names["empty-state"]}>{t("empty-state")}</p>
+        )}
+
+        {viewMode === "point" && isEditMode && (
+          <button
+            type="button"
+            className={classes_names["new-date-button"]}
+            onClick={() => setShowDuplicateModal(true)}
+          >
+            <ion-icon name="copy-outline"></ion-icon>
+            {tAdmin("create-new-set-button")}
+          </button>
         )}
 
         {viewMode === "point" && isEditMode && (

@@ -14,6 +14,7 @@
     "generic-error": "Something went wrong. Try again."
   },
   "add-point-value-button": "Add new point value",
+  "create-new-set-button": "Create a new point set values",
   "new-point-value": {
     "title": "New Point Value",
     "value-label": "Point Value",

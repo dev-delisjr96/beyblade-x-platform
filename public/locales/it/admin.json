@@ -14,6 +14,7 @@
     "generic-error": "Qualcosa è andato storto. Riprova."
   },
   "add-point-value-button": "Aggiungi nuovo valore punto",
+  "create-new-set-button": "Crea un nuovo set di punteggi",
   "new-point-value": {
     "title": "Nuovo Valore Punto",
     "value-label": "Valore Punto",

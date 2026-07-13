@@ -101,6 +101,28 @@
   }
 }
 
+.block-edit-icon {
+  cursor: pointer;
+  color: var(--ds-accent);
+  transition: color 0.15s ease;
+  margin-left: 0.15rem;
+
+  &:hover {
+    color: var(--ds-danger);
+  }
+}
+
+.new-date-button {
+  @include ds.pill-button($filled: false);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  align-self: flex-start;
+
+  ion-icon {
+    font-size: 1.1rem;
+  }
+}
+
 .back-link {
   @include ds.pill-button($filled: false);
   @include main.flexBox(row, center, center);
