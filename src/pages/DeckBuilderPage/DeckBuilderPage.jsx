@@ -115,8 +115,6 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
     [rulesTree],
   );
 
-  console.log("clubs", clubs);
-
   const selectedClubEntry = useMemo(
     () => rulesTree?.find((entry) => entry.id === club),
     [rulesTree, club],
@@ -275,7 +273,7 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
       <div className={classes_names["glow-b"]} />
 
       <header className={classes_names["header"]}>
-        <div className={classes_names["brand"]}>
+        <div className={classes_names["brand"]} onClick={() => navigate("/")}>
           <div className={classes_names["brand-badge"]}>
             <ion-icon name="disc-outline"></ion-icon>
           </div>

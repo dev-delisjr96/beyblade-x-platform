@@ -76,7 +76,6 @@ export function subscribeToData(path, callback, onError = console.error) {
       const isList = Object.values(val).every(
         (v) => typeof v === "object" && v !== null,
       );
-      console.log("subscribed data", val);
       if (isList) {
         callback(
           Object.entries(val).map(([key, value]) => ({ id: key, ...value })),
