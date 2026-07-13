@@ -281,10 +281,16 @@
 }
 
 .chip {
+  position: relative;
   @include main.flexBox(column, center, center);
   gap: 0.3rem;
   width: 76px;
   text-align: center;
+
+  &:hover .chip-actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .chip-frame {
@@ -295,37 +301,85 @@
   background: var(--ds-bg-elevated);
   @include main.flexBox(row, center, center);
   overflow: hidden;
-
-  &:hover .chip-actions {
-    opacity: 1;
-    pointer-events: auto;
-  }
 }
 
+// Floating toolbar above the chip, NOT nested inside .chip-frame — that
+// circle clips its content, which left no room for real tap targets.
+// Revealed on hover for mouse users; on touch, .chip-frame's onClick
+// toggles the .force-visible class instead (see RulesPointValues.jsx),
+// since touch devices have no hover to rely on.
 .chip-actions {
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: 50%;
-  background: rgba(2, 4, 5, 0.82);
+  bottom: 100%;
+  left: 50%;
+  // No negative vertical offset here on purpose: a gap between the chip
+  // and this toolbar is dead space the mouse has to cross with nothing
+  // hoverable under it, which drops :hover before the pointer arrives —
+  // a tiny *positive* nudge instead creates a slight overlap so the
+  // hoverable area is continuous the whole way up.
+  transform: translate(-50%, 2px);
+  z-index: 5;
+  @include main.flexBox(row, center, center);
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-bg-elevated);
+  border: 1px solid var(--ds-accent-border-strong);
+  box-shadow: var(--ds-glow-sm);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease;
-  @include main.flexBox(row, center, center);
-  gap: 0.3rem;
 
-  ion-icon {
-    font-size: 0.95rem;
+  &.force-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  button {
+    @include main.flexBox(row, center, center);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
     color: var(--ds-text);
     cursor: pointer;
-    transition: color 0.15s ease;
+    padding: 0;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
+
+    ion-icon {
+      font-size: 0.9rem;
+    }
 
     &:hover {
+      background: var(--ds-accent-soft);
       color: var(--ds-accent);
     }
 
-    &[name="remove-circle-outline"]:hover {
+    &:last-child:hover {
+      background: rgba(255, 122, 122, 0.15);
       color: var(--ds-danger);
+    }
+  }
+}
+
+// Real touch devices get noticeably bigger buttons — hovering to reveal
+// small icons isn't an option there, so the tap targets need to carry
+// the whole burden of being easy to hit.
+@media (hover: none), (pointer: coarse) {
+  .chip-actions {
+    gap: 4px;
+    padding: 5px;
+
+    button {
+      width: 40px;
+      height: 40px;
+
+      ion-icon {
+        font-size: 1.25rem;
+      }
     }
   }
 }

@@ -78,6 +78,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     "chip",
     "chip-frame",
     "chip-actions",
+    "force-visible",
     "chip-img",
     "chip-name",
     "chip-label",
@@ -105,9 +106,28 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   const [showDuplicateModal, setShowDuplicateModal] = useState(false);
   const [showNewPointValueModal, setShowNewPointValueModal] = useState(false);
   const [addPartContext, setAddPartContext] = useState(null);
+  // Which chip's action buttons are currently "expanded". Hover reveals
+  // them for free on desktop, but hover doesn't exist on touch, so tapping
+  // a chip toggles this instead — see the .chip-actions CSS.
+  const [activeChipKey, setActiveChipKey] = useState(null);
 
   const isEditMode =
     isAdmin && adminAccess.isEditingTarget(tournament_format, club, date);
+
+  // Tapping anywhere outside the active chip's frame collapses its
+  // action buttons again.
+  useEffect(() => {
+    if (!activeChipKey) return undefined;
+
+    function handleClickOutside(event) {
+      if (!event.target.closest(`[data-chip-key="${activeChipKey}"]`)) {
+        setActiveChipKey(null);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [activeChipKey]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -226,39 +246,75 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     );
     if (!partData) return null;
 
+    const isActive = activeChipKey === key;
+
+    function handleActionClick(event, action) {
+      event.stopPropagation();
+      action();
+      setActiveChipKey(null);
+    }
+
     return (
       <div className={classes_names["chip"]} key={key}>
-        <div className={classes_names["chip-frame"]}>
+        <div
+          className={classes_names["chip-frame"]}
+          data-chip-key={key}
+          onClick={() =>
+            isEditMode &&
+            setActiveChipKey((prev) => (prev === key ? null : key))
+          }
+        >
           <img
             className={classes_names["chip-img"]}
             src={partData.img}
             alt={partData.name}
           />
-
-          {isEditMode && (
-            <div className={classes_names["chip-actions"]}>
-              {!entry.label && (
-                <>
-                  <ion-icon
-                    name="arrow-up-outline"
-                    title="Move up a point"
-                    onClick={() => handleMoveChip(entry, "up")}
-                  ></ion-icon>
-                  <ion-icon
-                    name="arrow-down-outline"
-                    title="Move down a point"
-                    onClick={() => handleMoveChip(entry, "down")}
-                  ></ion-icon>
-                </>
-              )}
-              <ion-icon
-                name="remove-circle-outline"
-                title="Remove"
-                onClick={() => handleDeleteChip(entry)}
-              ></ion-icon>
-            </div>
-          )}
         </div>
+
+        {isEditMode && (
+          <div
+            className={`${classes_names["chip-actions"]} ${
+              isActive ? classes_names["force-visible"] : ""
+            }`}
+          >
+            {!entry.label && (
+              <>
+                <button
+                  type="button"
+                  title="Move up a point"
+                  onClick={(event) =>
+                    handleActionClick(event, () =>
+                      handleMoveChip(entry, "up"),
+                    )
+                  }
+                >
+                  <ion-icon name="arrow-up-outline"></ion-icon>
+                </button>
+                <button
+                  type="button"
+                  title="Move down a point"
+                  onClick={(event) =>
+                    handleActionClick(event, () =>
+                      handleMoveChip(entry, "down"),
+                    )
+                  }
+                >
+                  <ion-icon name="arrow-down-outline"></ion-icon>
+                </button>
+              </>
+            )}
+            <button
+              type="button"
+              title="Remove"
+              onClick={(event) =>
+                handleActionClick(event, () => handleDeleteChip(entry))
+              }
+            >
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </button>
+          </div>
+        )}
+
         <span className={classes_names["chip-name"]}>{partData.name}</span>
         {entry.label && (
           <span className={classes_names["chip-label"]}>{entry.label}</span>
