@@ -16,7 +16,14 @@ i18n
     supportedLngs: ["it", "en"], // Define supported languages
     fallbackLng: "it",
     defaultNS: "common",
-    ns: ["common", "inputs", "landing-page", "rules-point-values", "tournament-formats"],
+    ns: [
+      "common",
+      "inputs",
+      "landing-page",
+      "rules-point-values",
+      "tournament-formats",
+      "admin",
+    ],
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },

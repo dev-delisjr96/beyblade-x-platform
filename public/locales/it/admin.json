@@ -1,0 +1,33 @@
+{
+  "edit-button": "Modifica",
+  "access-title": "Accesso Amministratore",
+  "password-label": "Password",
+  "access-denied": "Non sei autorizzato",
+  "submit-button": "Sono un Amministratore",
+  "duplicate": {
+    "title": "Duplica per una Nuova Data",
+    "description": "Questo copia i valori che stai visualizzando in una nuova data. Le modifiche avvengono sempre sulla copia: l'originale rimane invariato.",
+    "date-label": "Nuova Data",
+    "submit-button": "Crea e Modifica",
+    "already-exists": "Questa data esiste già per questo club.",
+    "generic-error": "Qualcosa è andato storto. Riprova."
+  },
+  "add-point-value-button": "Aggiungi un un nuovo punteggio",
+  "new-point-value": {
+    "title": "Nuovo Valore Punto",
+    "value-label": "Valore Punto",
+    "submit-button": "Aggiungi"
+  },
+  "edit-part": {
+    "add-title": "Aggiungi Pezzo",
+    "part-type-label": "Tipo di Pezzo",
+    "part-label": "Pezzo",
+    "value-label": "Valore",
+    "rule-set-checkbox": "Questo pezzo ha un bonus combo del regolamento",
+    "combo-type-label": "Combo con",
+    "combo-part-label": "Pezzo combo",
+    "combo-value-label": "Valore bonus",
+    "submit-button": "Salva",
+    "cancel-button": "Annulla"
+  }
+}

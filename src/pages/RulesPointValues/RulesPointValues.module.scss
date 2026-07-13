@@ -64,6 +64,43 @@
   gap: 1.25rem;
 }
 
+.header-actions {
+  @include main.flexBox(row, flex-end, center);
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.edit-button {
+  @include ds.pill-button($filled: false);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  border: 1px solid var(--ds-accent-border);
+
+  ion-icon {
+    font-size: 1rem;
+  }
+}
+
+.editing-badge {
+  @include main.flexBox(row, center, center);
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ds-radius-pill);
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ds-accent);
+  background: var(--ds-accent-soft);
+  border: 1px solid var(--ds-accent-border-strong);
+  box-shadow: var(--ds-glow-xs);
+
+  ion-icon {
+    font-size: 1rem;
+  }
+}
+
 .back-link {
   @include ds.pill-button($filled: false);
   @include main.flexBox(row, center, center);
@@ -143,6 +180,18 @@
   text-align: center;
   color: var(--ds-text-dim);
   padding: 2rem;
+}
+
+.add-row-button {
+  @include ds.pill-button($filled: true);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  align-self: flex-start;
+  border: none;
+
+  ion-icon {
+    font-size: 1.1rem;
+  }
 }
 
 .part-section {
@@ -239,12 +288,70 @@
 }
 
 .chip-frame {
+  position: relative;
   @include main.size(56px);
   border-radius: 50%;
   border: 1px solid var(--ds-accent-border);
   background: var(--ds-bg-elevated);
   @include main.flexBox(row, center, center);
   overflow: hidden;
+
+  &:hover .chip-actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.chip-actions {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 50%;
+  background: rgba(2, 4, 5, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  @include main.flexBox(row, center, center);
+  gap: 0.3rem;
+
+  ion-icon {
+    font-size: 0.95rem;
+    color: var(--ds-text);
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--ds-accent);
+    }
+
+    &[name="remove-circle-outline"]:hover {
+      color: var(--ds-danger);
+    }
+  }
+}
+
+.add-chip-btn {
+  @include main.size(56px);
+  border-radius: 50%;
+  border: 1px dashed var(--ds-accent-border);
+  background: transparent;
+  color: var(--ds-text-dim);
+  cursor: pointer;
+  @include main.flexBox(row, center, center);
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  ion-icon {
+    font-size: 1.3rem;
+  }
+
+  &:hover {
+    border-color: var(--ds-accent-border-strong);
+    color: var(--ds-accent);
+    box-shadow: var(--ds-glow-xs);
+  }
 }
 
 .chip-img {

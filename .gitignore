@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Local env vars (contains the admin edit password) — never commit this.
+.env
+.env.*.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

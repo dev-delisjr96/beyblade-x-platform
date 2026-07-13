@@ -1,0 +1,62 @@
+@use "../../styles/main.scss";
+@use "../../styles/design-system" as ds;
+
+.overlay {
+  @include ds.overlay;
+}
+
+.modal {
+  @include ds.theme;
+  @include ds.panel($glow: true);
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  padding: 2rem;
+  color: var(--ds-text);
+  font-family: main.$doona_font;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 1.25rem;
+}
+
+.close-btn {
+  @include ds.close-button;
+}
+
+.title {
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-wide);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding-right: 1.5rem;
+}
+
+.field {
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 0.4rem;
+}
+
+.field-label {
+  @include ds.label;
+}
+
+.input {
+  @include ds.field-input;
+}
+
+.submit-btn {
+  @include ds.pill-button($filled: true);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  border: none;
+
+  ion-icon {
+    font-size: 1.1rem;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    box-shadow: none;
+  }
+}

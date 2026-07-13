@@ -10,11 +10,21 @@ import { useTranslation } from "react-i18next";
 import PARTS from "../../data/index";
 
 // RTDB
-import { subscribeToRecord } from "../../modules/rtdb";
+import { subscribeToRecord, updateRuleSetPartValues } from "../../modules/rtdb";
+
+// Admin access + editing
+import * as adminAccess from "../../modules/adminAccess";
+import * as rulesEditor from "../../modules/rulesEditor";
 
 // Utilities
 import * as beyXUtilities from "../../modules/utilities";
 import * as utilities from "../../utilities/index";
+
+// Components
+import AdminAccessModal from "../../components/AdminAccessModal/AdminAccessModal";
+import DuplicateDateModal from "../../components/DuplicateDateModal/DuplicateDateModal";
+import NewPointValueModal from "../../components/NewPointValueModal/NewPointValueModal";
+import EditPartValueModal from "../../components/EditPartValueModal/EditPartValueModal";
 
 // Styles
 import styles from "./RulesPointValues.module.scss";
@@ -30,9 +40,15 @@ const VIEW_MODES = ["point", "part"];
  * extra chip in whichever value group that bonus is worth, tagged with
  * the bonus's label.
  *
- * Subscribes live to `tournaments-formats/{tournament_format}/clubs/{club}/{date}`
- * in Firebase RTDB, so any edit made there shows up here immediately
+ * Subscribes live to
+ * `tournaments-formats/{tournament_format}/clubs/{club}/{date}` in
+ * Firebase RTDB, so any edit made there shows up here immediately
  * without a refresh.
+ *
+ * Admins (password-gated, see modules/adminAccess.js) can edit these
+ * values. Editing always happens on a fresh duplicate of the currently
+ * viewed date (see DuplicateDateModal) rather than mutating a date that
+ * may have already been played.
  */
 /* eslint-disable-next-line no-unused-vars */
 const RulesPointValues = ({ additionalstyles, ...props }) => {
@@ -45,10 +61,14 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     "title-group",
     "eyebrow",
     "title",
+    "header-actions",
+    "edit-button",
+    "editing-badge",
     "view-toggle",
     "view-option",
     "active",
     "content",
+    "add-row-button",
     "value-section",
     "value-header",
     "value-badge",
@@ -57,9 +77,11 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     "part-heading",
     "chip",
     "chip-frame",
+    "chip-actions",
     "chip-img",
     "chip-name",
     "chip-label",
+    "add-chip-btn",
     "empty-state",
   ];
   const classes_names = generateClassesNames(
@@ -71,10 +93,21 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   const navigate = useNavigate();
   const { tournament_format, club, date } = useParams();
   const { t } = useTranslation("rules-point-values");
+  const { t: tAdmin } = useTranslation("admin");
 
   const [viewMode, setViewMode] = useState("point");
   const [ruleSet, setRuleSet] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  // --- Admin / edit mode -----------------------------------------------
+  const [isAdmin, setIsAdmin] = useState(() => adminAccess.isAdminSession());
+  const [showAdminModal, setShowAdminModal] = useState(false);
+  const [showDuplicateModal, setShowDuplicateModal] = useState(false);
+  const [showNewPointValueModal, setShowNewPointValueModal] = useState(false);
+  const [addPartContext, setAddPartContext] = useState(null);
+
+  const isEditMode =
+    isAdmin && adminAccess.isEditingTarget(tournament_format, club, date);
 
   useEffect(() => {
     setIsLoading(true);
@@ -107,6 +140,86 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     [entries],
   );
 
+  async function persistPartTypeArray(partType, newArray) {
+    await updateRuleSetPartValues(
+      tournament_format,
+      club,
+      date,
+      partType,
+      newArray,
+    );
+    // The realtime subscription above will pick up the change and
+    // re-render — no need to setState manually here.
+  }
+
+  function handleEditClick() {
+    if (!isAdmin) {
+      setShowAdminModal(true);
+    } else {
+      setShowDuplicateModal(true);
+    }
+  }
+
+  function handleAdminSuccess() {
+    setIsAdmin(true);
+    setShowAdminModal(false);
+    setShowDuplicateModal(true);
+  }
+
+  function handleDuplicateSuccess(newDate) {
+    adminAccess.setEditingTarget(tournament_format, club, newDate);
+    setShowDuplicateModal(false);
+    navigate(`/${tournament_format}/deck-builder/${club}/${newDate}/values`);
+  }
+
+  function openAddPartModal(rowValue, lockedPartType) {
+    setAddPartContext({ rowValue, lockedPartType });
+  }
+
+  async function handleAddPartConfirm({ partType, partId, value, comboRule }) {
+    const newArray = rulesEditor.upsertPartValue(
+      valuesSet,
+      partType,
+      partId,
+      value,
+      comboRule,
+    );
+    await persistPartTypeArray(partType, newArray);
+    setAddPartContext(null);
+  }
+
+  function handleNewPointValueConfirm(value) {
+    setShowNewPointValueModal(false);
+    openAddPartModal(value, undefined);
+  }
+
+  async function handleDeleteChip(entry) {
+    const newArray = entry.label
+      ? rulesEditor.removeComboRule(
+          valuesSet,
+          entry.partType,
+          entry.partId,
+          entry,
+        )
+      : rulesEditor.removePartValue(valuesSet, entry.partType, entry.partId);
+
+    await persistPartTypeArray(entry.partType, newArray);
+  }
+
+  async function handleMoveChip(entry, direction) {
+    if (entry.label) return; // only base (non-bonus) chips can move tiers
+
+    const newValue = entry.value + (direction === "up" ? 1 : -1);
+    const newArray = rulesEditor.changePartValueTier(
+      valuesSet,
+      entry.partType,
+      entry.partId,
+      newValue,
+    );
+
+    await persistPartTypeArray(entry.partType, newArray);
+  }
+
   function renderChip(entry, key) {
     const partData = PARTS[entry.partType]?.find(
       (part) => part.id === entry.partId,
@@ -121,6 +234,30 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
             src={partData.img}
             alt={partData.name}
           />
+
+          {isEditMode && (
+            <div className={classes_names["chip-actions"]}>
+              {!entry.label && (
+                <>
+                  <ion-icon
+                    name="arrow-up-outline"
+                    title="Move up a point"
+                    onClick={() => handleMoveChip(entry, "up")}
+                  ></ion-icon>
+                  <ion-icon
+                    name="arrow-down-outline"
+                    title="Move down a point"
+                    onClick={() => handleMoveChip(entry, "down")}
+                  ></ion-icon>
+                </>
+              )}
+              <ion-icon
+                name="remove-circle-outline"
+                title="Remove"
+                onClick={() => handleDeleteChip(entry)}
+              ></ion-icon>
+            </div>
+          )}
         </div>
         <span className={classes_names["chip-name"]}>{partData.name}</span>
         {entry.label && (
@@ -130,7 +267,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     );
   }
 
-  function renderValueGroup(value, groupEntries, keyPrefix) {
+  function renderValueGroup(value, groupEntries, keyPrefix, lockedPartType) {
     const label =
       value === null ? t("ban-label") : t("point-label", { value });
 
@@ -151,6 +288,16 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
               entry,
               `${keyPrefix}-${value}-${entry.partType}-${entry.partId}-${entry.label || "base"}-${index}`,
             ),
+          )}
+
+          {isEditMode && value !== null && (
+            <button
+              type="button"
+              className={classes_names["add-chip-btn"]}
+              onClick={() => openAddPartModal(value, lockedPartType)}
+            >
+              <ion-icon name="add-outline"></ion-icon>
+            </button>
           )}
         </div>
       </div>
@@ -184,9 +331,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
         <button
           type="button"
           className={classes_names["back-link"]}
-          onClick={() =>
-            navigate(`/${tournament_format}/deck-builder`)
-          }
+          onClick={() => navigate(`/${tournament_format}/deck-builder`)}
         >
           <ion-icon name="arrow-back-outline"></ion-icon>
           {t("back-button")}
@@ -199,18 +344,36 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
           <h1 className={classes_names["title"]}>{t("page-title")}</h1>
         </div>
 
-        <div className={classes_names["view-toggle"]}>
-          {VIEW_MODES.map((mode) => (
-            <div
-              key={`view-mode-${mode}`}
-              className={`${classes_names["view-option"]} ${
-                viewMode === mode ? classes_names["active"] : ""
-              }`}
-              onClick={() => setViewMode(mode)}
+        <div className={classes_names["header-actions"]}>
+          <div className={classes_names["view-toggle"]}>
+            {VIEW_MODES.map((mode) => (
+              <div
+                key={`view-mode-${mode}`}
+                className={`${classes_names["view-option"]} ${
+                  viewMode === mode ? classes_names["active"] : ""
+                }`}
+                onClick={() => setViewMode(mode)}
+              >
+                {t(`view-mode.${mode}`)}
+              </div>
+            ))}
+          </div>
+
+          {isEditMode ? (
+            <span className={classes_names["editing-badge"]}>
+              <ion-icon name="create-outline"></ion-icon>
+              {tAdmin("edit-button")}
+            </span>
+          ) : (
+            <button
+              type="button"
+              className={classes_names["edit-button"]}
+              onClick={handleEditClick}
             >
-              {t(`view-mode.${mode}`)}
-            </div>
-          ))}
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              {tAdmin("edit-button")}
+            </button>
+          )}
         </div>
       </header>
 
@@ -219,9 +382,20 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
           <p className={classes_names["empty-state"]}>{t("empty-state")}</p>
         )}
 
+        {viewMode === "point" && isEditMode && (
+          <button
+            type="button"
+            className={classes_names["add-row-button"]}
+            onClick={() => setShowNewPointValueModal(true)}
+          >
+            <ion-icon name="add-circle-outline"></ion-icon>
+            {tAdmin("add-point-value-button")}
+          </button>
+        )}
+
         {viewMode === "point" &&
           pointGroups.map(({ value, entries: groupEntries }) =>
-            renderValueGroup(value, groupEntries, "point"),
+            renderValueGroup(value, groupEntries, "point", undefined),
           )}
 
         {viewMode === "part" &&
@@ -234,11 +408,46 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
                 {t(`parts.${partType}`, { defaultValue: partType })}
               </h2>
               {valueGroups.map(({ value, entries: groupEntries }) =>
-                renderValueGroup(value, groupEntries, `part-${partType}`),
+                renderValueGroup(
+                  value,
+                  groupEntries,
+                  `part-${partType}`,
+                  partType,
+                ),
               )}
             </section>
           ))}
       </div>
+
+      <AdminAccessModal
+        open={showAdminModal}
+        onClose={() => setShowAdminModal(false)}
+        onSuccess={handleAdminSuccess}
+      />
+
+      <DuplicateDateModal
+        open={showDuplicateModal}
+        tournamentFormat={tournament_format}
+        club={club}
+        ruleSetData={ruleSet}
+        onClose={() => setShowDuplicateModal(false)}
+        onSuccess={handleDuplicateSuccess}
+      />
+
+      <NewPointValueModal
+        open={showNewPointValueModal}
+        onClose={() => setShowNewPointValueModal(false)}
+        onConfirm={handleNewPointValueConfirm}
+      />
+
+      <EditPartValueModal
+        open={Boolean(addPartContext)}
+        rowValue={addPartContext?.rowValue}
+        lockedPartType={addPartContext?.lockedPartType}
+        valuesSet={valuesSet}
+        onClose={() => setAddPartContext(null)}
+        onConfirm={handleAddPartConfirm}
+      />
     </div>
   );
 };

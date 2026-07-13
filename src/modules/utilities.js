@@ -384,6 +384,7 @@ export function buildPointListEntries(valuesSet = {}) {
             partId,
             value: rule.newValue,
             label: rule.label,
+            combo: rule.combo,
           });
         }
       });

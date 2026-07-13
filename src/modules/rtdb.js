@@ -1,4 +1,9 @@
-import { subscribeToData, readData } from "../services/firebase/rtdb";
+import {
+  subscribeToData,
+  readData,
+  createData,
+  updateData,
+} from "../services/firebase/rtdb";
 
 /**
  * Thin app-level wrappers around services/firebase/rtdb.js.
@@ -33,6 +38,56 @@ export function subscribeToRecord(path, callback, onError) {
 export async function readRecord(path) {
   const payload = await readData(path);
   return normalizeRecordPayload(payload);
+}
+
+/**
+ * Duplicates a whole rule-set blob into a brand new date key under the
+ * same club, so edits always happen on a fresh copy rather than mutating
+ * a date that's already been played. Refuses to overwrite an existing
+ * date unless `force` is passed.
+ *
+ * @returns {Promise<{ ok: boolean, alreadyExists: boolean }>}
+ */
+export async function duplicateRuleSetToDate(
+  tournamentFormat,
+  club,
+  targetDate,
+  ruleSetData,
+  { force = false } = {},
+) {
+  const clubPath = `tournaments-formats/${tournamentFormat}/clubs/${club}`;
+  console.log("targetDate", targetDate);
+
+  if (!force) {
+    const existing = await readRecord(`${clubPath}/${targetDate}`);
+    console.log("existing", existing);
+    if (existing && Object.keys(existing).length > 0)
+      return { ok: false, alreadyExists: true };
+  }
+
+  await createData(clubPath, ruleSetData, targetDate);
+  return { ok: true, alreadyExists: false };
+}
+
+/**
+ * Replaces a single part type's value array within a rule set (e.g. just
+ * `deck.values.blade`) without touching any of its siblings. Relies on
+ * Firebase's multi-path `update()` support for slash-delimited keys.
+ */
+export async function updateRuleSetPartValues(
+  tournamentFormat,
+  club,
+  date,
+  partType,
+  newArray,
+) {
+  await updateData(
+    `tournaments-formats/${tournamentFormat}/clubs/${club}`,
+    date,
+    {
+      [`deck/values/${partType}`]: newArray,
+    },
+  );
 }
 
 export { subscribeToData, readData };

@@ -12,6 +12,8 @@
 //   .eyebrow { @include ds.label; }
 // ============================================================================
 
+@use "./fonts" as fonts;
+
 // Re-themes the shared app tokens (--color-*) AND exposes a full set of
 // design-system-specific tokens (--ds-*), scoped to whatever element you
 // apply it to. Nothing outside that subtree is affected.
@@ -158,5 +160,60 @@
 
   &:hover {
     box-shadow: var(--ds-glow-sm);
+  }
+}
+
+// Full-screen dark backdrop used by every popup/modal in the app.
+@mixin overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(2, 4, 5, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+// The close "x" icon, positioned top-right of a modal panel.
+@mixin close-button {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 1;
+  font-size: 1.5rem;
+  color: var(--ds-text-dim);
+  cursor: pointer;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--ds-accent);
+  }
+}
+
+// A dark, glowing text/number/date input, matching the pill search bars
+// used elsewhere in the app.
+@mixin field-input {
+  width: 100%;
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-md);
+  padding: 0.65rem 1rem;
+  background: var(--ds-surface-alt);
+  color: var(--ds-text);
+  font-family: fonts.$doona_font;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &::placeholder {
+    color: var(--ds-text-faint);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
   }
 }

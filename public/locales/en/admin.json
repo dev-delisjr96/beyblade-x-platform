@@ -1,0 +1,33 @@
+{
+  "edit-button": "Edit",
+  "access-title": "Admin Access",
+  "password-label": "Password",
+  "access-denied": "You are not allowed",
+  "submit-button": "I am an Admin",
+  "duplicate": {
+    "title": "Duplicate for a New Date",
+    "description": "This copies the values you're currently viewing into a brand new date. Edits always happen on the copy — the original stays untouched.",
+    "date-label": "New Date",
+    "submit-button": "Create & Edit",
+    "already-exists": "That date already exists for this club.",
+    "generic-error": "Something went wrong. Try again."
+  },
+  "add-point-value-button": "Add new point value",
+  "new-point-value": {
+    "title": "New Point Value",
+    "value-label": "Point Value",
+    "submit-button": "Add"
+  },
+  "edit-part": {
+    "add-title": "Add Part",
+    "part-type-label": "Part Type",
+    "part-label": "Part",
+    "value-label": "Value",
+    "rule-set-checkbox": "This part has a rule-set combo bonus",
+    "combo-type-label": "Combo with",
+    "combo-part-label": "Combo part",
+    "combo-value-label": "Bonus value",
+    "submit-button": "Save",
+    "cancel-button": "Cancel"
+  }
+}
