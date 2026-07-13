@@ -1,0 +1,262 @@
+[
+  {
+    "id": "flat",
+    "name": "Flat (F)",
+    "img": "/parts/flat.png"
+  },
+  {
+    "id": "low-flat",
+    "name": "Low Flat (LF)",
+    "img": "/parts/low-flat.png"
+  },
+  {
+    "id": "taper",
+    "name": "Taper (T)",
+    "img": "/parts/taper.png"
+  },
+  {
+    "id": "high-taper",
+    "name": "High Taper (HT)",
+    "img": "/parts/high-taper.png"
+  },
+  {
+    "id": "ball",
+    "name": "Ball (B)",
+    "img": "/parts/ball.png"
+  },
+  {
+    "id": "free-ball",
+    "name": "Free Ball (FB)",
+    "img": "/parts/free-ball.png"
+  },
+  {
+    "id": "gear-ball",
+    "name": "Gear Ball (GB)",
+    "img": "/parts/gear-ball.png"
+  },
+  {
+    "id": "disc-ball",
+    "name": "Disc Ball (DB)",
+    "img": "/parts/disc-ball.png"
+  },
+  {
+    "id": "needle",
+    "name": "Needle (N)",
+    "img": "/parts/needle.png"
+  },
+  {
+    "id": "high-needle",
+    "name": "High Needle (HN)",
+    "img": "/parts/high-needle.png"
+  },
+  {
+    "id": "metal-needle",
+    "name": "Metal Needle (MN)",
+    "img": "/parts/metal-needle.png"
+  },
+  {
+    "id": "gear-needle",
+    "name": "Gear Needle (GN)",
+    "img": "/parts/gear-needle.png"
+  },
+  {
+    "id": "under-needle",
+    "name": "Under Needle (UN)",
+    "img": "/parts/under-needle.png"
+  },
+  {
+    "id": "orb",
+    "name": "Orb (O)",
+    "img": "/parts/orb.png"
+  },
+  {
+    "id": "low-orb",
+    "name": "Low Orb (LO)",
+    "img": "/parts/low-orb.png"
+  },
+  {
+    "id": "point",
+    "name": "Point (P)",
+    "img": "/parts/point.png"
+  },
+  {
+    "id": "gear-point",
+    "name": "Gear Point (GP)",
+    "img": "/parts/gear-point.png"
+  },
+  {
+    "id": "trans-point",
+    "name": "Trans Point (TP)",
+    "img": "/parts/trans-point.png"
+  },
+  {
+    "id": "spike",
+    "name": "Spike (S)",
+    "img": "/parts/spike.png"
+  },
+  {
+    "id": "bound-spike",
+    "name": "Bound Spike (BS)",
+    "img": "/parts/bound-spike.png"
+  },
+  {
+    "id": "rush",
+    "name": "Rush (R)",
+    "img": "/parts/rush.png"
+  },
+  {
+    "id": "low-rush",
+    "name": "Low Rush (LR)",
+    "img": "/parts/low-rush.png"
+  },
+  {
+    "id": "gear-rush",
+    "name": "Gear Rush (GR)",
+    "img": "/parts/gear-rush.png"
+  },
+  {
+    "id": "gear-flat",
+    "name": "Gear Flat (GF)",
+    "img": "/parts/gear-flat.png"
+  },
+  {
+    "id": "accel",
+    "name": "Accel (A)",
+    "img": "/parts/accel.png"
+  },
+  {
+    "id": "rubber-accel",
+    "name": "Rubber Accel (RA)",
+    "img": "/parts/rubber-accel.png"
+  },
+  {
+    "id": "hexa",
+    "name": "Hexa (H)",
+    "img": "/parts/hexa.png"
+  },
+  {
+    "id": "quake",
+    "name": "Quake (Q)",
+    "img": "/parts/quake.png"
+  },
+  {
+    "id": "unite",
+    "name": "Unite (U)",
+    "img": "/parts/unite.png"
+  },
+  {
+    "id": "dot",
+    "name": "Dot (D)",
+    "img": "/parts/dot.png"
+  },
+  {
+    "id": "cyclone",
+    "name": "Cyclone (C)",
+    "img": "/parts/cyclone.png"
+  },
+  {
+    "id": "vortex",
+    "name": "Vortex (V)",
+    "img": "/parts/vortex.png"
+  },
+  {
+    "id": "glide",
+    "name": "Glide (G)",
+    "img": "/parts/glide.png"
+  },
+  {
+    "id": "elevate",
+    "name": "Elevate (E)",
+    "img": "/parts/elevate.png"
+  },
+  {
+    "id": "level",
+    "name": "Level (L)",
+    "img": "/parts/level.png"
+  },
+  {
+    "id": "kick",
+    "name": "Kick (K)",
+    "img": "/parts/kick.png"
+  },
+  {
+    "id": "wedge",
+    "name": "Wedge (W)",
+    "img": "/parts/wedge.png"
+  },
+  {
+    "id": "zap",
+    "name": "Zap (Z)",
+    "img": "/parts/zap.png"
+  },
+  {
+    "id": "disc-spike",
+    "name": "Disc Spike (DS)",
+    "img": "/parts/disc-spike.png"
+  },
+  {
+    "id": "free-flat",
+    "name": "Free Flat (FF)",
+    "img": "/parts/free-flat.png"
+  },
+  {
+    "id": "gear-unite",
+    "name": "Gear Unite (GU)",
+    "img": "/parts/gear-unite.png"
+  },
+  {
+    "id": "ignition",
+    "name": "Ignition (I)",
+    "img": "/parts/ignition.png"
+  },
+  {
+    "id": "jolt",
+    "name": "Jolt (J)",
+    "img": "/parts/jolt.png"
+  },
+  {
+    "id": "merge",
+    "name": "Merge (M)",
+    "img": "/parts/merge.png"
+  },
+  {
+    "id": "narrow",
+    "name": "Narrow (Nr)",
+    "img": "/parts/narrow.png"
+  },
+  {
+    "id": "trans-kick",
+    "name": "Trans Kick (TK)",
+    "img": "/parts/trans-kick.png"
+  },
+  {
+    "id": "under-flat",
+    "name": "Under Flat (UF)",
+    "img": "/parts/under-flat.png"
+  },
+  {
+    "id": "wall-ball",
+    "name": "Wall Ball (WB)",
+    "img": "/parts/wall-ball.png"
+  },
+  {
+    "id": "wall-wedge",
+    "name": "Wall Wedge (WW)",
+    "img": "/parts/wall-wedge.png"
+  },
+  {
+    "id": "yielding",
+    "name": "Yielding (Y)",
+    "img": "/parts/yielding.png"
+  },
+  {
+    "id": "operate",
+    "name": "Operate (Op)",
+    "img": "/parts/operate.png"
+  },
+  {
+    "id": "turbo",
+    "name": "Turbo (Tr)",
+    "img": "/parts/turbo.png"
+  }
+]

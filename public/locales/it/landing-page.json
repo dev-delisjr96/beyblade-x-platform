@@ -1,0 +1,43 @@
+{
+  "check-part-values": "Controlla i valori dei pezzi",
+  "rule-set-label": "Regolamento",
+  "beyblade-label": "Build Slot",
+  "entry-title": "Beyblade {{index}}",
+  "build-type": {
+    "simple": "Base",
+    "cx": "CX"
+  },
+  "total-value": "Valore Totale del Deck",
+  "build-value": "Valore della Build",
+  "confirm-button": "Conferma",
+  "deck-summary": {
+    "title": "Deck",
+    "save": "Salva",
+    "saving": "Preparazione immagine...",
+    "copy-link": "Copia Link",
+    "save-status": {
+      "saved": "Deck Salvato",
+      "error": "Impossibile creare l'immagine. Riprova."
+    }
+  },
+  "duplicate-warning": "Questa build condivide un pezzo con un'altra build",
+  "spin": {
+    "left": "Sinistra",
+    "right": "Destra"
+  },
+  "parts": {
+    "blade": "Lama",
+    "ratchet": "Ratchet",
+    "bit": "Bit",
+    "lock-chip": "Lock Chip",
+    "main-blade": "Lama Principale",
+    "over-blade": "Over Blade",
+    "assist-blade": "Assist Blade"
+  },
+  "errors": {
+    "too_many": "Troppe build nel deck",
+    "not_enough": "Build insufficienti nel deck",
+    "over_cap_value": "Il deck supera il valore massimo consentito",
+    "same_parts_not_allowed": "I pezzi duplicati non sono consentiti in questo regolamento"
+  }
+}

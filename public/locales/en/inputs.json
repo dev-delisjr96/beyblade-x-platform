@@ -1,0 +1,17 @@
+{
+  "dropdown": {
+    "actual_value": {
+      "placeholder": "--- Select Value ---"
+    },
+    "options": {
+      "no-options": "There's no option available"
+    }
+  },
+  "part-search": {
+    "placeholder": "Search a part...",
+    "no-results": "No parts found",
+    "value-label": "Value",
+    "change": "Change",
+    "clear": "Clear"
+  }
+}

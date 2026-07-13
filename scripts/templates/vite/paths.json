@@ -1,0 +1,17 @@
+{
+  "src": "/src",
+  "modules": "/src/modules",
+  "components": "/src/components",
+  "assets": "/src/assets",
+  "styles": "/src/styles",
+  "pages": "/src/pages",
+  "api": "/src/api",
+  "utilities": "/src/utilities",
+  "configs": "/src/configs",
+  "hooks": "/src/hooks",
+  "services": "/src/services",
+  "translations": "/src/translations",
+  "v1": "/src/components/v1",
+  "flags": "/src/assets/flags",
+  "atoms": "/src/atoms"
+}

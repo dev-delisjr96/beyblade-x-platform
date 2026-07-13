@@ -1,0 +1,41 @@
+@use "../../styles/main.scss";
+
+.dropdown {
+  width: 100%;
+  border: 1px solid #282828;
+
+  .actual-value {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+
+    ion-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      @include main.transform(translateY(-50%));
+    }
+  }
+
+  .options-container {
+    width: 100%;
+    @include main.flexBox(column, flex-start, stretch);
+
+    .option {
+      width: 100%;
+    }
+  }
+
+  .option,
+  .actual-value {
+    padding: 1rem 2rem;
+    @include main.flexBox(row, center, center);
+    cursor: pointer;
+  }
+
+  &.expanded {
+    .actual-value {
+      border-bottom: 1px solid #282828;
+    }
+  }
+}

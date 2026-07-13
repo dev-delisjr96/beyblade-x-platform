@@ -1,0 +1,58 @@
+// abstracts/_breakpoints.scss (Updated for Dart Sass 3.0 compatibility)
+@use "sass:map";
+
+$xs: 0;
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xl-2: 1536px;
+
+// Tailwind-inspired breakpoints map [web:11][web:12]
+$breakpoints: (
+  xs: $xs,
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  "2xl": $xl-2,
+) !default;
+
+// Mobile-first min-width media query mixin (no deprecation warnings)
+@mixin break($name) {
+  @if map.has-key($breakpoints, $name) {
+    @media (min-width: map.get($breakpoints, $name)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$name}' does not exist in $breakpoints.";
+  }
+}
+
+// Max-width mixin for ranges
+@mixin max($name) {
+  @if map.has-key($breakpoints, $name) {
+    $max-width: map.get($breakpoints, $name) - 0.02px;
+    @media (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$name}' does not exist in $breakpoints.";
+  }
+}
+
+@mixin responsive-style($style-map) {
+  @each $prop, $value in map.get($style-map, "xs") {
+    #{$prop}: #{$value};
+  }
+
+  @each $bp, $props in $style-map {
+    @if $bp != "xs" {
+      @include break($bp) {
+        @each $prop, $value in $props {
+          #{$prop}: #{$value};
+        }
+      }
+    }
+  }
+}

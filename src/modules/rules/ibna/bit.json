@@ -1,0 +1,150 @@
+[
+  {
+    "part": "bit",
+    "name": "hexa",
+    "value": 3
+  },
+  {
+    "part": "bit",
+    "name": "elevate",
+    "value": 0,
+    "rule-set": [
+      {
+        "label": "left",
+        "combo": [
+          {
+            "part": "blade",
+            "name": "meteor-dragoon"
+          }
+        ],
+        "newValue": 3
+      },
+      {
+        "label": "left",
+        "combo": [
+          {
+            "part": "blade",
+            "name": "cobalt-dragoon"
+          }
+        ],
+        "newValue": 3
+      }
+    ]
+  },
+  {
+    "part": "bit",
+    "name": "rush",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "low-rush",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "level",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "jolt",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "kick",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "ball",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "free-ball",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "narrow",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "low-orb",
+    "value": 2
+  },
+  {
+    "part": "bit",
+    "name": "rubber-accel",
+    "value": 1,
+    "rule-set": [
+      {
+        "label": "Worn",
+        "newValue": 2
+      }
+    ]
+  },
+  {
+    "part": "bit",
+    "name": "free-flat",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "taper",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "unite",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "point",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "zap",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "orb",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "wall-ball",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "wedge",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "wall-wedge",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "under-needle",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "operate",
+    "value": 1
+  },
+  {
+    "part": "bit",
+    "name": "metal-needle",
+    "value": null
+  }
+]

@@ -1,0 +1,289 @@
+[
+  {
+    "part": "blade",
+    "name": "wizard-rod",
+    "value": 5
+  },
+  {
+    "part": "blade",
+    "name": "shark-scale",
+    "value": 5
+  },
+  {
+    "part": "blade",
+    "name": "cobalt-dragoon",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "shatter-horus",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "aero-pegasus",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "silver-wolf",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "hover-wyvern",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "meteor-dragoon",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "bullet-griffon",
+    "value": 4,
+    "rule-set": [
+      {
+        "label": "+ Merge",
+        "combo": [
+          {
+            "part": "bit",
+            "name": "merge"
+          }
+        ],
+        "newValue": 5
+      }
+    ]
+  },
+  {
+    "part": "blade",
+    "name": "glory-valkyrie",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "valor-bison",
+    "value": 4
+  },
+  {
+    "part": "blade",
+    "name": "phoenix-wing",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "tyranno-beat",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "collab-jurassicworld-t-rex",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "collab-marvel-red-hulk",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "dran-strike",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "golem-rock",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "scorpio-spear",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "clock-mirage",
+    "value": 3
+  },
+  {
+    "part": "blade",
+    "name": "samurai-calibur",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "cobalt-drake",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "gust-bat",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "tricera-press",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "whale-wave",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "tyranno-roar",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "collab-jurassicworld-spinosaurus",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "heavens-ring",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "dran-buster",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "impact-drake",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "knight-mail",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "orochi-cluster",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "curse-mummy",
+    "value": 2
+  },
+  {
+    "part": "blade",
+    "name": "dran-sword",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "venom",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "hells-scythe",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "shark-edge",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "collab-transformers-optimus-primal",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "bite-croc",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "unicorn-sting",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "weiss-tiger",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "crimson-garuda",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "shelter-drake",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "samurai-saber",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "phoenix-rudder",
+    "value": 1
+  },
+  {
+    "part": "blade",
+    "name": "dranzer-spiral",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "dragoon-storm",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "driger-s",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "draciel-s",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "storm-pegasis",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "rock-leone",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "shinobi-shadow",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "stun-medusa",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "rhino-horn",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "shinobi-knife",
+    "value": -1
+  },
+  {
+    "part": "blade",
+    "name": "bear-scratch",
+    "value": -1
+  }
+]

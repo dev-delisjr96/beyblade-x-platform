@@ -1,0 +1,47 @@
+[
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-blast",
+    "value": 2
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-rage",
+    "value": 2
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-delta",
+    "value": 2
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-eclipse",
+    "value": 1
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-eclipse-upper",
+    "value": 1
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-flare",
+    "value": 1
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-might",
+    "value": 1
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-whip",
+    "value": 1
+  },
+  {
+    "part": "main-blade",
+    "name": "cx-main-blade-blitz",
+    "value": 1
+  }
+]

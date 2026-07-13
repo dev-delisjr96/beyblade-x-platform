@@ -1,0 +1,17 @@
+{
+  "dropdown": {
+    "actual_value": {
+      "placeholder": "--- Seleziona un valore ---"
+    },
+    "options": {
+      "no-options": "Nessuna opzione disponibile"
+    }
+  },
+  "part-search": {
+    "placeholder": "Cerca un pezzo...",
+    "no-results": "Nessun pezzo trovato",
+    "value-label": "Valore",
+    "change": "Cambia",
+    "clear": "Cancella"
+  }
+}

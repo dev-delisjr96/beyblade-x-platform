@@ -1,0 +1,162 @@
+// ============================================================================
+// NEUROSPHERE — Design System
+// ----------------------------------------------------------------------------
+// A dark, glowing "neural-interface" HUD design language: near-black surfaces,
+// teal/cyan glow accents, thin hairline borders, uppercase tracked labels and
+// pill-shaped controls.
+//
+// Usage:
+//   @use "../../styles/design-system" as ds;
+//   .root { @include ds.theme; }
+//   .card { @include ds.panel($glow: true); }
+//   .eyebrow { @include ds.label; }
+// ============================================================================
+
+// Re-themes the shared app tokens (--color-*) AND exposes a full set of
+// design-system-specific tokens (--ds-*), scoped to whatever element you
+// apply it to. Nothing outside that subtree is affected.
+@mixin theme {
+  // Surfaces
+  --ds-bg: #060a0c;
+  --ds-bg-elevated: #0b1214;
+  --ds-surface: #10181b;
+  --ds-surface-alt: #141e21;
+  --ds-surface-hover: #172428;
+
+  // Accent (teal / cyan glow)
+  --ds-accent: #45e9d8;
+  --ds-accent-dim: #2c9e93;
+  --ds-accent-soft: rgba(69, 233, 216, 0.1);
+  --ds-accent-border: rgba(69, 233, 216, 0.3);
+  --ds-accent-border-strong: rgba(69, 233, 216, 0.7);
+
+  --ds-glow-xs: 0 0 6px rgba(69, 233, 216, 0.35);
+  --ds-glow-sm: 0 0 14px rgba(69, 233, 216, 0.3);
+  --ds-glow-md:
+    0 0 24px rgba(69, 233, 216, 0.25),
+    0 0 1px rgba(69, 233, 216, 0.8) inset;
+  --ds-glow-lg: 0 0 46px rgba(69, 233, 216, 0.2);
+
+  // Text
+  --ds-text: #eafffa;
+  --ds-text-dim: #86a8a5;
+  --ds-text-faint: #4d6462;
+
+  // Status
+  --ds-danger: #ff7a7a;
+  --ds-danger-soft: rgba(255, 122, 122, 0.1);
+  --ds-danger-border: rgba(255, 122, 122, 0.4);
+  --ds-danger-glow: 0 0 16px rgba(255, 122, 122, 0.25);
+
+  // Radii
+  --ds-radius-xs: 6px;
+  --ds-radius-sm: 10px;
+  --ds-radius-md: 16px;
+  --ds-radius-lg: 24px;
+  --ds-radius-pill: 999px;
+
+  // Typography
+  --ds-font-display: "Orbitron", "century-gothic-std", sans-serif;
+  --ds-font-mono: "JetBrains Mono", "Courier New", monospace;
+  --ds-tracking-wide: 0.16em;
+  --ds-tracking-mid: 0.08em;
+
+  // Re-map shared semantic tokens so existing components (Dropdown, etc.)
+  // pick this theme up automatically inside this scope.
+  --color-text: var(--ds-text);
+  --color-text-light: var(--ds-bg);
+  --color-text-ph: var(--ds-text-faint);
+  --color-border: var(--ds-accent-border);
+  --color-border-soft: rgba(69, 233, 216, 0.16);
+  --color-bg-dark: var(--ds-bg);
+  --color-bg-light: var(--ds-surface);
+  --color-black: var(--ds-bg-elevated);
+  --color-white: var(--ds-surface);
+}
+
+// Base glowing panel/card surface.
+@mixin panel($glow: false, $radius: var(--ds-radius-lg)) {
+  background: linear-gradient(
+    165deg,
+    var(--ds-surface) 0%,
+    var(--ds-bg-elevated) 100%
+  );
+  border: 1px solid var(--ds-accent-border);
+  border-radius: $radius;
+  position: relative;
+
+  @if $glow {
+    box-shadow: var(--ds-glow-md);
+  }
+}
+
+// Small uppercase tracked-out eyebrow / meta label.
+@mixin label($color: var(--ds-text-dim)) {
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-wide);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $color;
+}
+
+// Faint diagonal scanline texture, used sparingly on large surfaces.
+@mixin scanlines($opacity: 0.02) {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, $opacity) 0px,
+    rgba(255, 255, 255, $opacity) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+// The little corner index tag seen on the reference cards (e.g. "AI 003").
+@mixin corner-tag {
+  font-family: var(--ds-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: var(--ds-tracking-mid);
+  color: var(--ds-text-faint);
+}
+
+// The thin rounded "handle" bar centered at the bottom of HUD cards.
+@mixin bottom-handle {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 3px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-accent-border);
+}
+
+// Glowing pill button.
+@mixin pill-button($filled: false) {
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--ds-radius-pill);
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+  border: 1px solid var(--ds-accent-border-strong);
+
+  @if $filled {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+  } @else {
+    background: var(--ds-accent-soft);
+    color: var(--ds-accent);
+  }
+
+  &:hover {
+    box-shadow: var(--ds-glow-sm);
+  }
+}

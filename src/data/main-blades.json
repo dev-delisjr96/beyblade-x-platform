@@ -1,0 +1,205 @@
+[
+  {
+    "id": "cx-main-blade-brave",
+    "name": "Main Blade - Brave",
+    "img": "/parts/cx-main-blade-brave.png",
+    "full_name": {
+      "takara-tomy": "Brave",
+      "hasbro": "Courage"
+    }
+  },
+  {
+    "id": "cx-main-blade-arc",
+    "name": "Main Blade - Arc",
+    "img": "/parts/cx-main-blade-arc.png",
+    "full_name": {
+      "takara-tomy": "Arc",
+      "hasbro": "Arc"
+    }
+  },
+  {
+    "id": "cx-main-blade-dark",
+    "name": "Main Blade - Dark",
+    "img": "/parts/cx-main-blade-dark.png",
+    "full_name": {
+      "takara-tomy": "Dark",
+      "hasbro": "Dark"
+    }
+  },
+  {
+    "id": "cx-main-blade-reaper",
+    "name": "Main Blade - Reaper",
+    "img": "/parts/cx-main-blade-reaper.png",
+    "full_name": {
+      "takara-tomy": "Reaper",
+      "hasbro": "Reaper"
+    }
+  },
+  {
+    "id": "cx-main-blade-brush",
+    "name": "Main Blade - Brush",
+    "img": "/parts/cx-main-blade-brush.png",
+    "full_name": {
+      "takara-tomy": "Brush",
+      "hasbro": "Brush"
+    }
+  },
+  {
+    "id": "cx-main-blade-blast",
+    "name": "Main Blade - Blast",
+    "img": "/parts/cx-main-blade-blast.png",
+    "full_name": {
+      "takara-tomy": "Blast",
+      "hasbro": "Blast"
+    }
+  },
+  {
+    "id": "cx-main-blade-flame",
+    "name": "Main Blade - Flame",
+    "img": "",
+    "full_name": {
+      "takara-tomy": "Flame",
+      "hasbro": "Flame"
+    }
+  },
+  {
+    "id": "cx-main-blade-eclipse",
+    "name": "Main Blade - Eclipse",
+    "img": "/parts/cx-main-blade-eclipse.png",
+    "full_name": {
+      "takara-tomy": "Eclipse",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "cx-main-blade-eclipse-upper",
+    "name": "Main Blade - Eclipse Upper",
+    "img": "/parts/cx-main-blade-eclipse-upper.png",
+    "full_name": {
+      "takara-tomy": "Eclipse Upper",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "cx-main-blade-hunt",
+    "name": "Main Blade - Hunt",
+    "img": "/parts/cx-main-blade-hunt.png",
+    "full_name": {
+      "takara-tomy": "Hunt",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "cx-main-blade-might",
+    "name": "Main Blade - Might",
+    "img": "/parts/cx-main-blade-might.png",
+    "full_name": {
+      "takara-tomy": "Might",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "cx-main-blade-flare",
+    "name": "Main Blade - Flare",
+    "img": "/parts/cx-main-blade-flare.png",
+    "full_name": {
+      "takara-tomy": "Flare",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "cx-main-blade-blitz",
+    "name": "Main Blade - Blitz",
+    "img": "/parts/cx-main-blade-blitz.png",
+    "full_name": {
+      "takara-tomy": "Blitz",
+      "hasbro": ""
+    },
+    "withOverBlade": true
+  },
+  {
+    "id": "cx-main-blade-fortress",
+    "name": "Main Blade - Fortress",
+    "img": "/parts/cx-main-blade-fortress.png",
+    "full_name": {
+      "takara-tomy": "Fortress",
+      "hasbro": ""
+    },
+    "withOverBlade": true
+  },
+  {
+    "id": "cx-main-blade-rage",
+    "name": "Main Blade - Rage",
+    "img": "/parts/cx-main-blade-rage.png",
+    "full_name": {
+      "takara-tomy": "Rage",
+      "hasbro": ""
+    },
+    "withOverBlade": true
+  },
+  {
+    "id": "cx-main-blade-delta",
+    "name": "Main Blade - Delta",
+    "img": "/parts/cx-main-blade-delta.png",
+    "full_name": {
+      "takara-tomy": "Delta",
+      "hasbro": ""
+    },
+    "withOverBlade": true
+  },
+  {
+    "id": "cx-main-blade-whip",
+    "name": "Main Blade - Whip",
+    "img": "/parts/cx-main-blade-whip.png",
+    "full_name": {
+      "takara-tomy": "Whip",
+      "hasbro": ""
+    },
+    "withOverBlade": true
+  },
+  {
+    "id": "cx-main-blade-fort",
+    "name": "Main Blade - Fort",
+    "img": "/parts/cx-main-blade-fort.png",
+    "full_name": {
+      "takara-tomy": "Fort",
+      "hasbro": "Fort"
+    }
+  },
+  {
+    "id": "cx-main-blade-antler",
+    "name": "Main Blade - Antler",
+    "img": "/parts/cx-main-blade-antler.jpeg",
+    "full_name": {
+      "takara-tomy": "Antler",
+      "hasbro": "Antler"
+    }
+  },
+  {
+    "id": "cx-main-blade-wriggle",
+    "name": "Main Blade - Wriggle",
+    "img": "/parts/cx-main-blade-wriggle.png",
+    "full_name": {
+      "takara-tomy": "Wriggle",
+      "hasbro": "Wriggle"
+    }
+  },
+  {
+    "id": "cx-main-blade-fang",
+    "name": "Main Blade - Fang",
+    "img": "/parts/cx-main-blade-fang.png",
+    "full_name": {
+      "takara-tomy": "Fang",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "cx-main-blade-volt",
+    "name": "Main Blade - Volt",
+    "img": "/parts/cx-main-blade-volt.png",
+    "full_name": {
+      "takara-tomy": "Volt",
+      "hasbro": ""
+    }
+  }
+]

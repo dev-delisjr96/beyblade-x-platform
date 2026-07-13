@@ -1,0 +1,155 @@
+[
+  {
+    "id": "assist-blade-slash",
+    "name": "Assist Blade - Slash",
+    "img": "/parts/assist-blade-slash.png",
+    "full_name": {
+      "takara-tomy": "Slash",
+      "hasbro": "Slash"
+    }
+  },
+  {
+    "id": "assist-blade-round",
+    "name": "Assist Blade - Round",
+    "img": "/parts/assist-blade-round.png",
+    "full_name": {
+      "takara-tomy": "Round",
+      "hasbro": "Round"
+    }
+  },
+  {
+    "id": "assist-blade-bumper",
+    "name": "Assist Blade - Bumper",
+    "img": "/parts/assist-blade-bumper.png",
+    "full_name": {
+      "takara-tomy": "Bumper",
+      "hasbro": "Bumper"
+    }
+  },
+  {
+    "id": "assist-blade-turn",
+    "name": "Assist Blade - Turn",
+    "img": "/parts/assist-blade-turn.png",
+    "full_name": {
+      "takara-tomy": "Turn",
+      "hasbro": "Turn"
+    }
+  },
+  {
+    "id": "assist-blade-charge",
+    "name": "Assist Blade - Charge",
+    "img": "/parts/assist-blade-charge.png",
+    "full_name": {
+      "takara-tomy": "Charge",
+      "hasbro": "Charge"
+    }
+  },
+  {
+    "id": "assist-blade-jaggy",
+    "name": "Assist Blade - Jaggy",
+    "img": "/parts/assist-blade-jaggy.png",
+    "full_name": {
+      "takara-tomy": "Jaggy",
+      "hasbro": "Jaggy"
+    }
+  },
+  {
+    "id": "assist-blade-assault",
+    "name": "Assist Blade - Assault",
+    "img": "/parts/assist-blade-assault.png",
+    "full_name": {
+      "takara-tomy": "Assault",
+      "hasbro": "Assault"
+    }
+  },
+  {
+    "id": "assist-blade-wheel",
+    "name": "Assist Blade - Wheel",
+    "img": "/parts/assist-blade-wheel.png",
+    "full_name": {
+      "takara-tomy": "Wheel",
+      "hasbro": "Wheel"
+    }
+  },
+  {
+    "id": "assist-blade-massive",
+    "name": "Assist Blade - Massive",
+    "img": "/parts/assist-blade-massive.png",
+    "full_name": {
+      "takara-tomy": "Massive",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "assist-blade-dual",
+    "name": "Assist Blade - Dual",
+    "img": "/parts/assist-blade-dual.png",
+    "full_name": {
+      "takara-tomy": "Dual",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "assist-blade-free",
+    "name": "Assist Blade - Free",
+    "img": "/parts/assist-blade-free.png",
+    "full_name": {
+      "takara-tomy": "Free",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "assist-blade-heavy",
+    "name": "Assist Blade - Heavy",
+    "img": "/parts/assist-blade-heavy.png",
+    "full_name": {
+      "takara-tomy": "Heavy",
+      "hasbro": "Heavy"
+    }
+  },
+  {
+    "id": "assist-blade-zillion",
+    "name": "Assist Blade - Zillion",
+    "img": "/parts/assist-blade-zillion.png",
+    "full_name": {
+      "takara-tomy": "Zillion",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "assist-blade-knuckle",
+    "name": "Assist Blade - Knuckle",
+    "img": "/parts/assist-blade-knuckle.png",
+    "full_name": {
+      "takara-tomy": "Knuckle",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "assist-blade-vertical",
+    "name": "Assist Blade - Vertical",
+    "img": "/parts/assist-blade-vertical.png",
+    "full_name": {
+      "takara-tomy": "Vertical",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "assist-blade-erase",
+    "name": "Assist Blade - Erase",
+    "img": "/parts/assist-blade-erase.png",
+    "full_name": {
+      "takara-tomy": "Erase",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "assist-blade-gravity",
+    "name": "Assist Blade - Gravity",
+    "img": "/parts/assist-blade-gravity.png",
+    "full_name": {
+      "takara-tomy": "Gravity",
+      "hasbro": ""
+    }
+  }
+]

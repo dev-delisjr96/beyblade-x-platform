@@ -1,0 +1,47 @@
+[
+  {
+    "id": "over-blade-peak",
+    "name": "Over Blade - Peak",
+    "img": "/parts/over-blade-peak.png",
+    "full_name": {
+      "takara-tomy": "Peak",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "over-blade-break",
+    "name": "Over Blade - Break",
+    "img": "/parts/over-blade-break.png",
+    "full_name": {
+      "takara-tomy": "Break",
+      "hasbro": ""
+    }
+  },
+  {
+    "id": "over-blade-guard",
+    "name": "Over Blade - Guard",
+    "img": "/parts/over-blade-guard.png",
+    "full_name": {
+      "takara-tomy": "Guard",
+      "hasbro": "Guard"
+    }
+  },
+  {
+    "id": "over-blade-flow",
+    "name": "Over Blade - Flow",
+    "img": "/parts/over-blade-flow.png",
+    "full_name": {
+      "takara-tomy": "Flow",
+      "hasbro": "Flow"
+    }
+  },
+  {
+    "id": "over-blade-outer",
+    "name": "Over Blade - Outer",
+    "img": "/parts/over-blade-outer.png",
+    "full_name": {
+      "takara-tomy": "Outer",
+      "hasbro": ""
+    }
+  }
+]

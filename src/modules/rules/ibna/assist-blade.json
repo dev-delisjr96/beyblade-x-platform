@@ -1,0 +1,17 @@
+[
+  {
+    "part": "assist-blade",
+    "name": "assist-blade-wheel",
+    "value": 1
+  },
+  {
+    "part": "assist-blade",
+    "name": "assist-blade-heavy",
+    "value": 1
+  },
+  {
+    "part": "assist-blade",
+    "name": "assist-blade-gravity",
+    "value": 1
+  }
+]

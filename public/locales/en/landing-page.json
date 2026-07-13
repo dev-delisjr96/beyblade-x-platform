@@ -1,0 +1,42 @@
+{
+  "check-part-values": "Check the part values",
+  "rule-set-label": "Rule Set",
+  "beyblade-label": "Build Slot",
+  "entry-title": "Beyblade {{index}}",
+  "build-type": {
+    "simple": "Base",
+    "cx": "CX"
+  },
+  "total-value": "Total Deck Value",
+  "build-value": "Total Build Value",
+  "confirm-button": "Confirm",
+  "deck-summary": {
+    "title": "Deck",
+    "save": "Save",
+    "saving": "Preparing image...",
+    "save-status": {
+      "saved": "Image saved!",
+      "error": "Couldn't create the image. Try again."
+    }
+  },
+  "duplicate-warning": "This build shares a part with another entry",
+  "spin": {
+    "left": "Left",
+    "right": "Right"
+  },
+  "parts": {
+    "blade": "Blade",
+    "ratchet": "Ratchet",
+    "bit": "Bit",
+    "lock-chip": "Lock Chip",
+    "main-blade": "Main Blade",
+    "over-blade": "Over Blade",
+    "assist-blade": "Assist Blade"
+  },
+  "errors": {
+    "too_many": "Too many entries in the deck",
+    "not_enough": "Not enough entries in the deck",
+    "over_cap_value": "The deck exceeds the maximum allowed value",
+    "same_parts_not_allowed": "Duplicate parts are not allowed in this rule set"
+  }
+}

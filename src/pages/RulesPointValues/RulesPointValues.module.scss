@@ -1,0 +1,273 @@
+@use "../../styles/main.scss";
+@use "../../styles/design-system" as ds;
+
+.root {
+  @include ds.theme;
+
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding: 2.5rem;
+  overflow: hidden;
+  background: var(--ds-bg);
+  color: var(--ds-text);
+  font-family: main.$doona_font;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 2rem;
+
+  @include main.max(md) {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+}
+
+.glow-a,
+.glow-b {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.glow-a {
+  top: -120px;
+  left: -80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(69, 233, 216, 0.16) 0%,
+    transparent 70%
+  );
+}
+
+.glow-b {
+  bottom: -160px;
+  right: -100px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(
+    circle,
+    rgba(69, 233, 216, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+// --- Header ------------------------------------------------------------
+
+.header {
+  position: relative;
+  z-index: 1;
+  @include main.flexBox(row, space-between, center);
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.back-link {
+  @include ds.pill-button($filled: false);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  border: 1px solid var(--ds-accent-border);
+  background: transparent;
+
+  ion-icon {
+    font-size: 1rem;
+  }
+}
+
+.title-group {
+  @include main.flexBox(column, center, center);
+  gap: 0.15rem;
+  text-align: center;
+}
+
+.eyebrow {
+  @include ds.label;
+}
+
+.title {
+  font-family: var(--ds-font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+  color: var(--ds-text);
+  margin: 0;
+}
+
+.view-toggle {
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-pill);
+  padding: 3px;
+  @include main.flexBox(row, flex-start, stretch);
+  gap: 3px;
+  background: var(--ds-bg-elevated);
+}
+
+.view-option {
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--ds-radius-pill);
+  cursor: pointer;
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ds-text-dim);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    color: var(--ds-text);
+  }
+
+  &.active {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+    box-shadow: var(--ds-glow-xs);
+  }
+}
+
+// --- Content ---------------------------------------------------------------
+
+.content {
+  position: relative;
+  z-index: 1;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 2rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--ds-text-dim);
+  padding: 2rem;
+}
+
+.part-section {
+  @include ds.panel($glow: false);
+  padding: 1.5rem;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 1.25rem;
+}
+
+.part-heading {
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-wide);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ds-accent);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ds-accent-border);
+}
+
+.value-section {
+  @include main.flexBox(row, flex-start, flex-start);
+  gap: 1.25rem;
+  flex-wrap: wrap;
+
+  @include main.max(sm) {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.value-header {
+  --tier-color: var(--ds-accent);
+  flex-shrink: 0;
+  width: 92px;
+
+  @include main.max(sm) {
+    width: auto;
+  }
+
+  &[data-tier="5"] {
+    --tier-color: #ff4d5e;
+  }
+  &[data-tier="4"] {
+    --tier-color: #ff9f45;
+  }
+  &[data-tier="3"] {
+    --tier-color: #ffd23f;
+  }
+  &[data-tier="2"] {
+    --tier-color: #c6e86b;
+  }
+  &[data-tier="1"] {
+    --tier-color: #5fe08a;
+  }
+  &[data-tier="-1"] {
+    --tier-color: #b98bff;
+  }
+  &[data-tier="ban"] {
+    --tier-color: var(--ds-danger);
+  }
+}
+
+.value-badge {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--ds-radius-md);
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--tier-color);
+  background: color-mix(in srgb, var(--tier-color) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tier-color) 45%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--tier-color) 30%, transparent);
+}
+
+.value-chips {
+  flex: 1;
+  min-width: 0;
+  @include main.flexBox(row, flex-start, flex-start);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  @include main.flexBox(column, center, center);
+  gap: 0.3rem;
+  width: 76px;
+  text-align: center;
+}
+
+.chip-frame {
+  @include main.size(56px);
+  border-radius: 50%;
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-bg-elevated);
+  @include main.flexBox(row, center, center);
+  overflow: hidden;
+}
+
+.chip-img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+
+.chip-name {
+  font-size: 0.66rem;
+  color: var(--ds-text);
+  line-height: 1.2;
+  @include main.truncate(2);
+}
+
+.chip-label {
+  font-family: var(--ds-font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: var(--ds-tracking-mid);
+  color: var(--ds-accent);
+  background: var(--ds-accent-soft);
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-pill);
+  padding: 0.05rem 0.5rem;
+}

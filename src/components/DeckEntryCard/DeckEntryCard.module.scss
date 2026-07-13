@@ -1,0 +1,209 @@
+@use "../../styles/main.scss";
+@use "../../styles/design-system" as ds;
+
+.root {
+  @include ds.panel($glow: false);
+  width: 100%;
+  padding: 1.5rem 1.5rem 2.25rem;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 1.25rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-sm);
+  }
+}
+
+.corner-tag {
+  @include ds.corner-tag;
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+}
+
+.header {
+  @include main.flexBox(row, space-between, flex-start);
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-right: 2.5rem;
+}
+
+.eyebrow {
+  @include ds.label;
+  margin-bottom: 0.2rem;
+}
+
+.title {
+  font-family: var(--ds-font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ds-text);
+}
+
+.type-toggle {
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-pill);
+  padding: 3px;
+  @include main.flexBox(row, flex-start, stretch);
+  gap: 3px;
+  background: var(--ds-bg-elevated);
+}
+
+.type-option {
+  padding: 0.4rem 1rem;
+  border-radius: var(--ds-radius-pill);
+  cursor: pointer;
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ds-text-dim);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    color: var(--ds-text);
+  }
+
+  &.active {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+    box-shadow: var(--ds-glow-xs);
+  }
+}
+
+.parts {
+  @include main.grid(repeat(auto-fill, minmax(210px, 1fr)), auto, 1rem);
+}
+
+.part {
+  width: 100%;
+  position: relative;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 0.5rem;
+}
+
+.conditions {
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 0.4rem;
+}
+
+.spin-badge {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--ds-radius-pill);
+  width: fit-content;
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.68rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+
+  ion-icon {
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  &.spin-right {
+    color: var(--ds-accent);
+    background: var(--ds-accent-soft);
+    border-color: var(--ds-accent-border);
+  }
+
+  &.spin-left {
+    color: #ffb347;
+    background: rgba(255, 179, 71, 0.1);
+    border-color: rgba(255, 179, 71, 0.35);
+
+    ion-icon {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.condition-toggle {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ds-text-dim);
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-pill);
+  width: fit-content;
+  background: var(--ds-bg-elevated);
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:has(input:checked) {
+    color: var(--ds-accent);
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
+
+  input {
+    accent-color: var(--ds-accent);
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+  }
+}
+
+.condition-badge {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--ds-radius-pill);
+  width: fit-content;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+
+  ion-icon {
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  &.satisfied {
+    color: var(--ds-accent);
+    background: var(--ds-accent-soft);
+    border-color: var(--ds-accent-border);
+  }
+
+  &.unsatisfied {
+    color: var(--ds-text-dim);
+    background: var(--ds-bg-elevated);
+    border-color: var(--color-border-soft);
+  }
+}
+
+.duplicate-warning {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.4rem;
+  color: var(--ds-danger);
+  font-weight: 600;
+  font-size: var(--font-p-large);
+
+  ion-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+}
+
+.handle {
+  @include ds.bottom-handle;
+}

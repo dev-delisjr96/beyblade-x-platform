@@ -1,0 +1,12 @@
+[
+  {
+    "part": "lock-chip",
+    "name": "lock-chip-emperor",
+    "value": 1
+  },
+  {
+    "part": "lock-chip",
+    "name": "lock-chip-valkyrie",
+    "value": 1
+  }
+]

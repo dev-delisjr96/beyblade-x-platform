@@ -1,0 +1,18 @@
+@mixin borderRadius($radius) {
+  border-radius: $radius;
+}
+
+@mixin transform($properties...) {
+  -webkit-transform: $properties;
+  transform: $properties;
+}
+
+@mixin transition($properties...) {
+  -webkit-transition: $properties;
+  transition: $properties;
+}
+
+@mixin filter($properties...) {
+  -webkit-filter: $properties;
+  filter: $properties;
+}

@@ -1,0 +1,24 @@
+@use "../../styles/main.scss";
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.part {
+  @include main.flexBox(column, center, center);
+  gap: 20px;
+
+  width: 250px;
+  height: 150px;
+  text-align: center;
+  border: 1px solid #ececec;
+}
+
+.parts-list {
+  @include main.flexBox(row, flex-start, stretch);
+  flex-wrap: wrap;
+  gap: 20px;
+}

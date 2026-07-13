@@ -1,0 +1,56 @@
+@use "./responsive" as bp;
+
+@mixin flexBox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin grid($cols, $rows: auto, $gap: 0) {
+  display: grid;
+  grid-template-columns: $cols;
+  grid-template-rows: $rows;
+  gap: $gap;
+}
+
+// Sets width and height in one call. $h defaults to $w for squares.
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+// Stretches element to fill its nearest positioned ancestor.
+@mixin absolute-fill($z: null) {
+  position: absolute;
+  inset: 0;
+  @if $z != null {
+    z-index: $z;
+  }
+}
+
+// Single-line ellipsis by default; pass $lines > 1 for clamped multiline.
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@mixin centerContentPage {
+  width: 50%;
+
+  @include bp.max(lg) {
+    width: 80%;
+  }
+
+  @include bp.max(md) {
+    width: 100%;
+  }
+}

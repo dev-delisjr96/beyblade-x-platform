@@ -1,0 +1,21 @@
+{
+  "page-title": "Lista Punti",
+  "back-button": "Torna al Builder",
+  "view-mode": {
+    "point": "Per Punti",
+    "part": "Per Parti"
+  },
+  "point-label": "{{value}} PT",
+  "ban-label": "Ban",
+  "empty-state": "This rule set doesn't have any values yet.",
+  "not-found": "Rule set \"{{rule}}\" wasn't found.",
+  "parts": {
+    "blade": "Lama",
+    "ratchet": "Ratchet",
+    "bit": "Bit",
+    "lock-chip": "Lock Chip",
+    "main-blade": "Main Blade",
+    "over-blade": "Over Blade",
+    "assist-blade": "Assist Blade"
+  }
+}

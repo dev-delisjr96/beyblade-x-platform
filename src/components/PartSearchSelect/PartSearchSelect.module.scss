@@ -1,0 +1,196 @@
+@use "../../styles/main.scss";
+@use "../../styles/design-system" as ds;
+
+.root {
+  width: 100%;
+  position: relative;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 0.45rem;
+}
+
+.label {
+  @include ds.label;
+}
+
+// --- Circular image frame (shared by selected + option rows) ---------------
+
+.img-frame {
+  @include main.size(44px);
+  border-radius: 50%;
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-bg-elevated);
+  @include main.flexBox(row, center, center);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.selected-img,
+.option-img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+
+// --- Selected state ----------------------------------------------------
+
+.selected {
+  width: 100%;
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-md);
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.75rem;
+  background: var(--ds-surface-alt);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+
+    .img-frame {
+      border-color: var(--ds-accent-border-strong);
+    }
+  }
+}
+
+.selected-info {
+  flex: 1;
+  min-width: 0;
+  @include main.flexBox(column, center, flex-start);
+  gap: 0.3rem;
+}
+
+.selected-name {
+  font-weight: 600;
+  color: var(--ds-text);
+  @include main.truncate(1);
+}
+
+.value-badge {
+  align-self: flex-start;
+  font-family: var(--ds-font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: var(--ds-tracking-mid);
+  text-transform: uppercase;
+  color: var(--ds-accent);
+  background: var(--ds-accent-soft);
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-pill);
+  padding: 0.1rem 0.55rem;
+}
+
+.selected-actions {
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  flex-shrink: 0;
+
+  ion-icon {
+    font-size: 1.15rem;
+    color: var(--ds-text-dim);
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--ds-accent);
+    }
+  }
+}
+
+// --- Search state ------------------------------------------------------
+
+.search {
+  width: 100%;
+  position: relative;
+}
+
+.search-input-wrapper {
+  width: 100%;
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-pill);
+  padding: 0.5rem 0.9rem;
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.5rem;
+  background: var(--ds-surface-alt);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:focus-within {
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
+
+  ion-icon {
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    color: var(--ds-text-dim);
+    cursor: pointer;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--ds-text);
+
+    &::placeholder {
+      color: var(--ds-text-faint);
+    }
+  }
+}
+
+.options-container {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-accent-border-strong);
+  border-radius: var(--ds-radius-md);
+  box-shadow:
+    var(--ds-glow-sm),
+    0 12px 28px rgba(0, 0, 0, 0.55);
+}
+
+.option {
+  padding: 0.5rem 0.85rem;
+  cursor: pointer;
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.6rem;
+  transition: background 0.12s ease;
+
+  &:hover {
+    background: var(--ds-accent-soft);
+
+    .img-frame {
+      border-color: var(--ds-accent-border-strong);
+    }
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+}
+
+.option-name {
+  flex: 1;
+  min-width: 0;
+  color: var(--ds-text);
+  @include main.truncate(1);
+}
+
+.no-options {
+  padding: 0.8rem;
+  color: var(--ds-text-faint);
+  text-align: center;
+  font-size: var(--font-p-large);
+}

@@ -1,0 +1,21 @@
+{
+  "page-title": "Point List",
+  "back-button": "Back to Builder",
+  "view-mode": {
+    "point": "By Point",
+    "part": "By Part"
+  },
+  "point-label": "{{value}} PT",
+  "ban-label": "Ban",
+  "empty-state": "This rule set doesn't have any values yet.",
+  "not-found": "Rule set \"{{rule}}\" wasn't found.",
+  "parts": {
+    "blade": "Blade",
+    "ratchet": "Ratchet",
+    "bit": "Bit",
+    "lock-chip": "Lock Chip",
+    "main-blade": "Main Blade",
+    "over-blade": "Over Blade",
+    "assist-blade": "Assist Blade"
+  }
+}

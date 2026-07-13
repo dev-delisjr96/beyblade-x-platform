@@ -1,0 +1,23 @@
+@use './colors' as c;
+
+// Semantic CSS custom property tokens — consumed anywhere via var(--color-*).
+// Emitted globally via globals.scss.
+:root {
+  --color-text:        #{c.$text};
+  --color-text-light:  #{c.$text_light};
+  --color-text-ph:     #{c.$text_placeholder};
+  --color-border:      #{c.$border};
+  --color-border-soft: #{c.$border_1};
+  --color-bg-dark:     #{c.$bg_grey_dark};
+  --color-bg-light:    #{c.$bg_grey_light};
+  --color-black:       #{c.$pure_b};
+  --color-white:       #{c.$pure_w};
+}
+
+[data-theme="dark"] {
+  --color-text:       #{c.$text_light};
+  --color-text-light: #{c.$text};
+  --color-bg-light:   #{c.$bg_grey_dark};
+  --color-bg-dark:    #{c.$bg_grey_light};
+  --color-border:     #{c.$bg_grey_light};
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "part": "ratchet",
+    "name": "1-50",
+    "value": 1
+  },
+  {
+    "part": "ratchet",
+    "name": "1-60",
+    "value": 1
+  },
+  {
+    "part": "ratchet",
+    "name": "1-70",
+    "value": 1
+  },
+  {
+    "part": "ratchet",
+    "name": "3-60",
+    "value": 1
+  },
+  {
+    "part": "ratchet",
+    "name": "7-60",
+    "value": 1
+  },
+  {
+    "part": "ratchet",
+    "name": "9-60",
+    "value": 1
+  },
+  {
+    "part": "ratchet",
+    "name": "2-60",
+    "value": -1
+  }
+]
