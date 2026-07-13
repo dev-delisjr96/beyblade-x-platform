@@ -1,6 +1,7 @@
 {
   "page-title": "Point List",
   "back-button": "Back to Builder",
+  "loading": "Loading rule set...",
   "view-mode": {
     "point": "By Point",
     "part": "By Part"
@@ -8,7 +9,7 @@
   "point-label": "{{value}} PT",
   "ban-label": "Ban",
   "empty-state": "This rule set doesn't have any values yet.",
-  "not-found": "Rule set \"{{rule}}\" wasn't found.",
+  "not-found": "No rule set found for \"{{club}}\" on {{date}}.",
   "parts": {
     "blade": "Blade",
     "ratchet": "Ratchet",

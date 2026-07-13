@@ -1,8 +1,6 @@
 {
-  "deck": {
-    "entries": 3,
-    "maxEntries": 3,
-    "maxValue": 8,
-    "allowSameParts": false
-  }
+  "entries": 3,
+  "maxEntries": 3,
+  "maxValue": 8,
+  "allowSameParts": false
 }

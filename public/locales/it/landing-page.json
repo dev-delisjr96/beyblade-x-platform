@@ -1,26 +1,28 @@
 {
   "check-part-values": "Controlla i valori dei pezzi",
   "rule-set-label": "Regolamento",
-  "beyblade-label": "Build Slot",
+  "club-label": "Club",
+  "date-label": "Data",
+  "no-rule-set-selected": "Seleziona un club e una data per iniziare a costruire il tuo deck.",
+  "beyblade-label": "Slot di Costruzione",
   "entry-title": "Beyblade {{index}}",
   "build-type": {
     "simple": "Base",
     "cx": "CX"
   },
   "total-value": "Valore Totale del Deck",
-  "build-value": "Valore della Build",
+  "build-value": "Valore Totale della Build",
   "confirm-button": "Conferma",
   "deck-summary": {
     "title": "Deck",
     "save": "Salva",
     "saving": "Preparazione immagine...",
-    "copy-link": "Copia Link",
     "save-status": {
-      "saved": "Deck Salvato",
+      "saved": "Immagine salvata!",
       "error": "Impossibile creare l'immagine. Riprova."
     }
   },
-  "duplicate-warning": "Questa build condivide un pezzo con un'altra build",
+  "duplicate-warning": "Questa build condivide un pezzo con un'altra voce",
   "spin": {
     "left": "Sinistra",
     "right": "Destra"
@@ -31,12 +33,12 @@
     "bit": "Bit",
     "lock-chip": "Lock Chip",
     "main-blade": "Lama Principale",
-    "over-blade": "Over Blade",
-    "assist-blade": "Assist Blade"
+    "over-blade": "Lama Superiore",
+    "assist-blade": "Lama di Supporto"
   },
   "errors": {
-    "too_many": "Troppe build nel deck",
-    "not_enough": "Build insufficienti nel deck",
+    "too_many": "Troppe voci nel deck",
+    "not_enough": "Voci insufficienti nel deck",
     "over_cap_value": "Il deck supera il valore massimo consentito",
     "same_parts_not_allowed": "I pezzi duplicati non sono consentiti in questo regolamento"
   }

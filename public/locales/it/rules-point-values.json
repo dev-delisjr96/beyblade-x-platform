@@ -1,21 +1,22 @@
 {
-  "page-title": "Lista Punti",
+  "page-title": "Elenco Punti",
   "back-button": "Torna al Builder",
+  "loading": "Caricamento del regolamento...",
   "view-mode": {
-    "point": "Per Punti",
-    "part": "Per Parti"
+    "point": "Per Punto",
+    "part": "Per Pezzo"
   },
   "point-label": "{{value}} PT",
-  "ban-label": "Ban",
-  "empty-state": "This rule set doesn't have any values yet.",
-  "not-found": "Rule set \"{{rule}}\" wasn't found.",
+  "ban-label": "Bandito",
+  "empty-state": "Questo regolamento non ha ancora valori.",
+  "not-found": "Nessun regolamento trovato per \"{{club}}\" in data {{date}}.",
   "parts": {
     "blade": "Lama",
     "ratchet": "Ratchet",
     "bit": "Bit",
     "lock-chip": "Lock Chip",
-    "main-blade": "Main Blade",
-    "over-blade": "Over Blade",
-    "assist-blade": "Assist Blade"
+    "main-blade": "Lama Principale",
+    "over-blade": "Lama Superiore",
+    "assist-blade": "Lama di Supporto"
   }
 }

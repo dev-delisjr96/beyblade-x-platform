@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 // Router
 import { useNavigate, useParams } from "react-router-dom";
@@ -9,8 +9,8 @@ import { useTranslation } from "react-i18next";
 // Data
 import PARTS from "../../data/index";
 
-// Rules
-import * as saved_rules from "../../modules/rules/index";
+// RTDB
+import { subscribeToRecord } from "../../modules/rtdb";
 
 // Utilities
 import * as beyXUtilities from "../../modules/utilities";
@@ -23,11 +23,16 @@ import { generateClassesNames } from "styles/utilities";
 const VIEW_MODES = ["point", "part"];
 
 /**
- * Reference "point list" for a rule set: every part that's worth points
- * (0-value parts are skipped), grouped either by point value or by part
- * type, each shown as an image + name chip. Parts with a rule-set combo
- * bonus (see modules/rules/conditions.js) get an extra chip in whichever
- * value group that bonus is worth, tagged with the bonus's label.
+ * Reference "point list" for a club's rule set on a given date: every part
+ * that's worth points (0-value parts are skipped), grouped either by
+ * point value or by part type, each shown as an image + name chip. Parts
+ * with a rule-set combo bonus (see modules/rules/conditions.js) get an
+ * extra chip in whichever value group that bonus is worth, tagged with
+ * the bonus's label.
+ *
+ * Subscribes live to `tournaments-formats/{tournament_format}/clubs/{club}/{date}`
+ * in Firebase RTDB, so any edit made there shows up here immediately
+ * without a refresh.
  */
 /* eslint-disable-next-line no-unused-vars */
 const RulesPointValues = ({ additionalstyles, ...props }) => {
@@ -64,12 +69,27 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   );
 
   const navigate = useNavigate();
-  const { rule_name } = useParams();
+  const { tournament_format, club, date } = useParams();
   const { t } = useTranslation("rules-point-values");
 
   const [viewMode, setViewMode] = useState("point");
+  const [ruleSet, setRuleSet] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const ruleSet = saved_rules.RULE_SETS_STORED[rule_name];
+  useEffect(() => {
+    setIsLoading(true);
+
+    const unsubscribe = subscribeToRecord(
+      `tournaments-formats/${tournament_format}/clubs/${club}/${date}`,
+      (data) => {
+        setRuleSet(data);
+        setIsLoading(false);
+      },
+    );
+
+    return unsubscribe;
+  }, [tournament_format, club, date]);
+
   const valuesSet = ruleSet?.deck?.values || {};
 
   const entries = useMemo(
@@ -137,11 +157,19 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className={classes_names["root"]}>
+        <p className={classes_names["empty-state"]}>{t("loading")}</p>
+      </div>
+    );
+  }
+
   if (!ruleSet) {
     return (
       <div className={classes_names["root"]}>
         <p className={classes_names["empty-state"]}>
-          {t("not-found", { rule: rule_name })}
+          {t("not-found", { club, date })}
         </p>
       </div>
     );
@@ -156,7 +184,9 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
         <button
           type="button"
           className={classes_names["back-link"]}
-          onClick={() => navigate(-1)}
+          onClick={() =>
+            navigate(`/${tournament_format}/deck-builder`)
+          }
         >
           <ion-icon name="arrow-back-outline"></ion-icon>
           {t("back-button")}
@@ -164,7 +194,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
 
         <div className={classes_names["title-group"]}>
           <p className={classes_names["eyebrow"]}>
-            {utilities.normalizeString(rule_name)}
+            {utilities.normalizeString(club)} · {date}
           </p>
           <h1 className={classes_names["title"]}>{t("page-title")}</h1>
         </div>

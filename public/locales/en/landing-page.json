@@ -1,6 +1,9 @@
 {
   "check-part-values": "Check the part values",
   "rule-set-label": "Rule Set",
+  "club-label": "Club",
+  "date-label": "Date",
+  "no-rule-set-selected": "Select a club and a date to start building your deck.",
   "beyblade-label": "Build Slot",
   "entry-title": "Beyblade {{index}}",
   "build-type": {

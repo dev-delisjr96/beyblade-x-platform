@@ -1,0 +1,74 @@
+// DeckBuilderPage-only reskin for the shared <Dropdown /> component
+// (used for both the club and date selectors). Passed in as
+// `additionalstyles`, so no other screen using Dropdown is affected —
+// see src/styles/utilities.js `generateClassesNames`.
+@use "../../styles/design-system" as ds;
+
+.dropdown {
+  border: 1px solid var(--ds-accent-border) !important;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-surface);
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--ds-glow-xs);
+  }
+
+  &.expanded {
+    border-radius: var(--ds-radius-md);
+    box-shadow: var(--ds-glow-sm);
+    border-color: var(--ds-accent-border-strong) !important;
+
+    .actual-value {
+      border-bottom: 1px solid var(--ds-accent-border) !important;
+    }
+  }
+}
+
+.actual-value {
+  padding: 0.75rem 1.25rem !important;
+  justify-content: space-between !important;
+
+  ion-icon {
+    color: var(--ds-accent);
+    font-size: 1.1rem;
+  }
+}
+
+.value {
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ds-text);
+}
+
+.placeholder {
+  color: var(--ds-text-faint);
+}
+
+.options-container {
+  background: var(--ds-surface);
+}
+
+.option {
+  padding: 0.65rem 1.25rem !important;
+  justify-content: flex-start !important;
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.75rem;
+  color: var(--ds-text-dim);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+
+  &:hover {
+    background: var(--ds-accent-soft) !important;
+    color: var(--ds-accent);
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Translations
 import { useTranslation } from "react-i18next";
@@ -44,6 +44,17 @@ const Dropdown = ({
   const [filteredOptions, setFilteredOptions] = useState(
     options.filter((opt) => opt.value !== actualValue.value),
   );
+
+  useEffect(() => {
+    if (options.length > 0) {
+      /* eslint-disable-next-line react-hooks/set-state-in-effect */
+      setFilteredOptions(
+        options.filter((opt) => opt.value !== actualValue.value),
+      );
+    }
+
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  }, [options]);
 
   function drop() {
     setIsDropped(!isDropped);
