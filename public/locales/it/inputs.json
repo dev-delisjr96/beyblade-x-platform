@@ -12,6 +12,8 @@
     "no-results": "Nessun pezzo trovato",
     "value-label": "Valore",
     "change": "Cambia",
-    "clear": "Cancella"
+    "clear": "Cancella",
+    "filter-all": "Tutti",
+    "filter-ban": "Bandito"
   }
 }

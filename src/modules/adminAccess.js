@@ -85,3 +85,19 @@ export function isEditingTarget(tournamentFormat, club, date) {
       target.date === date,
   );
 }
+
+export function clearEditingTarget() {
+  try {
+    sessionStorage.removeItem(EDIT_TARGET_KEY);
+  } catch {
+    /* noop */
+  }
+}
+
+/** Logs the admin all the way out: clears both the password session and
+ * whichever date was unlocked for editing. Next "Edit" click starts fresh
+ * from the password prompt. */
+export function blockEditAccess() {
+  clearAdminSession();
+  clearEditingTarget();
+}

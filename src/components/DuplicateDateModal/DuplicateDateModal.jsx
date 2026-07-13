@@ -24,6 +24,7 @@ const DuplicateDateModal = ({
   ruleSetData,
   onClose = () => {},
   onSuccess = () => {},
+  onBlockEdit = () => {},
   ...props
 }) => {
   const elements = [
@@ -37,6 +38,7 @@ const DuplicateDateModal = ({
     "input",
     "error",
     "submit-btn",
+    "block-edit-btn",
   ];
   const classes_names = generateClassesNames(
     elements,
@@ -134,6 +136,15 @@ const DuplicateDateModal = ({
         >
           <ion-icon name="copy-outline"></ion-icon>
           {t("duplicate.submit-button")}
+        </button>
+
+        <button
+          type="button"
+          className={classes_names["block-edit-btn"]}
+          onClick={onBlockEdit}
+        >
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          {t("duplicate.block-edit-button")}
         </button>
       </form>
     </div>

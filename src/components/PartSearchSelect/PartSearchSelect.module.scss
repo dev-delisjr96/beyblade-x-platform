@@ -147,7 +147,7 @@
 
 .options-container {
   position: absolute;
-  z-index: 20;
+  z-index: 30;
   top: calc(100% + 6px);
   left: 0;
   right: 0;
@@ -159,6 +159,45 @@
   box-shadow:
     var(--ds-glow-sm),
     0 12px 28px rgba(0, 0, 0, 0.55);
+}
+
+// --- Value-tier filter (0-1-2-3-4-5.../Ban), built live from whatever
+// point values actually exist for this part type in the current rule set.
+
+.tier-filter {
+  position: relative;
+  z-index: 21;
+  margin-bottom: 6px;
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.tier-chip {
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-surface-alt);
+  color: var(--ds-text-dim);
+  font-family: var(--ds-font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    color: var(--ds-text);
+  }
+
+  &.active {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
 }
 
 .option {

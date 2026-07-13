@@ -73,3 +73,27 @@
     box-shadow: none;
   }
 }
+
+.block-edit-btn {
+  @include main.flexBox(row, center, center);
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  color: var(--ds-text-faint);
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.15s ease;
+
+  ion-icon {
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    color: var(--ds-danger);
+  }
+}

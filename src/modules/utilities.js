@@ -201,6 +201,44 @@ export function findPartValue(
   return entry.value;
 }
 
+/**
+ * Every distinct point value a part type can currently be worth in a
+ * rule set — base values plus any rule-set combo/toggle bonus values
+ * (e.g. blade "bullet-griffon" contributes both 4 and 5) — sorted
+ * highest to lowest, with `null` (explicitly unscored/banned parts, e.g.
+ * "metal-needle") last. Used to build the value-tier filter on part
+ * selectors, straight from whatever's actually in the rule set (RTDB) —
+ * nothing hardcoded.
+ *
+ * @param {Object} valuesSet - RULE_SET.deck.values for the selected rule-set
+ * @param {string} partType
+ * @returns {Array<number|null>}
+ */
+export function getAvailableValueTiers(valuesSet = {}, partType = "blade") {
+  const direct = Array.isArray(valuesSet?.[partType])
+    ? valuesSet[partType]
+    : [];
+  const entries =
+    direct.length > 0
+      ? direct
+      : (valuesSet?.cx || []).filter((entry) => entry.part === partType);
+
+  const tiers = new Set();
+
+  entries.forEach((entry) => {
+    tiers.add(entry.value);
+
+    const rules = Array.isArray(entry["rule-set"]) ? entry["rule-set"] : [];
+    rules.forEach((rule) => tiers.add(rule.newValue));
+  });
+
+  return Array.from(tiers).sort((a, b) => {
+    if (a === null) return 1;
+    if (b === null) return -1;
+    return b - a;
+  });
+}
+
 export function findPartData(part = "blade", idName = "dran-sword") {
   const filePart = getDataFileByPart(part);
   const globalized_part = utilities.globalizeString(part);

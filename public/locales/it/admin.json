@@ -9,10 +9,11 @@
     "description": "Questo copia i valori che stai visualizzando in una nuova data. Le modifiche avvengono sempre sulla copia: l'originale rimane invariato.",
     "date-label": "Nuova Data",
     "submit-button": "Crea e Modifica",
+    "block-edit-button": "Blocca Modifica",
     "already-exists": "Questa data esiste già per questo club.",
     "generic-error": "Qualcosa è andato storto. Riprova."
   },
-  "add-point-value-button": "Aggiungi un un nuovo punteggio",
+  "add-point-value-button": "Aggiungi nuovo valore punto",
   "new-point-value": {
     "title": "Nuovo Valore Punto",
     "value-label": "Valore Punto",

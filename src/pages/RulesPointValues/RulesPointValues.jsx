@@ -192,6 +192,12 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     navigate(`/${tournament_format}/deck-builder/${club}/${newDate}/values`);
   }
 
+  function handleBlockEdit() {
+    adminAccess.blockEditAccess();
+    setIsAdmin(false);
+    setShowDuplicateModal(false);
+  }
+
   function openAddPartModal(rowValue, lockedPartType) {
     setAddPartContext({ rowValue, lockedPartType });
   }
@@ -488,6 +494,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
         ruleSetData={ruleSet}
         onClose={() => setShowDuplicateModal(false)}
         onSuccess={handleDuplicateSuccess}
+        onBlockEdit={handleBlockEdit}
       />
 
       <NewPointValueModal

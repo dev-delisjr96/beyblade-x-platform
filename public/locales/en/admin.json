@@ -9,6 +9,7 @@
     "description": "This copies the values you're currently viewing into a brand new date. Edits always happen on the copy — the original stays untouched.",
     "date-label": "New Date",
     "submit-button": "Create & Edit",
+    "block-edit-button": "Block Edit",
     "already-exists": "That date already exists for this club.",
     "generic-error": "Something went wrong. Try again."
   },

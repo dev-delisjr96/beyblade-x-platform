@@ -18,7 +18,9 @@ import { generateClassesNames } from "styles/utilities";
  *
  * Lets the user search through every saved part of a given `partType`,
  * filter the list live, click to select one, and see the selected part's
- * image, name and rule-set value once chosen.
+ * image, name and rule-set value once chosen. Also offers a value-tier
+ * filter (0-1-2-3-4-5.../Ban) built straight from whichever point values
+ * actually exist for this part type in the current rule set.
  */
 /* eslint-disable-next-line no-unused-vars */
 const PartSearchSelect = ({
@@ -43,6 +45,9 @@ const PartSearchSelect = ({
     "selected-actions",
     "search",
     "search-input-wrapper",
+    "tier-filter",
+    "tier-chip",
+    "active",
     "options-container",
     "option",
     "option-img",
@@ -59,6 +64,9 @@ const PartSearchSelect = ({
 
   const [searchTerm, setSearchTerm] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  // Empty array = "All" (no filtering). Otherwise a set of selected value
+  // tiers, ORed together (e.g. selecting 5 and 4 shows parts worth either).
+  const [tierFilters, setTierFilters] = useState([]);
   const rootRef = useRef(null);
 
   // Close the dropdown on any click outside this component — not just when
@@ -76,7 +84,18 @@ const PartSearchSelect = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
+  // A different part type has a different set of value tiers — drop back
+  // to "All" rather than silently keeping a filter that no longer applies.
+  useEffect(() => {
+    setTierFilters([]);
+  }, [partType]);
+
   const catalog = useMemo(() => PARTS[partType] || [], [partType]);
+
+  const availableTiers = useMemo(
+    () => beyXUtilities.getAvailableValueTiers(valuesSet, partType),
+    [valuesSet, partType],
+  );
 
   const selectedPart = useMemo(
     () => catalog.find((part) => part.id === selectedId),
@@ -92,15 +111,37 @@ const PartSearchSelect = ({
 
   const filteredParts = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase();
-    if (!normalizedSearch) return catalog;
 
     return catalog.filter((part) => {
-      return (
+      const matchesSearch =
+        !normalizedSearch ||
         part.name?.toLowerCase().includes(normalizedSearch) ||
-        part.id?.toLowerCase().includes(normalizedSearch)
+        part.id?.toLowerCase().includes(normalizedSearch);
+
+      if (!matchesSearch) return false;
+
+      if (tierFilters.length === 0) return true;
+
+      const partValue = beyXUtilities.findPartValue(
+        valuesSet,
+        partType,
+        part.id,
+        context,
       );
+      const partValueKey = partValue === null ? "ban" : partValue;
+
+      return tierFilters.includes(partValueKey);
     });
-  }, [catalog, searchTerm]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [catalog, searchTerm, tierFilters, valuesSet, partType]);
+
+  function toggleTierFilter(tierKey) {
+    setTierFilters((prev) =>
+      prev.includes(tierKey)
+        ? prev.filter((key) => key !== tierKey)
+        : [...prev, tierKey],
+    );
+  }
 
   function openSearch() {
     setIsOpen(true);
@@ -159,6 +200,39 @@ const PartSearchSelect = ({
         </div>
       ) : (
         <div className={classes_names["search"]}>
+          {availableTiers.length > 0 && (
+            <div className={classes_names["tier-filter"]}>
+              <button
+                type="button"
+                className={`${classes_names["tier-chip"]} ${
+                  tierFilters.length === 0 ? classes_names["active"] : ""
+                }`}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => setTierFilters([])}
+              >
+                {t("part-search.filter-all")}
+              </button>
+              {availableTiers.map((tier) => {
+                const tierKey = tier === null ? "ban" : tier;
+                return (
+                  <button
+                    type="button"
+                    key={`tier-${tierKey}`}
+                    className={`${classes_names["tier-chip"]} ${
+                      tierFilters.includes(tierKey)
+                        ? classes_names["active"]
+                        : ""
+                    }`}
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={() => toggleTierFilter(tierKey)}
+                  >
+                    {tier === null ? t("part-search.filter-ban") : tier}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
           <div className={classes_names["search-input-wrapper"]}>
             <ion-icon name="search-outline"></ion-icon>
             <input
