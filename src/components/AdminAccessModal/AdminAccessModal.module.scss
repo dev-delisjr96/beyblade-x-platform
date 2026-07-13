@@ -34,6 +34,7 @@
 .field {
   @include main.flexBox(column, flex-start, stretch);
   gap: 0.4rem;
+  position: relative;
 }
 
 .field-label {
@@ -42,6 +43,18 @@
 
 .input {
   @include ds.field-input;
+}
+
+ion-icon[name="eye-outline"],
+ion-icon[name="eye-off-outline"] {
+  font-size: 20px;
+  color: var(--ds-text);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  @include main.transform(translateY(-50%));
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .error {

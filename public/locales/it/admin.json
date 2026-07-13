@@ -5,8 +5,8 @@
   "access-denied": "Non sei autorizzato",
   "submit-button": "Sono un Amministratore",
   "duplicate": {
-    "title": "Duplica per una Nuova Data",
-    "description": "Questo copia i valori che stai visualizzando in una nuova data. Le modifiche avvengono sempre sulla copia: l'originale rimane invariato.",
+    "title": "Scegli la data del torneo a cui applicare i nuovi valori",
+    "description": "Questo copia i valori che stai visualizzando in un nuovo torneo. Le modifiche avvengono sempre sul nuovo torneo: quello precedente rimane invariato.",
     "date-label": "Nuova Data",
     "submit-button": "Crea e Modifica",
     "block-edit-button": "Blocca Modifica",

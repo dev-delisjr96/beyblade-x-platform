@@ -5,8 +5,8 @@
   "access-denied": "You are not allowed",
   "submit-button": "I am an Admin",
   "duplicate": {
-    "title": "Duplicate for a New Date",
-    "description": "This copies the values you're currently viewing into a brand new date. Edits always happen on the copy — the original stays untouched.",
+    "title": "Choose the Tournament date to apply new values for",
+    "description": "This copies the values you're currently viewing into a brand new tournament. Edits always happen on the new tournament — the previous stays untouched.",
     "date-label": "New Date",
     "submit-button": "Create & Edit",
     "block-edit-button": "Block Edit",

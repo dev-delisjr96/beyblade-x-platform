@@ -43,6 +43,7 @@ const AdminAccessModal = ({
 
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [showPw, setShowPw] = useState(false);
 
   useEffect(() => {
     if (open) {
@@ -90,7 +91,7 @@ const AdminAccessModal = ({
           <input
             id="admin-password"
             className={classes_names["input"]}
-            type="password"
+            type={showPw ? "text" : "password"}
             value={password}
             autoFocus
             onChange={(event) => {
@@ -98,6 +99,12 @@ const AdminAccessModal = ({
               setError(false);
             }}
           />
+          <ion-icon
+            onClick={() => {
+              setShowPw(!showPw);
+            }}
+            name={`eye${showPw ? "-off" : ""}-outline`}
+          ></ion-icon>
         </div>
 
         {error && (

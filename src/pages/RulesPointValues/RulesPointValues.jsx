@@ -289,9 +289,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
                   type="button"
                   title="Move up a point"
                   onClick={(event) =>
-                    handleActionClick(event, () =>
-                      handleMoveChip(entry, "up"),
-                    )
+                    handleActionClick(event, () => handleMoveChip(entry, "up"))
                   }
                 >
                   <ion-icon name="arrow-up-outline"></ion-icon>
@@ -331,7 +329,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
 
   function renderValueGroup(value, groupEntries, keyPrefix, lockedPartType) {
     const label =
-      value === null ? t("ban-label") : t("point-label", { value });
+      value === null || !value ? t("ban-label") : t("point-label", { value });
 
     return (
       <div
