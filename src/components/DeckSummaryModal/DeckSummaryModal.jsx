@@ -10,6 +10,7 @@ import PARTS from "../../data/index";
 import * as beyXUtilities from "../../modules/utilities";
 import * as beyXHandlers from "../../modules/handlers";
 import * as beyXShare from "../../modules/share";
+import { getPlayTypeIcon } from "../../modules/playType";
 
 // Styles
 import styles from "./DeckSummaryModal.module.scss";
@@ -24,6 +25,11 @@ import { generateClassesNames } from "styles/utilities";
  * Functions both need the paid Blaze plan now, so there's no free
  * first-party way to host the image and hand back a URL).
  *
+ * `showValues` (point-buy formats only, see pages/DeckBuilderPage) toggles
+ * every point-value badge — the deck total, each column's build value,
+ * and each part's value — leaving just images, names and titles for
+ * formats that don't score by points.
+ *
  * The saved image always matches the desktop 3-column layout, even when
  * saved from a mobile device — see captureElementAsDesktopPng.
  */
@@ -36,6 +42,7 @@ const DeckSummaryModal = ({
   ruleSet = undefined,
   toggles = [],
   totalValue = 0,
+  showValues = true,
   onClose = () => {},
   ...props
 }) => {
@@ -52,6 +59,7 @@ const DeckSummaryModal = ({
     "columns",
     "column",
     "column-title",
+    "column-play-type-badge",
     "column-value",
     "column-parts",
     "part-frame",
@@ -156,12 +164,14 @@ const DeckSummaryModal = ({
               <h2 className={classes_names["modal-title"]}>
                 {t("deck-summary.title")}
               </h2>
-              <span className={classes_names["modal-total"]}>
-                {t("total-value")}:{" "}
-                <span className={classes_names["modal-total-number"]}>
-                  {totalValue}
+              {showValues && (
+                <span className={classes_names["modal-total"]}>
+                  {t("total-value")}:{" "}
+                  <span className={classes_names["modal-total-number"]}>
+                    {totalValue}
+                  </span>
                 </span>
-              </span>
+              )}
             </div>
           </div>
 
@@ -182,6 +192,12 @@ const DeckSummaryModal = ({
                 valuesSet,
                 entryToggles,
               );
+              // Same rule as DeckEntryCard: the build's play-type badge
+              // is defined by the bit only, regardless of build type.
+              const buildPlayType = beyXUtilities.getPartPlayType(
+                "bit",
+                entry.bit,
+              );
 
               return (
                 <div
@@ -189,9 +205,20 @@ const DeckSummaryModal = ({
                   key={`summary-column-${index}`}
                 >
                   <p className={classes_names["column-title"]}>{title}</p>
-                  <span className={classes_names["column-value"]}>
-                    {t("build-value")}: {entryValue}
-                  </span>
+                  {buildPlayType && (
+                    <span className={classes_names["column-play-type-badge"]}>
+                      <img
+                        src={getPlayTypeIcon(buildPlayType)}
+                        alt={buildPlayType}
+                      />
+                      {t(`play-type.${buildPlayType}`)}
+                    </span>
+                  )}
+                  {showValues && (
+                    <span className={classes_names["column-value"]}>
+                      {t("build-value")}: {entryValue}
+                    </span>
+                  )}
                   <div className={classes_names["column-parts"]}>
                     {fields.map((partType) => {
                       const partId = entry[partType];
@@ -221,13 +248,15 @@ const DeckSummaryModal = ({
                           <span className={classes_names["part-caption"]}>
                             {partData.name}
                           </span>
-                          <span className={classes_names["part-value"]}>
-                            {partValue === undefined
-                              ? "—"
-                              : beyXUtilities.isBannedValue(partValue)
-                                ? t("ban-label")
-                                : partValue}
-                          </span>
+                          {showValues && (
+                            <span className={classes_names["part-value"]}>
+                              {partValue === undefined
+                                ? "—"
+                                : beyXUtilities.isBannedValue(partValue)
+                                  ? t("ban-label")
+                                  : partValue}
+                            </span>
+                          )}
                         </div>
                       );
                     })}

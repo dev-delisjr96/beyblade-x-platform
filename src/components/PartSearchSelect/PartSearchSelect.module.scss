@@ -161,13 +161,139 @@
     0 12px 28px rgba(0, 0, 0, 0.55);
 }
 
+// --- Filter toggle buttons ("Play Type: All" / "Point Value: All") —
+// tap to reveal the corresponding chip row below, tap again or click
+// outside to hide it.
+
+.filters-bar {
+  position: relative;
+  z-index: 25;
+  @include main.flexBox(row, flex-start, flex-start);
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  position: relative;
+}
+
+.filter-toggle {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-surface-alt);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  ion-icon {
+    font-size: 0.9rem;
+    color: var(--ds-text-dim);
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    border-color: var(--ds-accent-border-strong);
+  }
+
+  &.open {
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+
+    ion-icon {
+      color: var(--ds-accent);
+    }
+  }
+}
+
+.filter-toggle-label {
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--ds-text-dim);
+}
+
+.filter-toggle-value {
+  font-family: var(--ds-font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ds-accent);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.filter-panel {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 260px;
+  max-width: 320px;
+  padding: 0.6rem;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-accent-border-strong);
+  border-radius: var(--ds-radius-md);
+  box-shadow:
+    var(--ds-glow-sm),
+    0 12px 28px rgba(0, 0, 0, 0.55);
+}
+
+// --- Play-type filter (attack/balance/stamina/defense), built live from
+// whatever's actually present in this part type's catalog.
+
+.play-type-filter {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.play-type-chip {
+  padding: 0.25rem 0.7rem 0.25rem 0.45rem;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-surface-alt);
+  color: var(--ds-text-dim);
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  @include main.flexBox(row, center, center);
+  gap: 0.35rem;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  img {
+    @include main.size(16px);
+    object-fit: contain;
+  }
+
+  &:hover {
+    color: var(--ds-text);
+  }
+
+  &.active {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
+}
+
 // --- Value-tier filter (0-1-2-3-4-5.../Ban), built live from whatever
 // point values actually exist for this part type in the current rule set.
 
 .tier-filter {
-  position: relative;
-  z-index: 21;
-  margin-bottom: 6px;
   @include main.flexBox(row, flex-start, center);
   gap: 0.35rem;
   flex-wrap: wrap;

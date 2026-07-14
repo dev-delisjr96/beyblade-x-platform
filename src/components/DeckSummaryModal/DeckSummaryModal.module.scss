@@ -113,6 +113,27 @@
   @include main.truncate(2);
 }
 
+.column-play-type-badge {
+  align-self: center;
+  @include main.flexBox(row, center, center);
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-bg-elevated);
+  border: 1px solid var(--ds-accent-border);
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--ds-text-dim);
+
+  img {
+    @include main.size(14px);
+    object-fit: contain;
+  }
+}
+
 .column-value {
   font-family: var(--ds-font-mono);
   text-transform: uppercase;

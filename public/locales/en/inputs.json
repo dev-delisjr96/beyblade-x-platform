@@ -14,6 +14,14 @@
     "change": "Change",
     "clear": "Clear",
     "filter-all": "All",
-    "filter-ban": "Ban"
+    "filter-ban": "Ban",
+    "play-type-label": "Play Type",
+    "point-value-label": "Point Value",
+    "play-type": {
+      "attack": "Attack",
+      "balance": "Balance",
+      "stamina": "Stamina",
+      "defense": "Defense"
+    }
   }
 }

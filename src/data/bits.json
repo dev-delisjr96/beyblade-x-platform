@@ -2,261 +2,313 @@
   {
     "id": "flat",
     "name": "Flat (F)",
-    "img": "/parts/flat.png"
+    "img": "/parts/flat.png",
+    "play_type": "attack"
   },
   {
     "id": "low-flat",
     "name": "Low Flat (LF)",
-    "img": "/parts/low-flat.png"
+    "img": "/parts/low-flat.png",
+    "play_type": "attack"
   },
   {
     "id": "taper",
     "name": "Taper (T)",
-    "img": "/parts/taper.png"
+    "img": "/parts/taper.png",
+    "play_type": "balance"
   },
   {
     "id": "high-taper",
     "name": "High Taper (HT)",
-    "img": "/parts/high-taper.png"
+    "img": "/parts/high-taper.png",
+    "play_type": "balance"
   },
   {
     "id": "ball",
     "name": "Ball (B)",
-    "img": "/parts/ball.png"
+    "img": "/parts/ball.png",
+    "play_type": "stamina"
   },
   {
     "id": "free-ball",
     "name": "Free Ball (FB)",
-    "img": "/parts/free-ball.png"
+    "img": "/parts/free-ball.png",
+    "play_type": "stamina"
   },
   {
     "id": "gear-ball",
     "name": "Gear Ball (GB)",
-    "img": "/parts/gear-ball.png"
+    "img": "/parts/gear-ball.png",
+    "play_type": "stamina"
   },
   {
     "id": "disc-ball",
     "name": "Disc Ball (DB)",
-    "img": "/parts/disc-ball.png"
+    "img": "/parts/disc-ball.png",
+    "play_type": "stamina"
   },
   {
     "id": "needle",
     "name": "Needle (N)",
-    "img": "/parts/needle.png"
+    "img": "/parts/needle.png",
+    "play_type": "defense"
   },
   {
     "id": "high-needle",
     "name": "High Needle (HN)",
-    "img": "/parts/high-needle.png"
+    "img": "/parts/high-needle.png",
+    "play_type": "defense"
   },
   {
     "id": "metal-needle",
     "name": "Metal Needle (MN)",
-    "img": "/parts/metal-needle.png"
+    "img": "/parts/metal-needle.png",
+    "play_type": "defense"
   },
   {
     "id": "gear-needle",
     "name": "Gear Needle (GN)",
-    "img": "/parts/gear-needle.png"
+    "img": "/parts/gear-needle.png",
+    "play_type": "defense"
   },
   {
     "id": "under-needle",
     "name": "Under Needle (UN)",
-    "img": "/parts/under-needle.png"
+    "img": "/parts/under-needle.png",
+    "play_type": "defense"
   },
   {
     "id": "orb",
     "name": "Orb (O)",
-    "img": "/parts/orb.png"
+    "img": "/parts/orb.png",
+    "play_type": "defense"
   },
   {
     "id": "low-orb",
     "name": "Low Orb (LO)",
-    "img": "/parts/low-orb.png"
+    "img": "/parts/low-orb.png",
+    "play_type": "defense"
   },
   {
     "id": "point",
     "name": "Point (P)",
-    "img": "/parts/point.png"
+    "img": "/parts/point.png",
+    "play_type": "balance"
   },
   {
     "id": "gear-point",
     "name": "Gear Point (GP)",
-    "img": "/parts/gear-point.png"
+    "img": "/parts/gear-point.png",
+    "play_type": "balance"
   },
   {
     "id": "trans-point",
     "name": "Trans Point (TP)",
-    "img": "/parts/trans-point.png"
+    "img": "/parts/trans-point.png",
+    "play_type": "balance"
   },
   {
     "id": "spike",
     "name": "Spike (S)",
-    "img": "/parts/spike.png"
+    "img": "/parts/spike.png",
+    "play_type": "stamina"
   },
   {
     "id": "bound-spike",
     "name": "Bound Spike (BS)",
-    "img": "/parts/bound-spike.png"
+    "img": "/parts/bound-spike.png",
+    "play_type": "stamina"
   },
   {
     "id": "rush",
     "name": "Rush (R)",
-    "img": "/parts/rush.png"
+    "img": "/parts/rush.png",
+    "play_type": "attack"
   },
   {
     "id": "low-rush",
     "name": "Low Rush (LR)",
-    "img": "/parts/low-rush.png"
+    "img": "/parts/low-rush.png",
+    "play_type": "attack"
   },
   {
     "id": "gear-rush",
     "name": "Gear Rush (GR)",
-    "img": "/parts/gear-rush.png"
+    "img": "/parts/gear-rush.png",
+    "play_type": "attack"
   },
   {
     "id": "gear-flat",
     "name": "Gear Flat (GF)",
-    "img": "/parts/gear-flat.png"
+    "img": "/parts/gear-flat.png",
+    "play_type": "attack"
   },
   {
     "id": "accel",
     "name": "Accel (A)",
-    "img": "/parts/accel.png"
+    "img": "/parts/accel.png",
+    "play_type": "attack"
   },
   {
     "id": "rubber-accel",
     "name": "Rubber Accel (RA)",
-    "img": "/parts/rubber-accel.png"
+    "img": "/parts/rubber-accel.png",
+    "play_type": "attack"
   },
   {
     "id": "hexa",
     "name": "Hexa (H)",
-    "img": "/parts/hexa.png"
+    "img": "/parts/hexa.png",
+    "play_type": "balance"
   },
   {
     "id": "quake",
     "name": "Quake (Q)",
-    "img": "/parts/quake.png"
+    "img": "/parts/quake.png",
+    "play_type": "attack"
   },
   {
     "id": "unite",
     "name": "Unite (U)",
-    "img": "/parts/unite.png"
+    "img": "/parts/unite.png",
+    "play_type": "balance"
   },
   {
     "id": "dot",
     "name": "Dot (D)",
-    "img": "/parts/dot.png"
+    "img": "/parts/dot.png",
+    "play_type": "stamina"
   },
   {
     "id": "cyclone",
     "name": "Cyclone (C)",
-    "img": "/parts/cyclone.png"
+    "img": "/parts/cyclone.png",
+    "play_type": "attack"
   },
   {
     "id": "vortex",
     "name": "Vortex (V)",
-    "img": "/parts/vortex.png"
+    "img": "/parts/vortex.png",
+    "play_type": "attack"
   },
   {
     "id": "glide",
     "name": "Glide (G)",
-    "img": "/parts/glide.png"
+    "img": "/parts/glide.png",
+    "play_type": "stamina"
   },
   {
     "id": "elevate",
     "name": "Elevate (E)",
-    "img": "/parts/elevate.png"
+    "img": "/parts/elevate.png",
+    "play_type": "defense"
   },
   {
     "id": "level",
     "name": "Level (L)",
-    "img": "/parts/level.png"
+    "img": "/parts/level.png",
+    "play_type": "stamina"
   },
   {
     "id": "kick",
     "name": "Kick (K)",
-    "img": "/parts/kick.png"
+    "img": "/parts/kick.png",
+    "play_type": "balance"
   },
   {
     "id": "wedge",
     "name": "Wedge (W)",
-    "img": "/parts/wedge.png"
+    "img": "/parts/wedge.png",
+    "play_type": "defense"
   },
   {
     "id": "zap",
     "name": "Zap (Z)",
-    "img": "/parts/zap.png"
+    "img": "/parts/zap.png",
+    "play_type": "attack"
   },
   {
     "id": "disc-spike",
     "name": "Disc Spike (DS)",
-    "img": "/parts/disc-spike.png"
+    "img": "/parts/disc-spike.png",
+    "play_type": "stamina"
   },
   {
     "id": "free-flat",
     "name": "Free Flat (FF)",
-    "img": "/parts/free-flat.png"
+    "img": "/parts/free-flat.png",
+    "play_type": "attack"
   },
   {
     "id": "gear-unite",
     "name": "Gear Unite (GU)",
-    "img": "/parts/gear-unite.png"
+    "img": "/parts/gear-unite.png",
+    "play_type": "balance"
   },
   {
     "id": "ignition",
     "name": "Ignition (I)",
-    "img": "/parts/ignition.png"
+    "img": "/parts/ignition.png",
+    "play_type": "attack"
   },
   {
     "id": "jolt",
     "name": "Jolt (J)",
-    "img": "/parts/jolt.png"
+    "img": "/parts/jolt.png",
+    "play_type": "attack"
   },
   {
     "id": "merge",
     "name": "Merge (M)",
-    "img": "/parts/merge.png"
+    "img": "/parts/merge.png",
+    "play_type": "balance"
   },
   {
     "id": "narrow",
     "name": "Narrow (Nr)",
-    "img": "/parts/narrow.png"
+    "img": "/parts/narrow.png",
+    "play_type": "stamina"
   },
   {
     "id": "trans-kick",
     "name": "Trans Kick (TK)",
-    "img": "/parts/trans-kick.png"
+    "img": "/parts/trans-kick.png",
+    "play_type": "balance"
   },
   {
     "id": "under-flat",
     "name": "Under Flat (UF)",
-    "img": "/parts/under-flat.png"
+    "img": "/parts/under-flat.png",
+    "play_type": "attack"
   },
   {
     "id": "wall-ball",
     "name": "Wall Ball (WB)",
-    "img": "/parts/wall-ball.png"
+    "img": "/parts/wall-ball.png",
+    "play_type": "defense"
   },
   {
     "id": "wall-wedge",
     "name": "Wall Wedge (WW)",
-    "img": "/parts/wall-wedge.png"
+    "img": "/parts/wall-wedge.png",
+    "play_type": "defense"
   },
   {
     "id": "yielding",
     "name": "Yielding (Y)",
-    "img": "/parts/yielding.png"
+    "img": "/parts/yielding.png",
+    "play_type": "stamina"
   },
   {
     "id": "operate",
     "name": "Operate (Op)",
-    "img": "/parts/operate.png"
+    "img": "/parts/operate.png",
+    "play_type": "balance"
   },
   {
     "id": "turbo",
     "name": "Turbo (Tr)",
-    "img": "/parts/turbo.png"
+    "img": "/parts/turbo.png",
+    "play_type": "attack"
   }
 ]

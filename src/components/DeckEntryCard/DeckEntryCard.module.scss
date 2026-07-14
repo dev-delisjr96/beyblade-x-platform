@@ -24,6 +24,26 @@
   right: 1.25rem;
 }
 
+.entry-play-type-badge {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  z-index: 3;
+  @include main.size(56px);
+  border-radius: 50%;
+  background: var(--ds-surface);
+  border: 2px solid var(--ds-accent-border-strong);
+  box-shadow: var(--ds-glow-md);
+  @include main.flexBox(row, center, center);
+  padding: 9px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
 .header {
   @include main.flexBox(row, space-between, flex-start);
   gap: 1rem;
@@ -92,6 +112,33 @@
 .conditions {
   @include main.flexBox(column, flex-start, stretch);
   gap: 0.4rem;
+}
+
+.blade-meta-row {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.play-type-badge {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--ds-radius-pill);
+  width: fit-content;
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ds-text-dim);
+  background: var(--ds-bg-elevated);
+  border: 1px solid var(--ds-accent-border);
+
+  img {
+    @include main.size(18px);
+    object-fit: contain;
+  }
 }
 
 .spin-badge {

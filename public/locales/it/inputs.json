@@ -14,6 +14,14 @@
     "change": "Cambia",
     "clear": "Cancella",
     "filter-all": "Tutti",
-    "filter-ban": "Bandito"
+    "filter-ban": "Bandito",
+    "play-type-label": "Tipo di Gioco",
+    "point-value-label": "Valore Punti",
+    "play-type": {
+      "attack": "Attacco",
+      "balance": "Equilibrio",
+      "stamina": "Resistenza",
+      "defense": "Difesa"
+    }
   }
 }

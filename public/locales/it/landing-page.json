@@ -14,6 +14,12 @@
   "build-value": "Valore Totale della Build",
   "ban-label": "Bandito",
   "confirm-button": "Conferma",
+  "save-button": "Salva",
+  "saving": "Preparazione immagine...",
+  "save-status": {
+    "saved": "Immagine salvata!",
+    "error": "Impossibile creare l'immagine. Riprova."
+  },
   "deck-summary": {
     "title": "Deck",
     "save": "Salva",
@@ -27,6 +33,12 @@
   "spin": {
     "left": "Sinistra",
     "right": "Destra"
+  },
+  "play-type": {
+    "attack": "Attacco",
+    "balance": "Equilibrio",
+    "stamina": "Resistenza",
+    "defense": "Difesa"
   },
   "parts": {
     "blade": "Lama",

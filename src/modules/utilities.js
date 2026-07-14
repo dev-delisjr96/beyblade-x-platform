@@ -9,6 +9,7 @@ import bits from "../data/bits.json";
 import * as utilities from "../utilities/index";
 import * as ruleConditions from "./rules/conditions";
 import * as beyXSchema from "./schema";
+import { PLAY_TYPES } from "./playType";
 
 export const CX_PARTS = [
   {
@@ -117,6 +118,33 @@ export function mainBladeAllowsOverBlade(mainBladeId) {
   if (!mainBladeId) return false;
   const mainBladeData = main_blades.find((blade) => blade.id === mainBladeId);
   return Boolean(mainBladeData?.withOverBlade);
+}
+
+/**
+ * A part's "play type" (attack/balance/stamina/defense — see
+ * modules/playType.js), if it has one. Only blade, main-blade,
+ * assist-blade and bit carry this in the catalog; ratchet, lock-chip and
+ * over-blade don't, so this simply returns undefined for those.
+ */
+export function getPartPlayType(partType, partId) {
+  if (!partId) return undefined;
+  const partData = findPartData(partType, partId);
+  return partData?.play_type;
+}
+
+/**
+ * Every distinct play type present across a part type's whole catalog
+ * (e.g. every bit's play_type) — used to build the play-type filter on
+ * part selectors. Returns [] for part types that don't carry play_type
+ * at all (ratchet, lock-chip, over-blade), so the filter simply doesn't
+ * render for them.
+ */
+export function getAvailablePlayTypes(catalog = []) {
+  const found = new Set();
+  catalog.forEach((part) => {
+    if (part.play_type) found.add(part.play_type);
+  });
+  return PLAY_TYPES.filter((type) => found.has(type));
 }
 
 export function getDataFileByPart(part) {
@@ -628,4 +656,61 @@ export function groupPointListEntriesByPart(entries = []) {
     partType,
     valueGroups: groupPointListEntriesByValue(groups.get(partType)),
   }));
+}
+
+// Some catalog part JSONs use camelCase keys in their `builds.popular`
+// combos (e.g. main-blades.json → { lockChip, assistBlade, overBlade,
+// ratchet, bit }) instead of the app's normal kebab-case schema keys
+// ("lock-chip", "assist-blade", "over-blade"). "ratchet"/"bit" already
+// match either way.
+const BUILD_COMBO_KEY_MAP = {
+  lockChip: "lock-chip",
+  mainBlade: "main-blade",
+  overBlade: "over-blade",
+  assistBlade: "assist-blade",
+};
+
+/**
+ * Converts one raw `builds.popular`/`builds.family` combo entry (see
+ * data/blades.json, data/main-blades.json → "builds") into the app's
+ * normal kebab-case field names, ready to merge into a deck entry.
+ */
+export function normalizeBuildCombo(combo = {}) {
+  const normalized = {};
+  Object.entries(combo).forEach(([key, value]) => {
+    const mappedKey = BUILD_COMBO_KEY_MAP[key] || key;
+    normalized[mappedKey] = value;
+  });
+  return normalized;
+}
+
+/**
+ * Every part slot a "pre-build" combo card should display, in schema
+ * order, for a given entry type — the source part (the blade or
+ * main-blade whose `builds.popular` was opened) plus whichever of the
+ * combo's own fields are actually present. Fields with no value (e.g. a
+ * ratchet-integrated blade's combo has no "ratchet") are simply skipped.
+ *
+ * @param {"simple"|"cx"} entryType
+ * @param {string} sourcePartType - "blade" or "main-blade"
+ * @param {string} sourcePartId
+ * @param {Object} normalizedCombo - see normalizeBuildCombo
+ * @returns {Array<{partType: string, partId: string}>}
+ */
+export function buildComboDisplayFields(
+  entryType,
+  sourcePartType,
+  sourcePartId,
+  normalizedCombo,
+) {
+  const order =
+    entryType === "cx"
+      ? ["lock-chip", "main-blade", "over-blade", "assist-blade", "ratchet", "bit"]
+      : ["blade", "ratchet", "bit"];
+
+  const merged = { ...normalizedCombo, [sourcePartType]: sourcePartId };
+
+  return order
+    .filter((partType) => Boolean(merged[partType]))
+    .map((partType) => ({ partType, partId: merged[partType] }));
 }

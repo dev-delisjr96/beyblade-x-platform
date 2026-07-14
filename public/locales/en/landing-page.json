@@ -14,6 +14,12 @@
   "build-value": "Total Build Value",
   "ban-label": "Ban",
   "confirm-button": "Confirm",
+  "save-button": "Save",
+  "saving": "Preparing image...",
+  "save-status": {
+    "saved": "Image saved!",
+    "error": "Couldn't create the image. Try again."
+  },
   "deck-summary": {
     "title": "Deck",
     "save": "Save",
@@ -27,6 +33,12 @@
   "spin": {
     "left": "Left",
     "right": "Right"
+  },
+  "play-type": {
+    "attack": "Attack",
+    "balance": "Balance",
+    "stamina": "Stamina",
+    "defense": "Defense"
   },
   "parts": {
     "blade": "Blade",

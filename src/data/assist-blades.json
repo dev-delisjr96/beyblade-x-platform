@@ -6,7 +6,8 @@
     "full_name": {
       "takara-tomy": "Slash",
       "hasbro": "Slash"
-    }
+    },
+    "play_type": "attack"
   },
   {
     "id": "assist-blade-round",
@@ -15,7 +16,8 @@
     "full_name": {
       "takara-tomy": "Round",
       "hasbro": "Round"
-    }
+    },
+    "play_type": "stamina"
   },
   {
     "id": "assist-blade-bumper",
@@ -24,7 +26,8 @@
     "full_name": {
       "takara-tomy": "Bumper",
       "hasbro": "Bumper"
-    }
+    },
+    "play_type": "defense"
   },
   {
     "id": "assist-blade-turn",
@@ -33,7 +36,8 @@
     "full_name": {
       "takara-tomy": "Turn",
       "hasbro": "Turn"
-    }
+    },
+    "play_type": "balance"
   },
   {
     "id": "assist-blade-charge",
@@ -42,7 +46,8 @@
     "full_name": {
       "takara-tomy": "Charge",
       "hasbro": "Charge"
-    }
+    },
+    "play_type": "attack"
   },
   {
     "id": "assist-blade-jaggy",
@@ -51,7 +56,8 @@
     "full_name": {
       "takara-tomy": "Jaggy",
       "hasbro": "Jaggy"
-    }
+    },
+    "play_type": "attack"
   },
   {
     "id": "assist-blade-assault",
@@ -60,7 +66,8 @@
     "full_name": {
       "takara-tomy": "Assault",
       "hasbro": "Assault"
-    }
+    },
+    "play_type": "attack"
   },
   {
     "id": "assist-blade-wheel",
@@ -69,7 +76,8 @@
     "full_name": {
       "takara-tomy": "Wheel",
       "hasbro": "Wheel"
-    }
+    },
+    "play_type": "stamina"
   },
   {
     "id": "assist-blade-massive",
@@ -78,7 +86,8 @@
     "full_name": {
       "takara-tomy": "Massive",
       "hasbro": ""
-    }
+    },
+    "play_type": "defense"
   },
   {
     "id": "assist-blade-dual",
@@ -87,7 +96,8 @@
     "full_name": {
       "takara-tomy": "Dual",
       "hasbro": ""
-    }
+    },
+    "play_type": "balance"
   },
   {
     "id": "assist-blade-free",
@@ -96,7 +106,8 @@
     "full_name": {
       "takara-tomy": "Free",
       "hasbro": ""
-    }
+    },
+    "play_type": "stamina"
   },
   {
     "id": "assist-blade-heavy",
@@ -105,7 +116,8 @@
     "full_name": {
       "takara-tomy": "Heavy",
       "hasbro": "Heavy"
-    }
+    },
+    "play_type": "defense"
   },
   {
     "id": "assist-blade-zillion",
@@ -114,7 +126,8 @@
     "full_name": {
       "takara-tomy": "Zillion",
       "hasbro": ""
-    }
+    },
+    "play_type": "defense"
   },
   {
     "id": "assist-blade-knuckle",
@@ -123,7 +136,8 @@
     "full_name": {
       "takara-tomy": "Knuckle",
       "hasbro": ""
-    }
+    },
+    "play_type": "attack"
   },
   {
     "id": "assist-blade-vertical",
@@ -132,7 +146,8 @@
     "full_name": {
       "takara-tomy": "Vertical",
       "hasbro": ""
-    }
+    },
+    "play_type": "attack"
   },
   {
     "id": "assist-blade-erase",
@@ -141,7 +156,8 @@
     "full_name": {
       "takara-tomy": "Erase",
       "hasbro": ""
-    }
+    },
+    "play_type": "attack"
   },
   {
     "id": "assist-blade-gravity",
@@ -150,6 +166,7 @@
     "full_name": {
       "takara-tomy": "Gravity",
       "hasbro": ""
-    }
+    },
+    "play_type": "defense"
   }
 ]
