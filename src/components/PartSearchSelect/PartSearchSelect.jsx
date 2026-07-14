@@ -67,21 +67,14 @@ const PartSearchSelect = ({
   // Empty array = "All" (no filtering). Otherwise a set of selected value
   // tiers, ORed together (e.g. selecting 5 and 4 shows parts worth either).
   const [tierFilters, setTierFilters] = useState([]);
-  const rootRef = useRef(null);
+  const inputRef = useRef(null);
 
-  // Close the dropdown on any click outside this component — not just when
-  // re-clicking the selector itself.
+  // The dropdown can be opened without the input itself being focused yet
+  // (e.g. clicking "change" on an already-selected part) — always shift
+  // focus into the input once it's open, so blur (below) is a reliable way
+  // to close it no matter how it was opened, on both mouse and touch.
   useEffect(() => {
-    if (!isOpen) return undefined;
-
-    function handleClickOutside(event) {
-      if (rootRef.current && !rootRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    if (isOpen) inputRef.current?.focus();
   }, [isOpen]);
 
   // A different part type has a different set of value tiers — drop back
@@ -165,7 +158,7 @@ const PartSearchSelect = ({
   const showSelected = Boolean(selectedPart) && !isOpen;
 
   return (
-    <div className={classes_names["root"]} ref={rootRef} {...props}>
+    <div className={classes_names["root"]} {...props}>
       {label && <p className={classes_names["label"]}>{label}</p>}
 
       {showSelected ? (
@@ -241,10 +234,12 @@ const PartSearchSelect = ({
             <ion-icon name="search-outline"></ion-icon>
             <input
               type="text"
+              ref={inputRef}
               value={searchTerm}
               placeholder={t("part-search.placeholder")}
               onChange={(event) => setSearchTerm(event.target.value)}
               onFocus={openSearch}
+              onBlur={() => setIsOpen(false)}
             />
             {selectedPart && (
               <ion-icon

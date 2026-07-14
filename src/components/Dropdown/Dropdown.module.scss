@@ -2,6 +2,7 @@
 
 .dropdown {
   width: 100%;
+  position: relative;
   border: 1px solid #282828;
 
   .actual-value {
@@ -18,7 +19,12 @@
   }
 
   .options-container {
-    width: 100%;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 30;
+    background: var(--color-white, #fff);
     @include main.flexBox(column, flex-start, stretch);
 
     .option {

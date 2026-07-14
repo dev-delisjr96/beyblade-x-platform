@@ -8,7 +8,6 @@
   border: 1px solid var(--ds-accent-border) !important;
   border-radius: var(--ds-radius-pill);
   background: var(--ds-surface);
-  overflow: hidden;
   transition:
     box-shadow 0.2s ease,
     border-color 0.2s ease;
@@ -23,7 +22,7 @@
     border-color: var(--ds-accent-border-strong) !important;
 
     .actual-value {
-      border-bottom: 1px solid var(--ds-accent-border) !important;
+      border-bottom: none !important;
     }
   }
 }
@@ -53,6 +52,10 @@
 
 .options-container {
   background: var(--ds-surface);
+  border: 1px solid var(--ds-accent-border-strong) !important;
+  border-radius: var(--ds-radius-md);
+  box-shadow: var(--ds-glow-sm);
+  overflow: hidden;
 }
 
 .option {

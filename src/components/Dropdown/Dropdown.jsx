@@ -63,6 +63,7 @@ const Dropdown = ({
   function select(option) {
     onChange(option);
     setFilteredOptions(options.filter((opt) => opt.value !== option.value));
+    setIsDropped(false);
   }
 
   return (

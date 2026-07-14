@@ -150,7 +150,6 @@
 
 .entries-container {
   position: relative;
-  z-index: 1;
   @include main.grid(repeat(auto-fit, minmax(320px, 1fr)), auto, 1.5rem);
 }
 
