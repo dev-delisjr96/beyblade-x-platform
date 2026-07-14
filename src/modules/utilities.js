@@ -560,11 +560,26 @@ export function buildPointListEntries(valuesSet = {}) {
   return entries;
 }
 
+// Fixed display order for part-type chips within a point-value row (see
+// groupPointListEntriesByValue) and for part-type sections in the "by
+// part" view (see groupPointListEntriesByPart).
+const PART_TYPE_ORDER = [
+  "blade",
+  "lock-chip",
+  "main-blade",
+  "over-blade",
+  "assist-blade",
+  "ratchet",
+  "bit",
+];
+
 /**
  * Groups point-list entries (see buildPointListEntries) by their value,
  * returned as value/entries pairs already sorted highest-to-lowest, with
  * banned parts (see isBannedValue) merged into one "ban" group sorted
- * last, regardless of whether they're stored as `null` or `false`.
+ * last, regardless of whether they're stored as `null` or `false`. Within
+ * each group, entries are ordered by part type (see PART_TYPE_ORDER) —
+ * blade, lock-chip, main-blade, over-blade, assist-blade, ratchet, bit.
  */
 export function groupPointListEntriesByValue(entries = []) {
   const groups = new Map();
@@ -581,25 +596,23 @@ export function groupPointListEntriesByValue(entries = []) {
     return b - a;
   });
 
-  return sortedKeys.map((value) => ({ value, entries: groups.get(value) }));
+  return sortedKeys.map((value) => ({
+    value,
+    entries: [...groups.get(value)].sort(
+      (a, b) =>
+        PART_TYPE_ORDER.indexOf(a.partType) -
+        PART_TYPE_ORDER.indexOf(b.partType),
+    ),
+  }));
 }
 
 /**
  * Groups point-list entries (see buildPointListEntries) by part type
  * first, then by value within each part type — used for the "by part"
- * view. Part types are ordered to match the build schema.
+ * view. Part types are ordered to match the build schema (see
+ * PART_TYPE_ORDER).
  */
 export function groupPointListEntriesByPart(entries = []) {
-  const partTypeOrder = [
-    "blade",
-    "lock-chip",
-    "main-blade",
-    "over-blade",
-    "assist-blade",
-    "ratchet",
-    "bit",
-  ];
-
   const groups = new Map();
 
   entries.forEach((entry) => {
@@ -608,7 +621,7 @@ export function groupPointListEntriesByPart(entries = []) {
   });
 
   const orderedPartTypes = Array.from(groups.keys()).sort(
-    (a, b) => partTypeOrder.indexOf(a) - partTypeOrder.indexOf(b),
+    (a, b) => PART_TYPE_ORDER.indexOf(a) - PART_TYPE_ORDER.indexOf(b),
   );
 
   return orderedPartTypes.map((partType) => ({
