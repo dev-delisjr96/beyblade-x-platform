@@ -6,6 +6,16 @@
     "full_name": {
       "takara-tomy": "Brave",
       "hasbro": "Courage"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-dran",
+          "assistBlade": "assist-blade-slash",
+          "ratchet": "6-60",
+          "bit": "vortex"
+        }
+      ]
     }
   },
   {
@@ -15,6 +25,16 @@
     "full_name": {
       "takara-tomy": "Arc",
       "hasbro": "Arc"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-wizard",
+          "assistBlade": "assist-blade-round",
+          "ratchet": "4-55",
+          "bit": "low-orb"
+        }
+      ]
     }
   },
   {
@@ -24,6 +44,22 @@
     "full_name": {
       "takara-tomy": "Dark",
       "hasbro": "Dark"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-perseus",
+          "assistBlade": "assist-blade-bumper",
+          "ratchet": "6-80",
+          "bit": "wedge"
+        },
+        {
+          "lockChip": "lock-chip-cerberus",
+          "assistBlade": "assist-blade-wheel",
+          "ratchet": "1-60",
+          "bit": "flat"
+        }
+      ]
     }
   },
   {
@@ -33,6 +69,22 @@
     "full_name": {
       "takara-tomy": "Reaper",
       "hasbro": "Reaper"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-hells",
+          "assistBlade": "assist-blade-turn",
+          "ratchet": "4-70",
+          "bit": "kick"
+        },
+        {
+          "lockChip": "lock-chip-rhino",
+          "assistBlade": "assist-blade-charge",
+          "ratchet": "4-55",
+          "bit": "dot"
+        }
+      ]
     }
   },
   {
@@ -42,6 +94,16 @@
     "full_name": {
       "takara-tomy": "Brush",
       "hasbro": "Brush"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-fox",
+          "assistBlade": "assist-blade-jaggy",
+          "ratchet": "9-70",
+          "bit": "gear-rush"
+        }
+      ]
     }
   },
   {
@@ -51,6 +113,22 @@
     "full_name": {
       "takara-tomy": "Blast",
       "hasbro": "Blast"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-emperor",
+          "assistBlade": "assist-blade-heavy",
+          "ratchet": "7-60",
+          "bit": "rush"
+        },
+        {
+          "lockChip": "lock-chip-pegasus",
+          "assistBlade": "assist-blade-assault",
+          "ratchet": "Turbo (Ratchet-Integrated Bit)",
+          "bit": "turbo-ratchet-integrated-bit"
+        }
+      ]
     }
   },
   {
@@ -60,6 +138,22 @@
     "full_name": {
       "takara-tomy": "Flame",
       "hasbro": "Flame"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-cerberus",
+          "assistBlade": "assist-blade-wheel",
+          "ratchet": "5-80",
+          "bit": "wall-ball"
+        },
+        {
+          "lockChip": "lock-chip-whale",
+          "assistBlade": "assist-blade-massive",
+          "ratchet": "3-85",
+          "bit": "high-taper"
+        }
+      ]
     }
   },
   {
@@ -69,6 +163,16 @@
     "full_name": {
       "takara-tomy": "Eclipse",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-sol",
+          "assistBlade": "assist-blade-dual",
+          "ratchet": "5-70",
+          "bit": "trans-kick"
+        }
+      ]
     }
   },
   {
@@ -78,6 +182,16 @@
     "full_name": {
       "takara-tomy": "Eclipse Upper",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-sol",
+          "assistBlade": "assist-blade-dual",
+          "ratchet": "5-70",
+          "bit": "trans-kick"
+        }
+      ]
     }
   },
   {
@@ -87,6 +201,16 @@
     "full_name": {
       "takara-tomy": "Hunt",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-wolf",
+          "assistBlade": "assist-blade-free",
+          "ratchet": "0-60",
+          "bit": "disc-ball"
+        }
+      ]
     }
   },
   {
@@ -96,6 +220,16 @@
     "full_name": {
       "takara-tomy": "Might",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-emperor",
+          "assistBlade": "assist-blade-heavy",
+          "ratchet": "Operate (Ratchet-Integrated Bit)",
+          "bit": "operate-ratchet-integrated-bit"
+        }
+      ]
     }
   },
   {
@@ -105,6 +239,16 @@
     "full_name": {
       "takara-tomy": "Flare",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-phoenix",
+          "assistBlade": "assist-blade-zillion",
+          "ratchet": "9-80",
+          "bit": "wall-wedge"
+        }
+      ]
     }
   },
   {
@@ -115,7 +259,18 @@
       "takara-tomy": "Blitz",
       "hasbro": ""
     },
-    "withOverBlade": true
+    "withOverBlade": true,
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-bahamut",
+          "overBlade": "over-blade-break",
+          "assistBlade": "assist-blade-knuckle",
+          "ratchet": "1-50",
+          "bit": "ignition"
+        }
+      ]
+    }
   },
   {
     "id": "cx-main-blade-fortress",
@@ -125,7 +280,18 @@
       "takara-tomy": "Fortress",
       "hasbro": ""
     },
-    "withOverBlade": true
+    "withOverBlade": true,
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-knight",
+          "overBlade": "over-blade-guard",
+          "assistBlade": "assist-blade-vertical",
+          "ratchet": "8-70",
+          "bit": "under-needle"
+        }
+      ]
+    }
   },
   {
     "id": "cx-main-blade-rage",
@@ -135,7 +301,18 @@
       "takara-tomy": "Rage",
       "hasbro": ""
     },
-    "withOverBlade": true
+    "withOverBlade": true,
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-ragna",
+          "overBlade": "over-blade-flow",
+          "assistBlade": "assist-blade-erase",
+          "ratchet": "4-55",
+          "bit": "yielding"
+        }
+      ]
+    }
   },
   {
     "id": "cx-main-blade-delta",
@@ -145,7 +322,17 @@
       "takara-tomy": "Delta",
       "hasbro": ""
     },
-    "withOverBlade": true
+    "withOverBlade": true,
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-unicorn",
+          "overBlade": "over-blade-peak",
+          "ratchet": "3-60",
+          "bit": "gear-unite"
+        }
+      ]
+    }
   },
   {
     "id": "cx-main-blade-whip",
@@ -155,7 +342,18 @@
       "takara-tomy": "Whip",
       "hasbro": ""
     },
-    "withOverBlade": true
+    "withOverBlade": true,
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-brachio",
+          "overBlade": "over-blade-outer",
+          "assistBlade": "assist-blade-wheel",
+          "ratchet": "5-70",
+          "bit": "narrow"
+        }
+      ]
+    }
   },
   {
     "id": "cx-main-blade-fort",
@@ -164,6 +362,16 @@
     "full_name": {
       "takara-tomy": "Fort",
       "hasbro": "Fort"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-hornet",
+          "assistBlade": "assist-blade-round",
+          "ratchet": "7-60",
+          "bit": "taper"
+        }
+      ]
     }
   },
   {
@@ -173,6 +381,16 @@
     "full_name": {
       "takara-tomy": "Antler",
       "hasbro": "Antler"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-bucks",
+          "assistBlade": "assist-blade-bumper",
+          "ratchet": "2-60",
+          "bit": "dot"
+        }
+      ]
     }
   },
   {
@@ -182,6 +400,16 @@
     "full_name": {
       "takara-tomy": "Wriggle",
       "hasbro": "Wriggle"
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-kraken",
+          "assistBlade": "assist-blade-slash",
+          "ratchet": "3-70",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -191,6 +419,16 @@
     "full_name": {
       "takara-tomy": "Fang",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-leon",
+          "assistBlade": "assist-blade-turn",
+          "ratchet": "4-60",
+          "bit": "accel"
+        }
+      ]
     }
   },
   {
@@ -200,6 +438,22 @@
     "full_name": {
       "takara-tomy": "Volt",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "lockChip": "lock-chip-valkyrie",
+          "assistBlade": "assist-blade-slash",
+          "ratchet": "4-70",
+          "bit": "vortex"
+        },
+        {
+          "lockChip": "lock-chip-valkyrie",
+          "assistBlade": "assist-blade-heavy",
+          "ratchet": "4-70",
+          "bit": "vortex"
+        }
+      ]
     }
   }
 ]

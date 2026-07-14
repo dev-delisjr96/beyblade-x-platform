@@ -9,6 +9,18 @@
     },
     "retools": {
       "variants": ["collab-marvel-venom"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        },
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -24,6 +36,18 @@
         "collab-starwars-moff-gideon",
         "collab-transformers-megatron"
       ]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -36,6 +60,14 @@
     },
     "retools": {
       "variants": ["collab-transformers-starscream"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "4-80",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -53,6 +85,18 @@
         "collab-transformers-optimus-prime",
         "collab-transformers-bumblebee"
       ]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "orb"
+        },
+        {
+          "ratchet": "4-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -69,6 +113,14 @@
         "collab-starwars-darth-vader",
         "collab-starwars-obi-wan-kenobi"
       ]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -81,6 +133,22 @@
     },
     "retools": {
       "variants": ["collab-transformers-optimus-primal"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "low-flat"
+        },
+        {
+          "ratchet": "1-60",
+          "bit": "low-rush"
+        }
+      ]
     }
   },
   {
@@ -93,6 +161,14 @@
     },
     "retools": {
       "variants": ["collab-starwars-mandalorian", "samurai-steel"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-70",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -105,6 +181,14 @@
     },
     "retools": {
       "variants": ["collab-marvel-spider-man", "collab-transformers-shockwave"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        }
+      ]
     }
   },
   {
@@ -120,6 +204,14 @@
         "collab-starwars-general-grievous",
         "collab-starwars-stormtrooper"
       ]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "1-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -129,6 +221,14 @@
     "full_name": {
       "takara-tomy": "Dran Dagger",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -138,6 +238,14 @@
     "full_name": {
       "takara-tomy": "Hells Chain",
       "hasbro": "Chain Incendio"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -147,6 +255,14 @@
     "full_name": {
       "takara-tomy": "Phoenix Feather",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "2-60",
+          "bit": "needle"
+        }
+      ]
     }
   },
   {
@@ -159,6 +275,22 @@
     },
     "retools": {
       "variants": ["tyranno-roar"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "point"
+        },
+        {
+          "ratchet": "1-60",
+          "bit": "low-rush"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -168,6 +300,14 @@
     "full_name": {
       "takara-tomy": "Wyvern Gale",
       "hasbro": "Gale Wyvern"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "taper"
+        }
+      ]
     }
   },
   {
@@ -177,6 +317,14 @@
     "full_name": {
       "takara-tomy": "Dranzer Spiral",
       "hasbro": "Dranzer Spiral"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -186,6 +334,18 @@
     "full_name": {
       "takara-tomy": "Cobalt Drake",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "high-needle"
+        },
+        {
+          "ratchet": "4-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -195,6 +355,14 @@
     "full_name": {
       "takara-tomy": "Unicorn Sting",
       "hasbro": "Sting Unicorn"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "4-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -207,6 +375,14 @@
     },
     "retools": {
       "variants": ["tricera-spiky"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -216,6 +392,18 @@
     "full_name": {
       "takara-tomy": "Dran Buster",
       "hasbro": "Buster Dran"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "1-60",
+          "bit": "accel"
+        },
+        {
+          "ratchet": "1-60",
+          "bit": "low-rush"
+        }
+      ]
     }
   },
   {
@@ -225,6 +413,14 @@
     "full_name": {
       "takara-tomy": "Hells Hammer",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "high-needle"
+        }
+      ]
     }
   },
   {
@@ -234,6 +430,22 @@
     "full_name": {
       "takara-tomy": "Wizard Rod",
       "hasbro": "Wand Wizard"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "1-60",
+          "bit": "hexa"
+        },
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -246,6 +458,18 @@
     },
     "retools": {
       "variants": ["collab-jurassicworld-t-rex", "collab-marvel-red-hulk"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "spike"
+        },
+        {
+          "ratchet": "7-70",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -255,6 +479,14 @@
     "full_name": {
       "takara-tomy": "Driger S",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -264,6 +496,14 @@
     "full_name": {
       "takara-tomy": "Shinobi Shadow",
       "hasbro": "Shadow Shinobi"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -273,6 +513,14 @@
     "full_name": {
       "takara-tomy": "Weiss Tiger",
       "hasbro": "Vice Tiger"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "unite"
+        }
+      ]
     }
   },
   {
@@ -283,7 +531,19 @@
       "takara-tomy": "Cobalt Dragoon",
       "hasbro": "Cobalt Dragoon"
     },
-    "spin": "left"
+    "spin": "left",
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "elevate"
+        },
+        {
+          "ratchet": "1-60",
+          "bit": "elevate"
+        }
+      ]
+    }
   },
   {
     "id": "black-shell",
@@ -292,6 +552,14 @@
     "full_name": {
       "takara-tomy": "Black Shell",
       "hasbro": "Shell Obsidian"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -301,6 +569,14 @@
     "full_name": {
       "takara-tomy": "Phoenix Rudder",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "needle"
+        }
+      ]
     }
   },
   {
@@ -310,6 +586,14 @@
     "full_name": {
       "takara-tomy": "Leon Crest",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "4-60",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -319,6 +603,18 @@
     "full_name": {
       "takara-tomy": "Aero Pegasus",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "7-60",
+          "bit": "level"
+        },
+        {
+          "ratchet": "1-70",
+          "bit": "low-rush"
+        }
+      ]
     }
   },
   {
@@ -328,6 +624,14 @@
     "full_name": {
       "takara-tomy": "Lightning L-Drago",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -337,6 +641,14 @@
     "full_name": {
       "takara-tomy": "Whale Wave",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -346,6 +658,14 @@
     "full_name": {
       "takara-tomy": "Bear Scratch",
       "hasbro": "Savage Bear"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -355,6 +675,18 @@
     "full_name": {
       "takara-tomy": "Silver Wolf",
       "hasbro": "Sterling Wolf"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "under-needle"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -364,6 +696,14 @@
     "full_name": {
       "takara-tomy": "Knight Mail",
       "hasbro": "Mail Knight"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -376,6 +716,14 @@
     },
     "retools": {
       "variants": ["collab-jurassicworld-quetzalcoatlus"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "4-55",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -385,6 +733,14 @@
     "full_name": {
       "takara-tomy": "Crimson Garuda",
       "hasbro": "Scarlet Garuda"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -394,6 +750,14 @@
     "full_name": {
       "takara-tomy": "Samurai Saber",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        }
+      ]
     }
   },
   {
@@ -403,6 +767,22 @@
     "full_name": {
       "takara-tomy": "Impact Drake",
       "hasbro": "Impact Drake"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "7-60",
+          "bit": "low-rush"
+        },
+        {
+          "ratchet": "7-70",
+          "bit": "level"
+        },
+        {
+          "ratchet": "4-55",
+          "bit": "under-needle"
+        }
+      ]
     }
   },
   {
@@ -412,6 +792,14 @@
     "full_name": {
       "takara-tomy": "Ghost Circle",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -421,6 +809,14 @@
     "full_name": {
       "takara-tomy": "Draciel S",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -430,6 +826,14 @@
     "full_name": {
       "takara-tomy": "Golem Rock",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -442,6 +846,14 @@
     },
     "retools": {
       "variants": ["collab-starwars-chewbacca"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -451,6 +863,14 @@
     "full_name": {
       "takara-tomy": "Croc Crunch",
       "hasbro": "Bite Croc"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -460,6 +880,14 @@
     "full_name": {
       "takara-tomy": "Shinobi Knife",
       "hasbro": "Knife Shinobi"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -469,6 +897,14 @@
     "full_name": {
       "takara-tomy": "Mammoth Tusk",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "taper"
+        }
+      ]
     }
   },
   {
@@ -478,6 +914,14 @@
     "full_name": {
       "takara-tomy": "Xeno Xcalibur",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "gear-flat"
+        }
+      ]
     }
   },
   {
@@ -487,6 +931,14 @@
     "full_name": {
       "takara-tomy": "Victory Valkyrie",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -496,6 +948,14 @@
     "full_name": {
       "takara-tomy": "Dragoon Storm",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -505,6 +965,14 @@
     "full_name": {
       "takara-tomy": "Storm Pegasis",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -514,6 +982,14 @@
     "full_name": {
       "takara-tomy": "ValkyrieVolt (Main Blade: Volt)",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -524,7 +1000,14 @@
       "takara-tomy": "GloryValkyrie (Ratchet-Integrated Blade)",
       "hasbro": ""
     },
-    "ratchetIntegrated": true
+    "ratchetIntegrated": true,
+    "builds": {
+      "popular": [
+        {
+          "bit": "point"
+        }
+      ]
+    }
   },
   {
     "id": "shark-scale",
@@ -533,6 +1016,26 @@
     "full_name": {
       "takara-tomy": "Shark Scale",
       "hasbro": "Shark Scale"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "1-70",
+          "bit": "low-rush"
+        },
+        {
+          "ratchet": "3-60",
+          "bit": "low-rush"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "low-rush"
+        },
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -543,7 +1046,20 @@
       "takara-tomy": "Bullet Griffon",
       "hasbro": ""
     },
-    "ratchetIntegrated": true
+    "ratchetIntegrated": true,
+    "builds": {
+      "popular": [
+        {
+          "bit": "hexa"
+        },
+        {
+          "bit": "merge"
+        },
+        {
+          "bit": "unite"
+        }
+      ]
+    }
   },
   {
     "id": "shatter-horus",
@@ -552,6 +1068,14 @@
     "full_name": {
       "takara-tomy": "Shatter Horus",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "level"
+        }
+      ]
     }
   },
   {
@@ -561,6 +1085,22 @@
     "full_name": {
       "takara-tomy": "Hover Wyvern",
       "hasbro": "Hover Wyvern"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "rush"
+        },
+        {
+          "ratchet": "1-60",
+          "bit": "rush"
+        },
+        {
+          "ratchet": "4-55",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -571,7 +1111,15 @@
       "takara-tomy": "Meteor Dragoon",
       "hasbro": ""
     },
-    "spin": "left"
+    "spin": "left",
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "elevate"
+        }
+      ]
+    }
   },
   {
     "id": "valor-bison",
@@ -581,7 +1129,14 @@
       "takara-tomy": "Valor Bison",
       "hasbro": ""
     },
-    "ratchetIntegrated": true
+    "ratchetIntegrated": true,
+    "builds": {
+      "popular": [
+        {
+          "bit": "point"
+        }
+      ]
+    }
   },
   {
     "id": "dran-strike",
@@ -590,6 +1145,14 @@
     "full_name": {
       "takara-tomy": "Dran Strike",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "4-50",
+          "bit": "flat"
+        }
+      ]
     }
   },
   {
@@ -599,6 +1162,14 @@
     "full_name": {
       "takara-tomy": "Scorpio Spear",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -608,6 +1179,14 @@
     "full_name": {
       "takara-tomy": "Clock Mirage",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -617,6 +1196,14 @@
     "full_name": {
       "takara-tomy": "Samurai Calibur",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -626,6 +1213,14 @@
     "full_name": {
       "takara-tomy": "Tricera Press",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -635,6 +1230,14 @@
     "full_name": {
       "takara-tomy": "Gust Bat",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -648,6 +1251,22 @@
     "retools": {
       "original": "phoenix-wing",
       "variants": ["collab-jurassicworld-spinosaurus"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "point"
+        },
+        {
+          "ratchet": "1-60",
+          "bit": "low-rush"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -657,6 +1276,14 @@
     "full_name": {
       "takara-tomy": "Heavens Ring",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -666,6 +1293,14 @@
     "full_name": {
       "takara-tomy": "Orochi Cluster",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -675,6 +1310,14 @@
     "full_name": {
       "takara-tomy": "Curse Mummy",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -687,6 +1330,14 @@
     },
     "retools": {
       "original": "leon-claw"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-70",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -700,6 +1351,14 @@
     "retools": {
       "original": "sphinx-cowl",
       "variants": ["collab-jurassicworld-mosasaurus"]
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -709,6 +1368,14 @@
     "full_name": {
       "takara-tomy": "Gill Shark",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        }
+      ]
     }
   },
   {
@@ -718,6 +1385,14 @@
     "full_name": {
       "takara-tomy": "Hack Viking",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -728,7 +1403,14 @@
       "takara-tomy": "Rampart Aegis",
       "hasbro": ""
     },
-    "ratchetIntegrated": true
+    "ratchetIntegrated": true,
+    "builds": {
+      "popular": [
+        {
+          "bit": "point"
+        }
+      ]
+    }
   },
   {
     "id": "storm-spriggan",
@@ -737,6 +1419,14 @@
     "full_name": {
       "takara-tomy": "Storm Spriggan",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -747,7 +1437,14 @@
       "takara-tomy": "Cutter Shinobi",
       "hasbro": ""
     },
-    "ratchetIntegrated": true
+    "ratchetIntegrated": true,
+    "builds": {
+      "popular": [
+        {
+          "bit": "point"
+        }
+      ]
+    }
   },
   {
     "id": "stun-medusa",
@@ -756,6 +1453,14 @@
     "full_name": {
       "takara-tomy": "Stun Medusa",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -765,6 +1470,14 @@
     "full_name": {
       "takara-tomy": "Rock Leone",
       "hasbro": ""
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -777,6 +1490,18 @@
     },
     "retools": {
       "original": "knight-shield"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "orb"
+        },
+        {
+          "ratchet": "4-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -789,6 +1514,18 @@
     },
     "retools": {
       "original": "tyranno-beat"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "spike"
+        },
+        {
+          "ratchet": "7-70",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -801,6 +1538,14 @@
     },
     "retools": {
       "original": "knight-lance"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -813,6 +1558,14 @@
     },
     "retools": {
       "original": "viper-tail"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        }
+      ]
     }
   },
   {
@@ -825,6 +1578,18 @@
     },
     "retools": {
       "original": "dran-sword"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        },
+        {
+          "ratchet": "3-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -837,6 +1602,14 @@
     },
     "retools": {
       "original": "leon-claw"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-70",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -849,6 +1622,18 @@
     },
     "retools": {
       "original": "hells-scythe"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -861,6 +1646,18 @@
     },
     "retools": {
       "original": "knight-shield"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "orb"
+        },
+        {
+          "ratchet": "4-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -873,6 +1670,14 @@
     },
     "retools": {
       "original": "knight-lance"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -885,6 +1690,14 @@
     },
     "retools": {
       "original": "knight-lance"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -897,6 +1710,14 @@
     },
     "retools": {
       "original": "rhino-horn"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "1-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -909,6 +1730,14 @@
     },
     "retools": {
       "original": "shelter-drake"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -921,6 +1750,14 @@
     },
     "retools": {
       "original": "rhino-horn"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "1-60",
+          "bit": "rush"
+        }
+      ]
     }
   },
   {
@@ -933,6 +1770,18 @@
     },
     "retools": {
       "original": "knight-shield"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "orb"
+        },
+        {
+          "ratchet": "4-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -945,6 +1794,18 @@
     },
     "retools": {
       "original": "hells-scythe"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "ball"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -957,6 +1818,22 @@
     },
     "retools": {
       "original": "shark-edge"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        },
+        {
+          "ratchet": "9-60",
+          "bit": "low-flat"
+        },
+        {
+          "ratchet": "1-60",
+          "bit": "low-rush"
+        }
+      ]
     }
   },
   {
@@ -969,6 +1846,14 @@
     },
     "retools": {
       "original": "wizard-arrow"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "4-80",
+          "bit": "ball"
+        }
+      ]
     }
   },
   {
@@ -981,6 +1866,18 @@
     },
     "retools": {
       "original": "knight-shield"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "orb"
+        },
+        {
+          "ratchet": "4-60",
+          "bit": "low-flat"
+        }
+      ]
     }
   },
   {
@@ -993,6 +1890,14 @@
     },
     "retools": {
       "original": "viper-tail"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "flat"
+        }
+      ]
     }
   },
   {
@@ -1005,6 +1910,18 @@
     },
     "retools": {
       "original": "tyranno-beat"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "3-60",
+          "bit": "spike"
+        },
+        {
+          "ratchet": "7-70",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -1017,6 +1934,14 @@
     },
     "retools": {
       "original": "tricera-spiky"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "9-60",
+          "bit": "orb"
+        }
+      ]
     }
   },
   {
@@ -1029,6 +1954,14 @@
     },
     "retools": {
       "original": "tyranno-roar"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "5-60",
+          "bit": "point"
+        }
+      ]
     }
   },
   {
@@ -1041,6 +1974,14 @@
     },
     "retools": {
       "original": "ptera-swing"
+    },
+    "builds": {
+      "popular": [
+        {
+          "ratchet": "4-55",
+          "bit": "point"
+        }
+      ]
     }
   }
 ]
