@@ -3,225 +3,254 @@
     "id": "lock-chip-dran",
     "name": "Lock Chip - Dran",
     "img": "/parts/lock-chip-dran.png",
-    "full_name": {
-      "takara-tomy": "Dran",
-      "hasbro": "Dran"
+    "full_name": { "takara-tomy": "Dran", "hasbro": "Dran" },
+    "builds": {
+      "family": [
+        "lock-chip-dran",
+        "cx-main-blade-brave",
+        "dran-sword",
+        "dran-dagger",
+        "dran-buster",
+        "dran-strike"
+      ]
     }
   },
   {
     "id": "lock-chip-wizard",
     "name": "Lock Chip - Wizard",
     "img": "/parts/lock-chip-wizard.png",
-    "full_name": {
-      "takara-tomy": "Wizard",
-      "hasbro": "Wizard"
+    "full_name": { "takara-tomy": "Wizard", "hasbro": "Wizard" },
+    "builds": {
+      "family": [
+        "lock-chip-wizard",
+        "cx-main-blade-arc",
+        "wizard-arrow",
+        "wizard-rod"
+      ]
     }
   },
   {
     "id": "lock-chip-hells",
     "name": "Lock Chip - Hells (Incendio)",
     "img": "/parts/lock-chip-hells.png",
-    "full_name": {
-      "takara-tomy": "Hells",
-      "hasbro": "Incendio"
+    "full_name": { "takara-tomy": "Hells", "hasbro": "Incendio" },
+    "builds": {
+      "family": [
+        "lock-chip-hells",
+        "cx-main-blade-reaper",
+        "hells-scythe",
+        "hells-chain",
+        "hells-hammer"
+      ]
     }
   },
   {
     "id": "lock-chip-perseus",
     "name": "Lock Chip - Perseus",
     "img": "/parts/lock-chip-perseus.png",
-    "full_name": {
-      "takara-tomy": "Perseus",
-      "hasbro": "Perseus"
-    }
+    "full_name": { "takara-tomy": "Perseus", "hasbro": "Perseus" },
+    "builds": { "family": ["lock-chip-perseus", "cx-main-blade-dark"] }
   },
   {
     "id": "lock-chip-fox",
     "name": "Lock Chip - Fox",
     "img": "/parts/lock-chip-fox.png",
-    "full_name": {
-      "takara-tomy": "Fox",
-      "hasbro": "Fox"
-    }
+    "full_name": { "takara-tomy": "Fox", "hasbro": "Fox" },
+    "builds": { "family": ["lock-chip-fox", "cx-main-blade-brush"] }
   },
   {
     "id": "lock-chip-rhino",
     "name": "Lock Chip - Rhino",
     "img": "/parts/lock-chip-rhino.png",
-    "full_name": {
-      "takara-tomy": "Rhino",
-      "hasbro": ""
-    }
+    "full_name": { "takara-tomy": "Rhino", "hasbro": "" },
+    "builds": { "family": ["lock-chip-rhino", "rhino-horn"] }
   },
   {
     "id": "lock-chip-sol",
     "name": "Lock Chip - Sol",
     "img": "/parts/lock-chip-sol.png",
-    "full_name": {
-      "takara-tomy": "Sol",
-      "hasbro": ""
+    "full_name": { "takara-tomy": "Sol", "hasbro": "" },
+    "builds": {
+      "family": [
+        "lock-chip-sol",
+        "cx-main-blade-eclipse",
+        "cx-main-blade-eclipse-upper"
+      ]
     }
   },
   {
     "id": "lock-chip-kraken",
     "name": "Lock Chip - Kraken",
     "img": "/parts/lock-chip-kraken.png",
-    "full_name": {
-      "takara-tomy": "Kraken",
-      "hasbro": "Kraken"
-    }
+    "full_name": { "takara-tomy": "Kraken", "hasbro": "Kraken" },
+    "builds": { "family": ["lock-chip-kraken", "cx-main-blade-wriggle"] }
   },
   {
     "id": "lock-chip-bahamut",
     "name": "Lock Chip - Bahamut",
     "img": "/parts/lock-chip-bahamut.png",
-    "full_name": {
-      "takara-tomy": "Bahamut",
-      "hasbro": ""
-    }
+    "full_name": { "takara-tomy": "Bahamut", "hasbro": "" },
+    "builds": { "family": ["lock-chip-bahamut", "cx-main-blade-blitz"] }
   },
   {
     "id": "lock-chip-emperor",
     "name": "Lock Chip - Emperor",
     "img": "/parts/lock-chip-emperor.png",
-    "full_name": {
-      "takara-tomy": "Emperor",
-      "hasbro": ""
-    }
+    "full_name": { "takara-tomy": "Emperor", "hasbro": "" },
+    "builds": { "family": ["lock-chip-emperor", "cx-main-blade-might"] }
   },
   {
     "id": "lock-chip-valkyrie",
     "name": "Lock Chip - Valkyrie (Valkerion)",
     "img": "/parts/lock-chip-valkyrie.png",
-    "full_name": {
-      "takara-tomy": "Valkyrie",
-      "hasbro": ""
+    "full_name": { "takara-tomy": "Valkyrie", "hasbro": "" },
+    "builds": {
+      "family": [
+        "lock-chip-valkyrie",
+        "cx-main-blade-volt",
+        "victory-valkyrie",
+        "valkyrie-volt",
+        "glory-valkyrie"
+      ]
     }
   },
   {
     "id": "lock-chip-pegasus",
     "name": "Lock Chip - Pegasus",
     "img": "/parts/lock-chip-pegasus.png",
-    "full_name": {
-      "takara-tomy": "Pegasus",
-      "hasbro": "Pegasus"
+    "full_name": { "takara-tomy": "Pegasus", "hasbro": "Pegasus" },
+    "builds": {
+      "family": [
+        "lock-chip-pegasus",
+        "cx-main-blade-blast",
+        "aero-pegasus",
+        "storm-pegasis"
+      ]
     }
   },
   {
     "id": "lock-chip-cerberus",
     "name": "Lock Chip - Cerberus",
     "img": "/parts/lock-chip-cerberus.png",
-    "full_name": {
-      "takara-tomy": "Cerberus",
-      "hasbro": "Cerberus"
-    }
+    "full_name": { "takara-tomy": "Cerberus", "hasbro": "Cerberus" },
+    "builds": {}
   },
   {
     "id": "lock-chip-whale",
     "name": "Lock Chip - Whale",
     "img": "/parts/lock-chip-whale.png",
-    "full_name": {
-      "takara-tomy": "Whale",
-      "hasbro": ""
-    }
+    "full_name": { "takara-tomy": "Whale", "hasbro": "" },
+    "builds": { "family": ["lock-chip-whale", "whale-wave"] }
   },
   {
     "id": "lock-chip-wolf",
     "name": "Lock Chip - Wolf",
     "img": "/parts/lock-chip-wolf.png",
-    "full_name": {
-      "takara-tomy": "Wolf",
-      "hasbro": ""
+    "full_name": { "takara-tomy": "Wolf", "hasbro": "" },
+    "builds": {
+      "family": ["lock-chip-wolf", "cx-main-blade-hunt", "silver-wolf"]
     }
   },
   {
     "id": "lock-chip-phoenix",
     "name": "Lock Chip - Phoenix",
     "img": "/parts/lock-chip-phoenix.png",
-    "full_name": {
-      "takara-tomy": "Phoenix",
-      "hasbro": ""
+    "full_name": { "takara-tomy": "Phoenix", "hasbro": "" },
+    "builds": {
+      "family": [
+        "lock-chip-phoenix",
+        "cx-main-blade-flare",
+        "phoenix-feather",
+        "phoenix-wing",
+        "phoenix-rudder"
+      ]
     }
   },
   {
     "id": "lock-chip-knight",
     "name": "Lock Chip - Knight",
     "img": "/parts/lock-chip-knight.png",
-    "full_name": {
-      "takara-tomy": "Knight",
-      "hasbro": ""
+    "full_name": { "takara-tomy": "Knight", "hasbro": "" },
+    "builds": {
+      "family": [
+        "lock-chip-knight",
+        "cx-main-blade-fortress",
+        "knight-shield",
+        "knight-lance",
+        "knight-mail"
+      ]
     }
   },
   {
     "id": "lock-chip-ragna",
     "name": "Lock Chip - Ragna",
     "img": "/parts/lock-chip-ragna.png",
-    "full_name": {
-      "takara-tomy": "Ragna",
-      "hasbro": "Ragna"
-    }
+    "full_name": { "takara-tomy": "Ragna", "hasbro": "Ragna" },
+    "builds": { "family": ["lock-chip-ragna", "cx-main-blade-rage"] }
   },
   {
     "id": "lock-chip-unicorn",
     "name": "Lock Chip - Unicorn",
     "img": "/parts/lock-chip-unicorn.png",
-    "full_name": {
-      "takara-tomy": "Unicorn",
-      "hasbro": ""
+    "full_name": { "takara-tomy": "Unicorn", "hasbro": "" },
+    "builds": {
+      "family": ["lock-chip-unicorn", "cx-main-blade-delta", "unicorn-sting"]
     }
   },
   {
     "id": "lock-chip-brachio",
     "name": "Lock Chip - Brachio",
     "img": "/parts/lock-chip-brachio.png",
-    "full_name": {
-      "takara-tomy": "Brachio",
-      "hasbro": ""
-    }
+    "full_name": { "takara-tomy": "Brachio", "hasbro": "" },
+    "builds": { "family": ["lock-chip-brachio", "cx-main-blade-whip"] }
   },
   {
     "id": "lock-chip-drake",
     "name": "Lock Chip - Drake",
     "img": "/parts/lock-chip-drake.png",
-    "full_name": {
-      "takara-tomy": "Drake",
-      "hasbro": ""
+    "full_name": { "takara-tomy": "Drake", "hasbro": "" },
+    "builds": {
+      "family": [
+        "lock-chip-drake",
+        "cobalt-drake",
+        "impact-drake",
+        "shelter-drake"
+      ]
     }
   },
   {
     "id": "lock-chip-hornet",
     "name": "Lock Chip - Hornet",
     "img": "/parts/lock-chip-hornet.png",
-    "full_name": {
-      "takara-tomy": "Hornet",
-      "hasbro": "Hornet"
-    }
+    "full_name": { "takara-tomy": "Hornet", "hasbro": "Hornet" },
+    "builds": { "family": ["lock-chip-hornet", "cx-main-blade-fort"] }
   },
   {
     "id": "lock-chip-bucks",
     "name": "Lock Chip - Bucks",
     "img": "",
-    "full_name": {
-      "takara-tomy": "Bucks",
-      "hasbro": ""
-    }
+    "full_name": { "takara-tomy": "Bucks", "hasbro": "" },
+    "builds": { "family": ["lock-chip-bucks", "cx-main-blade-antler"] }
   },
   {
     "id": "lock-chip-leon",
     "name": "Lock Chip - Leon",
     "img": "/parts/lock-chip-leon.png",
-    "full_name": {
-      "takara-tomy": "Leon",
-      "hasbro": "Leon"
+    "full_name": { "takara-tomy": "Leon", "hasbro": "Leon" },
+    "builds": {
+      "family": [
+        "lock-chip-leon",
+        "cx-main-blade-fang",
+        "leon-claw",
+        "leon-crest"
+      ]
     }
   },
   {
     "id": "lock-chip-stag",
     "name": "Lock Chip - Stag",
     "img": "/parts/lock-chip-stag.png",
-    "full_name": {
-      "takara-tomy": "",
-      "hasbro": "Stag"
-    }
+    "full_name": { "takara-tomy": "", "hasbro": "Stag" },
+    "builds": {}
   }
 ]

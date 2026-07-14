@@ -3,11 +3,16 @@
     "id": "cx-main-blade-brave",
     "name": "Main Blade - Brave",
     "img": "/parts/cx-main-blade-brave.png",
-    "full_name": {
-      "takara-tomy": "Brave",
-      "hasbro": "Courage"
-    },
+    "full_name": { "takara-tomy": "Brave", "hasbro": "Courage" },
     "builds": {
+      "family": [
+        "lock-chip-dran",
+        "cx-main-blade-brave",
+        "dran-sword",
+        "dran-dagger",
+        "dran-buster",
+        "dran-strike"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-dran",
@@ -22,11 +27,14 @@
     "id": "cx-main-blade-arc",
     "name": "Main Blade - Arc",
     "img": "/parts/cx-main-blade-arc.png",
-    "full_name": {
-      "takara-tomy": "Arc",
-      "hasbro": "Arc"
-    },
+    "full_name": { "takara-tomy": "Arc", "hasbro": "Arc" },
     "builds": {
+      "family": [
+        "lock-chip-wizard",
+        "cx-main-blade-arc",
+        "wizard-arrow",
+        "wizard-rod"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-wizard",
@@ -41,11 +49,9 @@
     "id": "cx-main-blade-dark",
     "name": "Main Blade - Dark",
     "img": "/parts/cx-main-blade-dark.png",
-    "full_name": {
-      "takara-tomy": "Dark",
-      "hasbro": "Dark"
-    },
+    "full_name": { "takara-tomy": "Dark", "hasbro": "Dark" },
     "builds": {
+      "family": ["lock-chip-perseus", "cx-main-blade-dark"],
       "popular": [
         {
           "lockChip": "lock-chip-perseus",
@@ -66,11 +72,15 @@
     "id": "cx-main-blade-reaper",
     "name": "Main Blade - Reaper",
     "img": "/parts/cx-main-blade-reaper.png",
-    "full_name": {
-      "takara-tomy": "Reaper",
-      "hasbro": "Reaper"
-    },
+    "full_name": { "takara-tomy": "Reaper", "hasbro": "Reaper" },
     "builds": {
+      "family": [
+        "lock-chip-hells",
+        "cx-main-blade-reaper",
+        "hells-scythe",
+        "hells-chain",
+        "hells-hammer"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-hells",
@@ -91,11 +101,9 @@
     "id": "cx-main-blade-brush",
     "name": "Main Blade - Brush",
     "img": "/parts/cx-main-blade-brush.png",
-    "full_name": {
-      "takara-tomy": "Brush",
-      "hasbro": "Brush"
-    },
+    "full_name": { "takara-tomy": "Brush", "hasbro": "Brush" },
     "builds": {
+      "family": ["lock-chip-fox", "cx-main-blade-brush"],
       "popular": [
         {
           "lockChip": "lock-chip-fox",
@@ -110,11 +118,14 @@
     "id": "cx-main-blade-blast",
     "name": "Main Blade - Blast",
     "img": "/parts/cx-main-blade-blast.png",
-    "full_name": {
-      "takara-tomy": "Blast",
-      "hasbro": "Blast"
-    },
+    "full_name": { "takara-tomy": "Blast", "hasbro": "Blast" },
     "builds": {
+      "family": [
+        "lock-chip-pegasus",
+        "cx-main-blade-blast",
+        "aero-pegasus",
+        "storm-pegasis"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-emperor",
@@ -135,10 +146,7 @@
     "id": "cx-main-blade-flame",
     "name": "Main Blade - Flame",
     "img": "",
-    "full_name": {
-      "takara-tomy": "Flame",
-      "hasbro": "Flame"
-    },
+    "full_name": { "takara-tomy": "Flame", "hasbro": "Flame" },
     "builds": {
       "popular": [
         {
@@ -160,11 +168,13 @@
     "id": "cx-main-blade-eclipse",
     "name": "Main Blade - Eclipse",
     "img": "/parts/cx-main-blade-eclipse.png",
-    "full_name": {
-      "takara-tomy": "Eclipse",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Eclipse", "hasbro": "" },
     "builds": {
+      "family": [
+        "lock-chip-sol",
+        "cx-main-blade-eclipse",
+        "cx-main-blade-eclipse-upper"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-sol",
@@ -179,11 +189,13 @@
     "id": "cx-main-blade-eclipse-upper",
     "name": "Main Blade - Eclipse Upper",
     "img": "/parts/cx-main-blade-eclipse-upper.png",
-    "full_name": {
-      "takara-tomy": "Eclipse Upper",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Eclipse Upper", "hasbro": "" },
     "builds": {
+      "family": [
+        "lock-chip-sol",
+        "cx-main-blade-eclipse",
+        "cx-main-blade-eclipse-upper"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-sol",
@@ -198,11 +210,9 @@
     "id": "cx-main-blade-hunt",
     "name": "Main Blade - Hunt",
     "img": "/parts/cx-main-blade-hunt.png",
-    "full_name": {
-      "takara-tomy": "Hunt",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Hunt", "hasbro": "" },
     "builds": {
+      "family": ["lock-chip-wolf", "cx-main-blade-hunt", "silver-wolf"],
       "popular": [
         {
           "lockChip": "lock-chip-wolf",
@@ -217,11 +227,9 @@
     "id": "cx-main-blade-might",
     "name": "Main Blade - Might",
     "img": "/parts/cx-main-blade-might.png",
-    "full_name": {
-      "takara-tomy": "Might",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Might", "hasbro": "" },
     "builds": {
+      "family": ["lock-chip-emperor", "cx-main-blade-might"],
       "popular": [
         {
           "lockChip": "lock-chip-emperor",
@@ -236,11 +244,15 @@
     "id": "cx-main-blade-flare",
     "name": "Main Blade - Flare",
     "img": "/parts/cx-main-blade-flare.png",
-    "full_name": {
-      "takara-tomy": "Flare",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Flare", "hasbro": "" },
     "builds": {
+      "family": [
+        "lock-chip-phoenix",
+        "cx-main-blade-flare",
+        "phoenix-feather",
+        "phoenix-wing",
+        "phoenix-rudder"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-phoenix",
@@ -255,12 +267,10 @@
     "id": "cx-main-blade-blitz",
     "name": "Main Blade - Blitz",
     "img": "/parts/cx-main-blade-blitz.png",
-    "full_name": {
-      "takara-tomy": "Blitz",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Blitz", "hasbro": "" },
     "withOverBlade": true,
     "builds": {
+      "family": ["lock-chip-bahamut", "cx-main-blade-blitz"],
       "popular": [
         {
           "lockChip": "lock-chip-bahamut",
@@ -276,12 +286,16 @@
     "id": "cx-main-blade-fortress",
     "name": "Main Blade - Fortress",
     "img": "/parts/cx-main-blade-fortress.png",
-    "full_name": {
-      "takara-tomy": "Fortress",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Fortress", "hasbro": "" },
     "withOverBlade": true,
     "builds": {
+      "family": [
+        "lock-chip-knight",
+        "cx-main-blade-fortress",
+        "knight-shield",
+        "knight-lance",
+        "knight-mail"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-knight",
@@ -297,12 +311,10 @@
     "id": "cx-main-blade-rage",
     "name": "Main Blade - Rage",
     "img": "/parts/cx-main-blade-rage.png",
-    "full_name": {
-      "takara-tomy": "Rage",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Rage", "hasbro": "" },
     "withOverBlade": true,
     "builds": {
+      "family": ["lock-chip-ragna", "cx-main-blade-rage"],
       "popular": [
         {
           "lockChip": "lock-chip-ragna",
@@ -318,12 +330,10 @@
     "id": "cx-main-blade-delta",
     "name": "Main Blade - Delta",
     "img": "/parts/cx-main-blade-delta.png",
-    "full_name": {
-      "takara-tomy": "Delta",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Delta", "hasbro": "" },
     "withOverBlade": true,
     "builds": {
+      "family": ["lock-chip-unicorn", "cx-main-blade-delta", "unicorn-sting"],
       "popular": [
         {
           "lockChip": "lock-chip-unicorn",
@@ -338,12 +348,10 @@
     "id": "cx-main-blade-whip",
     "name": "Main Blade - Whip",
     "img": "/parts/cx-main-blade-whip.png",
-    "full_name": {
-      "takara-tomy": "Whip",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Whip", "hasbro": "" },
     "withOverBlade": true,
     "builds": {
+      "family": ["lock-chip-brachio", "cx-main-blade-whip"],
       "popular": [
         {
           "lockChip": "lock-chip-brachio",
@@ -359,11 +367,9 @@
     "id": "cx-main-blade-fort",
     "name": "Main Blade - Fort",
     "img": "/parts/cx-main-blade-fort.png",
-    "full_name": {
-      "takara-tomy": "Fort",
-      "hasbro": "Fort"
-    },
+    "full_name": { "takara-tomy": "Fort", "hasbro": "Fort" },
     "builds": {
+      "family": ["lock-chip-hornet", "cx-main-blade-fort"],
       "popular": [
         {
           "lockChip": "lock-chip-hornet",
@@ -378,11 +384,9 @@
     "id": "cx-main-blade-antler",
     "name": "Main Blade - Antler",
     "img": "/parts/cx-main-blade-antler.jpeg",
-    "full_name": {
-      "takara-tomy": "Antler",
-      "hasbro": "Antler"
-    },
+    "full_name": { "takara-tomy": "Antler", "hasbro": "Antler" },
     "builds": {
+      "family": ["lock-chip-bucks", "cx-main-blade-antler"],
       "popular": [
         {
           "lockChip": "lock-chip-bucks",
@@ -397,11 +401,9 @@
     "id": "cx-main-blade-wriggle",
     "name": "Main Blade - Wriggle",
     "img": "/parts/cx-main-blade-wriggle.png",
-    "full_name": {
-      "takara-tomy": "Wriggle",
-      "hasbro": "Wriggle"
-    },
+    "full_name": { "takara-tomy": "Wriggle", "hasbro": "Wriggle" },
     "builds": {
+      "family": ["lock-chip-kraken", "cx-main-blade-wriggle"],
       "popular": [
         {
           "lockChip": "lock-chip-kraken",
@@ -416,11 +418,14 @@
     "id": "cx-main-blade-fang",
     "name": "Main Blade - Fang",
     "img": "/parts/cx-main-blade-fang.png",
-    "full_name": {
-      "takara-tomy": "Fang",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Fang", "hasbro": "" },
     "builds": {
+      "family": [
+        "lock-chip-leon",
+        "cx-main-blade-fang",
+        "leon-claw",
+        "leon-crest"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-leon",
@@ -435,11 +440,15 @@
     "id": "cx-main-blade-volt",
     "name": "Main Blade - Volt",
     "img": "/parts/cx-main-blade-volt.png",
-    "full_name": {
-      "takara-tomy": "Volt",
-      "hasbro": ""
-    },
+    "full_name": { "takara-tomy": "Volt", "hasbro": "" },
     "builds": {
+      "family": [
+        "lock-chip-valkyrie",
+        "cx-main-blade-volt",
+        "victory-valkyrie",
+        "valkyrie-volt",
+        "glory-valkyrie"
+      ],
       "popular": [
         {
           "lockChip": "lock-chip-valkyrie",
