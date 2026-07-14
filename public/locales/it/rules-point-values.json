@@ -2,6 +2,12 @@
   "page-title": "Elenco Punti",
   "back-button": "Torna al Builder",
   "loading": "Caricamento del regolamento...",
+  "save-button": "Salva",
+  "saving": "Creando l'immagine...",
+  "save-status": {
+    "saved": "Immagine salvata!",
+    "error": "Impossibile salvare l'immagine. Riprova."
+  },
   "view-mode": {
     "point": "Per Punto",
     "part": "Per Pezzo"

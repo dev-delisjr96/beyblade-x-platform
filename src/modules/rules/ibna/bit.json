@@ -145,6 +145,6 @@
   {
     "part": "bit",
     "name": "metal-needle",
-    "value": null
+    "value": false
   }
 ]

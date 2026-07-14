@@ -27,32 +27,28 @@ function getArray(valuesSet, partType) {
 }
 
 /**
- * Sets a part's base value (and optional rule-set combo bonus), replacing
- * any existing entry for that same part name first — a part can only
- * have one entry per part type.
+ * Sets a part's base `value`, creating its entry if it doesn't exist yet.
+ * Leaves any existing `rule-set` on that entry completely untouched —
+ * changing the base value should never wipe out combo bonuses that were
+ * already configured for it.
  *
  * @param {Object} valuesSet - the rule set's full `deck.values` object
  * @param {string} partType
  * @param {string} partName
  * @param {number} value - the base point value
- * @param {Object} [comboRule] - { label, combo: [{part, name}], newValue }
  * @returns {Array} the new array for `valuesSet[partType]`
  */
-export function upsertPartValue(
-  valuesSet,
-  partType,
-  partName,
-  value,
-  comboRule = undefined,
-) {
-  const filtered = getArray(valuesSet, partType).filter(
-    (entry) => entry.name !== partName,
+export function setBaseValue(valuesSet, partType, partName, value) {
+  const arr = getArray(valuesSet, partType);
+  const exists = arr.some((entry) => entry.name === partName);
+
+  if (!exists) {
+    return [...arr, { part: partType, name: partName, value }];
+  }
+
+  return arr.map((entry) =>
+    entry.name === partName ? { ...entry, value } : entry,
   );
-
-  const newEntry = { part: partType, name: partName, value };
-  if (comboRule) newEntry["rule-set"] = [comboRule];
-
-  return [...filtered, newEntry];
 }
 
 /** Removes a part's entry entirely from its part type's array. */
@@ -71,6 +67,51 @@ export function changePartValueTier(valuesSet, partType, partName, newValue) {
 
 function comboSignature(rule) {
   return `${rule?.label ?? ""}::${JSON.stringify(rule?.combo ?? null)}`;
+}
+
+/** Signature used to detect "is this the same combo" regardless of label
+ * or bonus value — used by addComboRule to update rather than duplicate. */
+function comboOnlySignature(rule) {
+  return JSON.stringify(rule?.combo ?? null);
+}
+
+/**
+ * Adds (or updates, if the same combo already exists) one rule-set rule
+ * on a part's entry, WITHOUT touching its base `value` or any of its
+ * other existing rules. Creates the entry with `value: 0` if the part
+ * doesn't have one yet — the combo rule is what matters here, the base
+ * value is just a placeholder until someone sets it explicitly.
+ *
+ * This is deliberately separate from setBaseValue: a combo rule can (and
+ * often should) be attached to a *different* part than the one the admin
+ * was originally adding — see the "blade takes priority" rule in
+ * pages/RulesPointValues.
+ */
+export function addComboRule(valuesSet, partType, partName, comboRule) {
+  const arr = getArray(valuesSet, partType);
+  const existingIndex = arr.findIndex((entry) => entry.name === partName);
+
+  if (existingIndex === -1) {
+    return [
+      ...arr,
+      { part: partType, name: partName, value: 0, "rule-set": [comboRule] },
+    ];
+  }
+
+  const targetSignature = comboOnlySignature(comboRule);
+
+  return arr.map((entry, index) => {
+    if (index !== existingIndex) return entry;
+
+    const existingRules = Array.isArray(entry["rule-set"])
+      ? entry["rule-set"]
+      : [];
+    const otherRules = existingRules.filter(
+      (rule) => comboOnlySignature(rule) !== targetSignature,
+    );
+
+    return { ...entry, "rule-set": [...otherRules, comboRule] };
+  });
 }
 
 /**
@@ -97,16 +138,4 @@ export function removeComboRule(valuesSet, partType, partName, rule) {
     }
     return updated;
   });
-}
-
-/**
- * Builds a combo rule object from the "rule-set" sub-form:
- * { comboPartType, comboPartName, bonusValue }.
- */
-export function buildComboRule({ comboPartType, comboPartName, bonusValue }) {
-  return {
-    label: `+ ${comboPartName}`,
-    combo: [{ part: comboPartType, name: comboPartName }],
-    newValue: Number(bonusValue),
-  };
 }

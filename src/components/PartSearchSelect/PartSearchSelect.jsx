@@ -93,8 +93,8 @@ const PartSearchSelect = ({
   const catalog = useMemo(() => PARTS[partType] || [], [partType]);
 
   const availableTiers = useMemo(
-    () => beyXUtilities.getAvailableValueTiers(valuesSet, partType),
-    [valuesSet, partType],
+    () => beyXUtilities.getAvailableValueTiers(valuesSet, partType, catalog),
+    [valuesSet, partType, catalog],
   );
 
   const selectedPart = useMemo(
@@ -128,7 +128,9 @@ const PartSearchSelect = ({
         part.id,
         context,
       );
-      const partValueKey = partValue === null ? "ban" : partValue;
+      const partValueKey = beyXUtilities.isBannedValue(partValue)
+        ? "ban"
+        : partValue;
 
       return tierFilters.includes(partValueKey);
     });
@@ -181,9 +183,11 @@ const PartSearchSelect = ({
             </p>
             <span className={classes_names["value-badge"]}>
               {t("part-search.value-label")}{" "}
-              {selectedValue === undefined || selectedValue === null
+              {selectedValue === undefined
                 ? "—"
-                : selectedValue}
+                : beyXUtilities.isBannedValue(selectedValue)
+                  ? t("part-search.filter-ban")
+                  : selectedValue}
             </span>
           </div>
           <div className={classes_names["selected-actions"]}>
@@ -213,7 +217,7 @@ const PartSearchSelect = ({
                 {t("part-search.filter-all")}
               </button>
               {availableTiers.map((tier) => {
-                const tierKey = tier === null ? "ban" : tier;
+                const tierKey = tier;
                 return (
                   <button
                     type="button"
@@ -226,7 +230,7 @@ const PartSearchSelect = ({
                     onMouseDown={(event) => event.preventDefault()}
                     onClick={() => toggleTierFilter(tierKey)}
                   >
-                    {tier === null ? t("part-search.filter-ban") : tier}
+                    {tier === "ban" ? t("part-search.filter-ban") : tier}
                   </button>
                 );
               })}
@@ -285,9 +289,11 @@ const PartSearchSelect = ({
                         {part.name}
                       </p>
                       <span className={classes_names["value-badge"]}>
-                        {partValue === undefined || partValue === null
+                        {partValue === undefined
                           ? "—"
-                          : partValue}
+                          : beyXUtilities.isBannedValue(partValue)
+                            ? t("part-search.filter-ban")
+                            : partValue}
                       </span>
                     </div>
                   );

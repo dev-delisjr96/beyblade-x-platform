@@ -119,6 +119,12 @@
   gap: 0.9rem;
 }
 
+.combo-hint {
+  font-size: var(--font-p-large);
+  color: var(--ds-text-dim);
+  line-height: 1.4;
+}
+
 .submit-btn {
   @include ds.pill-button($filled: true);
   @include main.flexBox(row, center, center);

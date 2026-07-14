@@ -18,6 +18,12 @@ import { generateClassesNames } from "styles/utilities";
  * search/select a part, assign it this row's point value, and optionally
  * attach a rule-set combo bonus (e.g. Bullet Griffon + the Merge bit).
  *
+ * When a combo is attached, `rowValue` becomes the bonus's value (the
+ * point value this row represents), not the part's plain base value —
+ * see pages/RulesPointValues for how the two ends of the combo get
+ * resolved and written (blade always gets the rule-set, per the "blade
+ * takes priority" rule).
+ *
  * Purely a form — the caller (RulesPointValues) owns actually writing the
  * result to RTDB via modules/rulesEditor.js + modules/rtdb.js.
  */
@@ -46,6 +52,7 @@ const EditPartValueModal = ({
     "checkbox-row",
     "combo-form",
     "combo-row",
+    "combo-hint",
     "submit-btn",
   ];
   const classes_names = generateClassesNames(
@@ -60,19 +67,19 @@ const EditPartValueModal = ({
     lockedPartType || rulesEditor.ALL_PART_TYPES[0],
   );
   const [partId, setPartId] = useState(undefined);
+  const [isBan, setIsBan] = useState(false);
   const [hasRuleSet, setHasRuleSet] = useState(false);
   const [comboPartType, setComboPartType] = useState(undefined);
   const [comboPartId, setComboPartId] = useState(undefined);
-  const [comboValue, setComboValue] = useState("");
 
   useEffect(() => {
     if (!open) return;
     setPartType(lockedPartType || rulesEditor.ALL_PART_TYPES[0]);
     setPartId(undefined);
+    setIsBan(false);
     setHasRuleSet(false);
     setComboPartType(undefined);
     setComboPartId(undefined);
-    setComboValue("");
   }, [open, lockedPartType]);
 
   const comboPartnerTypes = useMemo(
@@ -84,21 +91,20 @@ const EditPartValueModal = ({
 
   const canSubmit =
     Boolean(partId) &&
-    (!hasRuleSet || (comboPartType && comboPartId && comboValue !== ""));
+    (isBan || !hasRuleSet || Boolean(comboPartType && comboPartId));
 
   function handleSubmit(event) {
     event.preventDefault();
     if (!canSubmit) return;
 
-    const comboRule = hasRuleSet
-      ? rulesEditor.buildComboRule({
-          comboPartType,
-          comboPartName: comboPartId,
-          bonusValue: comboValue,
-        })
-      : undefined;
-
-    onConfirm({ partType, partId, value: rowValue, comboRule });
+    onConfirm({
+      mainPartType: partType,
+      mainPartId: partId,
+      value: isBan ? false : rowValue,
+      hasCombo: !isBan && hasRuleSet,
+      comboPartType: !isBan && hasRuleSet ? comboPartType : undefined,
+      comboPartId: !isBan && hasRuleSet ? comboPartId : undefined,
+    });
   }
 
   return (
@@ -116,7 +122,8 @@ const EditPartValueModal = ({
 
         <h2 className={classes_names["title"]}>{t("edit-part.add-title")}</h2>
         <span className={classes_names["value-badge"]}>
-          {t("edit-part.value-label")}: {rowValue}
+          {t("edit-part.value-label")}:{" "}
+          {isBan ? t("edit-part.ban-badge") : rowValue}
         </span>
 
         {!lockedPartType && (
@@ -158,14 +165,32 @@ const EditPartValueModal = ({
         <label className={classes_names["checkbox-row"]}>
           <input
             type="checkbox"
-            checked={hasRuleSet}
-            onChange={(event) => setHasRuleSet(event.target.checked)}
+            checked={isBan}
+            onChange={(event) => {
+              setIsBan(event.target.checked);
+              if (event.target.checked) setHasRuleSet(false);
+            }}
           />
-          <span>{t("edit-part.rule-set-checkbox")}</span>
+          <span>{t("edit-part.ban-checkbox")}</span>
         </label>
 
-        {hasRuleSet && (
+        {!isBan && (
+          <label className={classes_names["checkbox-row"]}>
+            <input
+              type="checkbox"
+              checked={hasRuleSet}
+              onChange={(event) => setHasRuleSet(event.target.checked)}
+            />
+            <span>{t("edit-part.rule-set-checkbox")}</span>
+          </label>
+        )}
+
+        {!isBan && hasRuleSet && (
           <div className={classes_names["combo-form"]}>
+            <p className={classes_names["combo-hint"]}>
+              {t("edit-part.combo-hint", { value: rowValue })}
+            </p>
+
             <div className={classes_names["combo-row"]}>
               <div className={classes_names["field"]}>
                 <p className={classes_names["field-label"]}>
@@ -203,17 +228,6 @@ const EditPartValueModal = ({
                 />
               </div>
             )}
-
-            <div className={classes_names["field"]}>
-              <p className={classes_names["field-label"]}>
-                {t("edit-part.combo-value-label")}
-              </p>
-              <input
-                type="number"
-                value={comboValue}
-                onChange={(event) => setComboValue(event.target.value)}
-              />
-            </div>
           </div>
         )}
 

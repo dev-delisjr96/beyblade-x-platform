@@ -112,6 +112,56 @@
   }
 }
 
+.save-button {
+  @include ds.pill-button($filled: true);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  border: none;
+
+  ion-icon {
+    font-size: 1.1rem;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+  }
+}
+
+@keyframes ds-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-icon {
+  animation: ds-spin 0.9s linear infinite;
+}
+
+.save-status {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-p-large);
+  font-weight: 600;
+
+  p {
+    margin: 0;
+  }
+
+  &.success {
+    color: var(--ds-accent);
+  }
+
+  &.error {
+    color: var(--ds-danger);
+  }
+}
+
 .new-date-button {
   @include ds.pill-button($filled: false);
   @include main.flexBox(row, center, center);

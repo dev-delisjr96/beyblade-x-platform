@@ -160,6 +160,12 @@ export function getDataFileByPart(part) {
  * normally, 3 when paired with a left-spin blade). The first rule whose
  * condition is currently satisfied wins; otherwise the base value applies.
  *
+ * A part that isn't listed in the rule set's values at all, or whose
+ * entry is missing a `value`, counts as worth 0 points — it's simply not
+ * scored, same as an explicit `"value": 0`. This is distinct from an
+ * explicit ban (`value: false`/`null`, see isBannedValue), which is left
+ * exactly as-is.
+ *
  * Falls back to the merged "cx" value list (used by rule sets that group
  * main-blade / over-blade / assist-blade / lock-chip values together) when
  * the part type has no dedicated entry in the values set at all.
@@ -169,9 +175,10 @@ export function getDataFileByPart(part) {
  * @param {string} partName  - the part's id/name to look up
  * @param {Object} [context] - passed straight through to
  *   ruleConditions.isRuleSatisfied — { buildEntry, toggles }
- * @returns {number|null|undefined} undefined when the part has no rule-set
- *   entry at all; otherwise its resolved value (which may be null for
- *   explicitly unscored parts, e.g. "metal-needle").
+ * @returns {number|boolean|null|undefined} undefined only when no part is
+ *   selected at all (`partName` falsy); otherwise a resolved value — 0
+ *   when the part has no rule-set value, or `false`/`null` when it's
+ *   explicitly banned.
  */
 export function findPartValue(
   valuesSet = {},
@@ -187,7 +194,7 @@ export function findPartValue(
   const entry =
     direct_match || (valuesSet?.cx || []).find((item) => item.name === partName);
 
-  if (!entry) return undefined;
+  if (!entry) return 0;
 
   const rules = Array.isArray(entry["rule-set"]) ? entry["rule-set"] : [];
 
@@ -198,23 +205,35 @@ export function findPartValue(
     }
   }
 
-  return entry.value;
+  return entry.value === undefined ? 0 : entry.value;
 }
 
 /**
  * Every distinct point value a part type can currently be worth in a
  * rule set — base values plus any rule-set combo/toggle bonus values
  * (e.g. blade "bullet-griffon" contributes both 4 and 5) — sorted
- * highest to lowest, with `null` (explicitly unscored/banned parts, e.g.
- * "metal-needle") last. Used to build the value-tier filter on part
+ * highest to lowest, with banned parts (see isBannedValue) merged into
+ * one "ban" tier last. Used to build the value-tier filter on part
  * selectors, straight from whatever's actually in the rule set (RTDB) —
  * nothing hardcoded.
  *
+ * A part with no entry at all (or an entry missing `value`) resolves to
+ * 0 (see findPartValue), but a rule set normally has no *explicit*
+ * `"value": 0` entry to detect that from. Passing `catalog` (the full
+ * list of parts for this type, e.g. from data/index.js) lets this check
+ * for that case too, so "0" still shows up as a filterable tier whenever
+ * at least one catalog part would actually resolve to 0.
+ *
  * @param {Object} valuesSet - RULE_SET.deck.values for the selected rule-set
  * @param {string} partType
- * @returns {Array<number|null>}
+ * @param {Array} [catalog] - every part of this type, e.g. PARTS[partType]
+ * @returns {Array<number|"ban">}
  */
-export function getAvailableValueTiers(valuesSet = {}, partType = "blade") {
+export function getAvailableValueTiers(
+  valuesSet = {},
+  partType = "blade",
+  catalog = [],
+) {
   const direct = Array.isArray(valuesSet?.[partType])
     ? valuesSet[partType]
     : [];
@@ -226,17 +245,44 @@ export function getAvailableValueTiers(valuesSet = {}, partType = "blade") {
   const tiers = new Set();
 
   entries.forEach((entry) => {
-    tiers.add(entry.value);
+    tiers.add(
+      isBannedValue(entry.value)
+        ? "ban"
+        : entry.value === undefined
+          ? 0
+          : entry.value,
+    );
 
     const rules = Array.isArray(entry["rule-set"]) ? entry["rule-set"] : [];
-    rules.forEach((rule) => tiers.add(rule.newValue));
+    rules.forEach((rule) =>
+      tiers.add(isBannedValue(rule.newValue) ? "ban" : rule.newValue),
+    );
   });
 
+  // A part entirely missing from the rule set also resolves to 0 (see
+  // findPartValue) — make sure "0" is filterable even when nothing in the
+  // JSON explicitly says so.
+  const hasImplicitZero = catalog.some((part) => {
+    const matchedEntry = entries.find((entry) => entry.name === part.id);
+    return !matchedEntry || matchedEntry.value === undefined;
+  });
+  if (hasImplicitZero) tiers.add(0);
+
   return Array.from(tiers).sort((a, b) => {
-    if (a === null) return 1;
-    if (b === null) return -1;
+    if (a === "ban") return 1;
+    if (b === "ban") return -1;
     return b - a;
   });
+}
+
+/**
+ * Whether a resolved part value means "banned / explicitly unscored"
+ * (e.g. bit "metal-needle"). Historically this was written to RTDB as
+ * `null`; the app now writes `false` for new bans instead, but both are
+ * treated identically everywhere so existing `null` data keeps working.
+ */
+export function isBannedValue(value) {
+  return value === false || value === null;
 }
 
 export function findPartData(part = "blade", idName = "dran-sword") {
@@ -435,20 +481,21 @@ export function buildPointListEntries(valuesSet = {}) {
 /**
  * Groups point-list entries (see buildPointListEntries) by their value,
  * returned as value/entries pairs already sorted highest-to-lowest, with
- * `null` (banned parts) sorted last as its own group.
+ * banned parts (see isBannedValue) merged into one "ban" group sorted
+ * last, regardless of whether they're stored as `null` or `false`.
  */
 export function groupPointListEntriesByValue(entries = []) {
   const groups = new Map();
 
   entries.forEach((entry) => {
-    const key = entry.value;
+    const key = isBannedValue(entry.value) ? "ban" : entry.value;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(entry);
   });
 
   const sortedKeys = Array.from(groups.keys()).sort((a, b) => {
-    if (a === null) return 1;
-    if (b === null) return -1;
+    if (a === "ban") return 1;
+    if (b === "ban") return -1;
     return b - a;
   });
 

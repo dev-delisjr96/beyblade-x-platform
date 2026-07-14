@@ -2,6 +2,12 @@
   "page-title": "Point List",
   "back-button": "Back to Builder",
   "loading": "Loading rule set...",
+  "save-button": "Save",
+  "saving": "Preparing image...",
+  "save-status": {
+    "saved": "Image saved!",
+    "error": "Couldn't create the image. Try again."
+  },
   "view-mode": {
     "point": "By Point",
     "part": "By Part"

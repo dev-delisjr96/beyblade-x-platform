@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 // Router
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,6 +11,9 @@ import PARTS from "../../data/index";
 
 // RTDB
 import { subscribeToRecord, updateRuleSetPartValues } from "../../modules/rtdb";
+
+// Screenshot saving
+import * as beyXShare from "../../modules/share";
 
 // Admin access + editing
 import * as adminAccess from "../../modules/adminAccess";
@@ -66,6 +69,11 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     "edit-button",
     "editing-badge",
     "block-edit-icon",
+    "save-button",
+    "spin-icon",
+    "save-status",
+    "success",
+    "error",
     "view-toggle",
     "view-option",
     "active",
@@ -109,6 +117,9 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   const [showDuplicateModal, setShowDuplicateModal] = useState(false);
   const [showNewPointValueModal, setShowNewPointValueModal] = useState(false);
   const [addPartContext, setAddPartContext] = useState(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveStatus, setSaveStatus] = useState(null);
+  const contentRef = useRef(null);
   // Which chip's action buttons are currently "expanded". Hover reveals
   // them for free on desktop, but hover doesn't exist on touch, so tapping
   // a chip toggles this instead — see the .chip-actions CSS.
@@ -198,21 +209,115 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     setAddPartContext({ rowValue, lockedPartType });
   }
 
-  async function handleAddPartConfirm({ partType, partId, value, comboRule }) {
-    const newArray = rulesEditor.upsertPartValue(
+  async function handleAddPartConfirm({
+    mainPartType,
+    mainPartId,
+    value,
+    hasCombo,
+    comboPartType,
+    comboPartId,
+  }) {
+    if (!hasCombo) {
+      // Simple case: just set/update this part's base value. Any rule-set
+      // it already had stays exactly as it was.
+      const newArray = rulesEditor.setBaseValue(
+        valuesSet,
+        mainPartType,
+        mainPartId,
+        value,
+      );
+      await persistPartTypeArray(mainPartType, newArray);
+      setAddPartContext(null);
+      return;
+    }
+
+    // Blade takes priority: whichever of the two parts in this combo is a
+    // blade gets the rule-set attached to it (that's where the game's own
+    // combo bonuses live, e.g. Bullet Griffon + Merge). The other part is
+    // only ever referenced inside the combo — it's never written to.
+    const mainIsBlade = mainPartType === "blade";
+    const comboIsBlade = comboPartType === "blade";
+
+    const targetType = mainIsBlade
+      ? mainPartType
+      : comboIsBlade
+        ? comboPartType
+        : mainPartType;
+    const targetId = targetType === mainPartType ? mainPartId : comboPartId;
+    const otherType =
+      targetType === mainPartType ? comboPartType : mainPartType;
+    const otherId = targetType === mainPartType ? comboPartId : mainPartId;
+
+    const otherPartData = PARTS[otherType]?.find(
+      (part) => part.id === otherId,
+    );
+
+    const comboRule = {
+      label: `+ ${otherPartData?.name || otherId}`,
+      combo: [{ part: otherType, name: otherId }],
+      newValue: Number(value),
+    };
+
+    const newArray = rulesEditor.addComboRule(
       valuesSet,
-      partType,
-      partId,
-      value,
+      targetType,
+      targetId,
       comboRule,
     );
-    await persistPartTypeArray(partType, newArray);
+    await persistPartTypeArray(targetType, newArray);
     setAddPartContext(null);
   }
 
   function handleNewPointValueConfirm(value) {
     setShowNewPointValueModal(false);
     openAddPartModal(value, undefined);
+  }
+
+  async function handleSaveTable() {
+    if (!contentRef.current || isSaving) return;
+
+    setIsSaving(true);
+    setSaveStatus(null);
+
+    try {
+      const blob = await beyXShare.captureElementAsDesktopPng(
+        contentRef.current,
+        {
+          desktopWidth: 1100,
+          backgroundColor: "#060a0c",
+          // Both the point-value rows and their tier badges collapse to a
+          // narrower, stacked layout on small screens (see the .value-section
+          // / .value-header media queries) — force them back to the desktop
+          // row layout on the offscreen clone before it's rasterized, so the
+          // saved image looks the same no matter what device saved it.
+          beforeCapture: (clone) => {
+            clone
+              .querySelectorAll("[data-capture-value-section]")
+              .forEach((el) => {
+                el.style.flexDirection = "row";
+                el.style.gap = "1.25rem";
+              });
+            clone
+              .querySelectorAll("[data-capture-value-header]")
+              .forEach((el) => {
+                el.style.width = "92px";
+              });
+          },
+        },
+      );
+
+      beyXShare.downloadBlob(
+        blob,
+        `beyblade-x-point-list-${club}-${date}-${viewMode}.png`,
+      );
+      setSaveStatus({ type: "success", message: t("save-status.saved") });
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("Point list save failed:", err);
+      setSaveStatus({ type: "error", message: t("save-status.error") });
+    } finally {
+      setIsSaving(false);
+    }
   }
 
   async function handleDeleteChip(entry) {
@@ -324,17 +429,19 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   }
 
   function renderValueGroup(value, groupEntries, keyPrefix, lockedPartType) {
-    const label =
-      value === null || !value ? t("ban-label") : t("point-label", { value });
+    const isBanGroup = value === "ban";
+    const label = isBanGroup ? t("ban-label") : t("point-label", { value });
 
     return (
       <div
         className={classes_names["value-section"]}
+        data-capture-value-section
         key={`${keyPrefix}-value-${value}`}
       >
         <div
           className={classes_names["value-header"]}
-          data-tier={value === null ? "ban" : value}
+          data-tier={value}
+          data-capture-value-header
         >
           <span className={classes_names["value-badge"]}>{label}</span>
         </div>
@@ -346,11 +453,13 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
             ),
           )}
 
-          {isEditMode && value !== null && (
+          {isEditMode && (
             <button
               type="button"
               className={classes_names["add-chip-btn"]}
-              onClick={() => openAddPartModal(value, lockedPartType)}
+              onClick={() =>
+                openAddPartModal(isBanGroup ? false : value, lockedPartType)
+              }
             >
               <ion-icon name="add-outline"></ion-icon>
             </button>
@@ -427,19 +536,41 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
               ></ion-icon>
             </span>
           ) : (
-            <button
-              type="button"
-              className={classes_names["edit-button"]}
-              onClick={handleEditClick}
-            >
-              <ion-icon name="lock-closed-outline"></ion-icon>
-              {tAdmin("edit-button")}
-            </button>
+            <>
+              <button
+                type="button"
+                className={classes_names["edit-button"]}
+                onClick={handleEditClick}
+              >
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                {tAdmin("edit-button")}
+              </button>
+              <button
+                type="button"
+                className={classes_names["save-button"]}
+                onClick={handleSaveTable}
+                disabled={isSaving}
+              >
+                <ion-icon
+                  name={isSaving ? "sync-outline" : "download-outline"}
+                  className={isSaving ? classes_names["spin-icon"] : ""}
+                ></ion-icon>
+                {isSaving ? t("saving") : t("save-button")}
+              </button>
+            </>
           )}
         </div>
       </header>
 
-      <div className={classes_names["content"]}>
+      {saveStatus && (
+        <div
+          className={`${classes_names["save-status"]} ${classes_names[saveStatus.type]}`}
+        >
+          <p>{saveStatus.message}</p>
+        </div>
+      )}
+
+      <div className={classes_names["content"]} ref={contentRef}>
         {entries.length === 0 && (
           <p className={classes_names["empty-state"]}>{t("empty-state")}</p>
         )}

@@ -12,6 +12,7 @@
   },
   "total-value": "Total Deck Value",
   "build-value": "Total Build Value",
+  "ban-label": "Ban",
   "confirm-button": "Confirm",
   "deck-summary": {
     "title": "Deck",

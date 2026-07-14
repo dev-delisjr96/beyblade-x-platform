@@ -222,9 +222,11 @@ const DeckSummaryModal = ({
                             {partData.name}
                           </span>
                           <span className={classes_names["part-value"]}>
-                            {partValue === undefined || partValue === null
+                            {partValue === undefined
                               ? "—"
-                              : partValue}
+                              : beyXUtilities.isBannedValue(partValue)
+                                ? t("ban-label")
+                                : partValue}
                           </span>
                         </div>
                       );

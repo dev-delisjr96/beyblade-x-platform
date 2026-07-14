@@ -25,10 +25,12 @@
     "part-type-label": "Part Type",
     "part-label": "Part",
     "value-label": "Value",
+    "ban-checkbox": "Set as Ban",
+    "ban-badge": "Ban",
     "rule-set-checkbox": "This part has a rule-set combo bonus",
     "combo-type-label": "Combo with",
     "combo-part-label": "Combo part",
-    "combo-value-label": "Bonus value",
+    "combo-hint": "When paired with the part below, the value for this combo will be {{value}}. If the blade in this combo already has its own base value and rules, they're kept as-is — this just adds one more rule.",
     "submit-button": "Save",
     "cancel-button": "Cancel"
   }

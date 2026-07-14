@@ -12,6 +12,7 @@
   },
   "total-value": "Valore Totale del Deck",
   "build-value": "Valore Totale della Build",
+  "ban-label": "Bandito",
   "confirm-button": "Conferma",
   "deck-summary": {
     "title": "Deck",
