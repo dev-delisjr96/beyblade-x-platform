@@ -69,10 +69,18 @@ function comboSignature(rule) {
   return `${rule?.label ?? ""}::${JSON.stringify(rule?.combo ?? null)}`;
 }
 
-/** Signature used to detect "is this the same combo" regardless of label
- * or bonus value — used by addComboRule to update rather than duplicate. */
+/** Signature used to detect "is this the same rule already" — used by
+ * addComboRule to update rather than duplicate. Combo-type rules (have a
+ * `combo`) are matched by that combo, regardless of label, since a part
+ * can only sensibly have one rule per combo target. Toggle-type rules
+ * (no `combo`, e.g. bit "rubber-accel" → "Worn") have nothing else to key
+ * on, so they're matched by label instead — otherwise every toggle
+ * condition on the same part would collide with each other. */
 function comboOnlySignature(rule) {
-  return JSON.stringify(rule?.combo ?? null);
+  if (Array.isArray(rule?.combo) && rule.combo.length > 0) {
+    return `combo::${JSON.stringify(rule.combo)}`;
+  }
+  return `toggle::${rule?.label ?? ""}`;
 }
 
 /**
@@ -137,5 +145,28 @@ export function removeComboRule(valuesSet, partType, partName, rule) {
       delete updated["rule-set"];
     }
     return updated;
+  });
+}
+
+/**
+ * Changes just one specific rule-set rule's `newValue` (identified by
+ * label + combo, same as removeComboRule) — the "+"/"-" up/down controls
+ * on a combo/condition chip use this. Leaves the part's base `value` and
+ * every other rule on it completely untouched; only that one rule's
+ * value changes in RTDB.
+ */
+export function changeRuleValueTier(valuesSet, partType, partName, rule, newValue) {
+  const targetSignature = comboSignature(rule);
+
+  return getArray(valuesSet, partType).map((entry) => {
+    if (entry.name !== partName) return entry;
+
+    const updatedRules = (entry["rule-set"] || []).map((existingRule) =>
+      comboSignature(existingRule) === targetSignature
+        ? { ...existingRule, newValue }
+        : existingRule,
+    );
+
+    return { ...entry, "rule-set": updatedRules };
   });
 }

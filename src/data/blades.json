@@ -6,6 +6,9 @@
     "full_name": {
       "takara-tomy": "Dran Sword",
       "hasbro": "Sword Dran"
+    },
+    "retools": {
+      "variants": ["collab-marvel-venom"]
     }
   },
   {
@@ -15,6 +18,12 @@
     "full_name": {
       "takara-tomy": "Hells Scythe",
       "hasbro": "Scythe Incendio"
+    },
+    "retools": {
+      "variants": [
+        "collab-starwars-moff-gideon",
+        "collab-transformers-megatron"
+      ]
     }
   },
   {
@@ -24,6 +33,9 @@
     "full_name": {
       "takara-tomy": "Wizard Arrow",
       "hasbro": "Arrow Wizard"
+    },
+    "retools": {
+      "variants": ["collab-transformers-starscream"]
     }
   },
   {
@@ -33,6 +45,14 @@
     "full_name": {
       "takara-tomy": "Knight Shield",
       "hasbro": "Helm Knight"
+    },
+    "retools": {
+      "variants": [
+        "collab-marvel-iron-man",
+        "collab-starwars-luke-skywalker",
+        "collab-transformers-optimus-prime",
+        "collab-transformers-bumblebee"
+      ]
     }
   },
   {
@@ -42,6 +62,13 @@
     "full_name": {
       "takara-tomy": "Knight Lance",
       "hasbro": "Lance Knight"
+    },
+    "retools": {
+      "variants": [
+        "collab-marvel-thanos",
+        "collab-starwars-darth-vader",
+        "collab-starwars-obi-wan-kenobi"
+      ]
     }
   },
   {
@@ -51,6 +78,9 @@
     "full_name": {
       "takara-tomy": "Shark Edge",
       "hasbro": "Keel Shark"
+    },
+    "retools": {
+      "variants": ["collab-transformers-optimus-primal"]
     }
   },
   {
@@ -60,6 +90,9 @@
     "full_name": {
       "takara-tomy": "Leon Claw",
       "hasbro": "Claw Leon"
+    },
+    "retools": {
+      "variants": ["collab-starwars-mandalorian", "samurai-steel"]
     }
   },
   {
@@ -69,6 +102,9 @@
     "full_name": {
       "takara-tomy": "Viper Tail",
       "hasbro": ""
+    },
+    "retools": {
+      "variants": ["collab-marvel-spider-man", "collab-transformers-shockwave"]
     }
   },
   {
@@ -78,6 +114,12 @@
     "full_name": {
       "takara-tomy": "Rhino Horn",
       "hasbro": ""
+    },
+    "retools": {
+      "variants": [
+        "collab-starwars-general-grievous",
+        "collab-starwars-stormtrooper"
+      ]
     }
   },
   {
@@ -114,6 +156,9 @@
     "full_name": {
       "takara-tomy": "Phoenix Wing",
       "hasbro": "Soar Phoenix"
+    },
+    "retools": {
+      "variants": ["tyranno-roar"]
     }
   },
   {
@@ -159,6 +204,9 @@
     "full_name": {
       "takara-tomy": "Sphinx Cowl",
       "hasbro": "Sphinx Cowl"
+    },
+    "retools": {
+      "variants": ["tricera-spiky"]
     }
   },
   {
@@ -195,6 +243,9 @@
     "full_name": {
       "takara-tomy": "Tyranno Beat",
       "hasbro": "Beat Tyranno"
+    },
+    "retools": {
+      "variants": ["collab-jurassicworld-t-rex", "collab-marvel-red-hulk"]
     }
   },
   {
@@ -322,6 +373,9 @@
     "full_name": {
       "takara-tomy": "Ptera Swing",
       "hasbro": "Talon Tera"
+    },
+    "retools": {
+      "variants": ["collab-jurassicworld-quetzalcoatlus"]
     }
   },
   {
@@ -385,6 +439,9 @@
     "full_name": {
       "takara-tomy": "Shelter Drake",
       "hasbro": ""
+    },
+    "retools": {
+      "variants": ["collab-starwars-chewbacca"]
     }
   },
   {
@@ -587,6 +644,10 @@
     "full_name": {
       "takara-tomy": "Tyranno Roar",
       "hasbro": "Roar Tyranno"
+    },
+    "retools": {
+      "original": "phoenix-wing",
+      "variants": ["collab-jurassicworld-spinosaurus"]
     }
   },
   {
@@ -617,21 +678,15 @@
     }
   },
   {
-    "id": "venom",
-    "name": "Venom",
-    "img": "/parts/venom.png",
-    "full_name": {
-      "takara-tomy": "Venom",
-      "hasbro": ""
-    }
-  },
-  {
     "id": "samurai-steel",
     "name": "Samurai Steel",
     "img": "/parts/samurai-steel.png",
     "full_name": {
       "takara-tomy": "Samurai Steel",
       "hasbro": ""
+    },
+    "retools": {
+      "original": "leon-claw"
     }
   },
   {
@@ -641,6 +696,10 @@
     "full_name": {
       "takara-tomy": "Tricera Spiky",
       "hasbro": ""
+    },
+    "retools": {
+      "original": "sphinx-cowl",
+      "variants": ["collab-jurassicworld-mosasaurus"]
     }
   },
   {
@@ -715,6 +774,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Iron Man"
+    },
+    "retools": {
+      "original": "knight-shield"
     }
   },
   {
@@ -724,6 +786,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Red Hulk"
+    },
+    "retools": {
+      "original": "tyranno-beat"
     }
   },
   {
@@ -733,6 +798,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Thanos"
+    },
+    "retools": {
+      "original": "knight-lance"
     }
   },
   {
@@ -742,6 +810,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Spider-Man"
+    },
+    "retools": {
+      "original": "viper-tail"
     }
   },
   {
@@ -751,6 +822,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Venom"
+    },
+    "retools": {
+      "original": "dran-sword"
     }
   },
   {
@@ -760,6 +834,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "The Mandalorian"
+    },
+    "retools": {
+      "original": "leon-claw"
     }
   },
   {
@@ -769,6 +846,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Moff Gideon"
+    },
+    "retools": {
+      "original": "hells-scythe"
     }
   },
   {
@@ -778,6 +858,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Luke Skywalker"
+    },
+    "retools": {
+      "original": "knight-shield"
     }
   },
   {
@@ -787,6 +870,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Darth Vader"
+    },
+    "retools": {
+      "original": "knight-lance"
     }
   },
   {
@@ -796,6 +882,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Obi-Wan Kenobi"
+    },
+    "retools": {
+      "original": "knight-lance"
     }
   },
   {
@@ -805,6 +894,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "General Grievous"
+    },
+    "retools": {
+      "original": "rhino-horn"
     }
   },
   {
@@ -814,6 +906,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Chewbacca"
+    },
+    "retools": {
+      "original": "shelter-drake"
     }
   },
   {
@@ -823,6 +918,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Stormtrooper"
+    },
+    "retools": {
+      "original": "rhino-horn"
     }
   },
   {
@@ -832,6 +930,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Optimus Prime"
+    },
+    "retools": {
+      "original": "knight-shield"
     }
   },
   {
@@ -841,6 +942,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Megatron"
+    },
+    "retools": {
+      "original": "hells-scythe"
     }
   },
   {
@@ -850,6 +954,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Optimus Primal"
+    },
+    "retools": {
+      "original": "shark-edge"
     }
   },
   {
@@ -859,6 +966,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Starscream"
+    },
+    "retools": {
+      "original": "wizard-arrow"
     }
   },
   {
@@ -868,6 +978,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Bumblebee"
+    },
+    "retools": {
+      "original": "knight-shield"
     }
   },
   {
@@ -877,6 +990,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Shockwave"
+    },
+    "retools": {
+      "original": "viper-tail"
     }
   },
   {
@@ -886,6 +1002,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "T. Rex"
+    },
+    "retools": {
+      "original": "tyranno-beat"
     }
   },
   {
@@ -895,6 +1014,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Mosasaurus"
+    },
+    "retools": {
+      "original": "tricera-spiky"
     }
   },
   {
@@ -904,6 +1026,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Spinosaurus"
+    },
+    "retools": {
+      "original": "tyranno-roar"
     }
   },
   {
@@ -913,15 +1038,9 @@
     "full_name": {
       "takara-tomy": "",
       "hasbro": "Quetzalcoatlus"
-    }
-  },
-  {
-    "id": "bite-croc",
-    "name": "Bite Croc",
-    "img": "/parts/bite-croc.png",
-    "full_name": {
-      "takara-tomy": "",
-      "hasbro": "Bite Croc"
+    },
+    "retools": {
+      "original": "ptera-swing"
     }
   }
 ]

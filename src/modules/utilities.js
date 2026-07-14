@@ -160,11 +160,19 @@ export function getDataFileByPart(part) {
  * normally, 3 when paired with a left-spin blade). The first rule whose
  * condition is currently satisfied wins; otherwise the base value applies.
  *
- * A part that isn't listed in the rule set's values at all, or whose
- * entry is missing a `value`, counts as worth 0 points — it's simply not
- * scored, same as an explicit `"value": 0`. This is distinct from an
- * explicit ban (`value: false`/`null`, see isBannedValue), which is left
- * exactly as-is.
+ * Also handles "retools" (see data/blades.json → "retools.original"):
+ * collab/recolor variants of an existing blade that don't get their own
+ * entry in the rule set. If a part has no explicit value data of its own
+ * but its catalog entry names an `original`, it's worth whatever that
+ * original resolves to instead (recursively, in case of a retool-of-a-
+ * retool chain). This is purely a client-side display rule — nothing is
+ * ever written back to RTDB for it; the rule set itself is untouched.
+ *
+ * A part that isn't listed in the rule set's values at all (and has no
+ * retool original either), or whose entry is missing a `value`, counts
+ * as worth 0 points — it's simply not scored, same as an explicit
+ * `"value": 0`. This is distinct from an explicit ban (`value:
+ * false`/`null`, see isBannedValue), which is left exactly as-is.
  *
  * Falls back to the merged "cx" value list (used by rule sets that group
  * main-blade / over-blade / assist-blade / lock-chip values together) when
@@ -194,18 +202,27 @@ export function findPartValue(
   const entry =
     direct_match || (valuesSet?.cx || []).find((item) => item.name === partName);
 
-  if (!entry) return 0;
+  if (entry) {
+    const rules = Array.isArray(entry["rule-set"]) ? entry["rule-set"] : [];
 
-  const rules = Array.isArray(entry["rule-set"]) ? entry["rule-set"] : [];
-
-  for (let ruleIndex = 0; ruleIndex < rules.length; ruleIndex++) {
-    const rule = rules[ruleIndex];
-    if (ruleConditions.isRuleSatisfied(rule, ruleIndex, partName, context)) {
-      return rule.newValue;
+    for (let ruleIndex = 0; ruleIndex < rules.length; ruleIndex++) {
+      const rule = rules[ruleIndex];
+      if (ruleConditions.isRuleSatisfied(rule, ruleIndex, partName, context)) {
+        return rule.newValue;
+      }
     }
+
+    if (entry.value !== undefined) return entry.value;
   }
 
-  return entry.value === undefined ? 0 : entry.value;
+  // No usable entry — check whether this part is a retool of another one.
+  const catalogPartData = findPartData(partType, partName);
+  const originalId = catalogPartData?.retools?.original;
+  if (originalId && originalId !== partName) {
+    return findPartValue(valuesSet, partType, originalId, context);
+  }
+
+  return 0;
 }
 
 /**
@@ -425,10 +442,59 @@ export function buildEntryTitle(entryType = "simple", entry = {}) {
 }
 
 /**
+ * Recursively adds one display-only chip entry per retool variant of a
+ * part (see data/blades.json → "retools.variants"), sharing the same
+ * value/label/combo as the part just pushed. Purely additive for the
+ * Point Values page — these never get their own RTDB entry, and editing
+ * one of these synthesized chips (see pages/RulesPointValues) is
+ * disabled since there's nothing real to edit.
+ *
+ * Recurses so a chain (e.g. phoenix-wing → tyranno-roar → ...its own
+ * variants) is fully expanded, guarding against cycles with `visited`.
+ */
+function pushRetoolVariantEntries(
+  entries,
+  partType,
+  partId,
+  value,
+  label,
+  combo,
+  visited = new Set(),
+) {
+  if (visited.has(partId)) return;
+  visited.add(partId);
+
+  const catalogPartData = findPartData(partType, partId);
+  const variantIds = catalogPartData?.retools?.variants;
+  if (!Array.isArray(variantIds)) return;
+
+  variantIds.forEach((variantId) => {
+    entries.push({
+      partType,
+      partId: variantId,
+      value,
+      label,
+      combo,
+      isRetoolVariant: true,
+    });
+    pushRetoolVariantEntries(
+      entries,
+      partType,
+      variantId,
+      value,
+      label,
+      combo,
+      visited,
+    );
+  });
+}
+
+/**
  * Flattens a whole rule-set's values object into a list of "point list"
  * chip entries — one per part, plus one more per rule-set combo/toggle
  * bonus it carries (see modules/rules/conditions.js), each tagged with
- * the point value it's worth.
+ * the point value it's worth. Also expands each part's retool variants
+ * (see pushRetoolVariantEntries) into the same row, purely for display.
  *
  * Each raw value entry already carries its own `part` field (this is what
  * lets rule sets like ibna-dran-gladius merge every CX part into one
@@ -455,6 +521,14 @@ export function buildPointListEntries(valuesSet = {}) {
           value: partEntry.value,
           label: null,
         });
+        pushRetoolVariantEntries(
+          entries,
+          partType,
+          partId,
+          partEntry.value,
+          null,
+          undefined,
+        );
       }
 
       const rules = Array.isArray(partEntry["rule-set"])
@@ -470,6 +544,14 @@ export function buildPointListEntries(valuesSet = {}) {
             label: rule.label,
             combo: rule.combo,
           });
+          pushRetoolVariantEntries(
+            entries,
+            partType,
+            partId,
+            rule.newValue,
+            rule.label,
+            rule.combo,
+          );
         }
       });
     });

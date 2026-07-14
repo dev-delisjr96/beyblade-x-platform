@@ -52,7 +52,8 @@
   @include main.flexBox(column, flex-start, stretch);
   gap: 0.4rem;
 
-  input[type="number"] {
+  input[type="number"],
+  input[type="text"] {
     @include ds.field-input;
   }
 }
@@ -123,6 +124,15 @@
   font-size: var(--font-p-large);
   color: var(--ds-text-dim);
   line-height: 1.4;
+}
+
+.condition-form {
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-md);
+  padding: 1rem;
+  background: var(--ds-surface-alt);
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 0.9rem;
 }
 
 .submit-btn {

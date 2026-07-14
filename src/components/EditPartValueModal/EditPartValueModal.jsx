@@ -53,6 +53,7 @@ const EditPartValueModal = ({
     "combo-form",
     "combo-row",
     "combo-hint",
+    "condition-form",
     "submit-btn",
   ];
   const classes_names = generateClassesNames(
@@ -71,6 +72,9 @@ const EditPartValueModal = ({
   const [hasRuleSet, setHasRuleSet] = useState(false);
   const [comboPartType, setComboPartType] = useState(undefined);
   const [comboPartId, setComboPartId] = useState(undefined);
+  const [hasCondition, setHasCondition] = useState(false);
+  const [conditionLabel, setConditionLabel] = useState("");
+  const [conditionValue, setConditionValue] = useState("");
 
   useEffect(() => {
     if (!open) return;
@@ -80,6 +84,9 @@ const EditPartValueModal = ({
     setHasRuleSet(false);
     setComboPartType(undefined);
     setComboPartId(undefined);
+    setHasCondition(false);
+    setConditionLabel("");
+    setConditionValue("");
   }, [open, lockedPartType]);
 
   const comboPartnerTypes = useMemo(
@@ -91,7 +98,12 @@ const EditPartValueModal = ({
 
   const canSubmit =
     Boolean(partId) &&
-    (isBan || !hasRuleSet || Boolean(comboPartType && comboPartId));
+    (isBan ||
+      (!hasRuleSet && !hasCondition) ||
+      (hasRuleSet && Boolean(comboPartType && comboPartId)) ||
+      (hasCondition &&
+        conditionLabel.trim() !== "" &&
+        conditionValue !== ""));
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -104,6 +116,9 @@ const EditPartValueModal = ({
       hasCombo: !isBan && hasRuleSet,
       comboPartType: !isBan && hasRuleSet ? comboPartType : undefined,
       comboPartId: !isBan && hasRuleSet ? comboPartId : undefined,
+      hasCondition: !isBan && hasCondition,
+      conditionLabel: !isBan && hasCondition ? conditionLabel.trim() : undefined,
+      conditionValue: !isBan && hasCondition ? conditionValue : undefined,
     });
   }
 
@@ -168,7 +183,10 @@ const EditPartValueModal = ({
             checked={isBan}
             onChange={(event) => {
               setIsBan(event.target.checked);
-              if (event.target.checked) setHasRuleSet(false);
+              if (event.target.checked) {
+                setHasRuleSet(false);
+                setHasCondition(false);
+              }
             }}
           />
           <span>{t("edit-part.ban-checkbox")}</span>
@@ -179,9 +197,26 @@ const EditPartValueModal = ({
             <input
               type="checkbox"
               checked={hasRuleSet}
-              onChange={(event) => setHasRuleSet(event.target.checked)}
+              onChange={(event) => {
+                setHasRuleSet(event.target.checked);
+                if (event.target.checked) setHasCondition(false);
+              }}
             />
             <span>{t("edit-part.rule-set-checkbox")}</span>
+          </label>
+        )}
+
+        {!isBan && (
+          <label className={classes_names["checkbox-row"]}>
+            <input
+              type="checkbox"
+              checked={hasCondition}
+              onChange={(event) => {
+                setHasCondition(event.target.checked);
+                if (event.target.checked) setHasRuleSet(false);
+              }}
+            />
+            <span>{t("edit-part.condition-checkbox")}</span>
           </label>
         )}
 
@@ -228,6 +263,33 @@ const EditPartValueModal = ({
                 />
               </div>
             )}
+          </div>
+        )}
+
+        {!isBan && hasCondition && (
+          <div className={classes_names["condition-form"]}>
+            <div className={classes_names["field"]}>
+              <p className={classes_names["field-label"]}>
+                {t("edit-part.condition-label-label")}
+              </p>
+              <input
+                type="text"
+                value={conditionLabel}
+                placeholder={t("edit-part.condition-label-placeholder")}
+                onChange={(event) => setConditionLabel(event.target.value)}
+              />
+            </div>
+
+            <div className={classes_names["field"]}>
+              <p className={classes_names["field-label"]}>
+                {t("edit-part.condition-value-label")}
+              </p>
+              <input
+                type="number"
+                value={conditionValue}
+                onChange={(event) => setConditionValue(event.target.value)}
+              />
+            </div>
           </div>
         )}
 

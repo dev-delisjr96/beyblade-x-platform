@@ -74,6 +74,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     "save-status",
     "success",
     "error",
+    "search-bar",
     "view-toggle",
     "view-option",
     "active",
@@ -88,6 +89,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     "part-heading",
     "chip",
     "chip-frame",
+    "variant-chip",
     "chip-actions",
     "force-visible",
     "chip-img",
@@ -110,6 +112,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   const [viewMode, setViewMode] = useState("point");
   const [ruleSet, setRuleSet] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // --- Admin / edit mode -----------------------------------------------
   const [isAdmin, setIsAdmin] = useState(() => adminAccess.isAdminSession());
@@ -163,14 +166,30 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     [valuesSet],
   );
 
+  const filteredEntries = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+    if (!normalizedSearch) return entries;
+
+    return entries.filter((entry) => {
+      const partData = PARTS[entry.partType]?.find(
+        (part) => part.id === entry.partId,
+      );
+      const name = partData?.name?.toLowerCase() || "";
+      return (
+        name.includes(normalizedSearch) ||
+        entry.partId?.toLowerCase().includes(normalizedSearch)
+      );
+    });
+  }, [entries, searchTerm]);
+
   const pointGroups = useMemo(
-    () => beyXUtilities.groupPointListEntriesByValue(entries),
-    [entries],
+    () => beyXUtilities.groupPointListEntriesByValue(filteredEntries),
+    [filteredEntries],
   );
 
   const partGroups = useMemo(
-    () => beyXUtilities.groupPointListEntriesByPart(entries),
-    [entries],
+    () => beyXUtilities.groupPointListEntriesByPart(filteredEntries),
+    [filteredEntries],
   );
 
   async function persistPartTypeArray(partType, newArray) {
@@ -216,7 +235,31 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     hasCombo,
     comboPartType,
     comboPartId,
+    hasCondition,
+    conditionLabel,
+    conditionValue,
   }) {
+    if (hasCondition) {
+      // Toggle-type rule (no combo — a plain checkbox condition the
+      // deck-builder player ticks manually, e.g. bit "rubber-accel" →
+      // "Worn"). Always attaches to the main part being added; there's no
+      // other part involved to apply "blade takes priority" against.
+      const conditionRule = {
+        label: conditionLabel,
+        newValue: Number(conditionValue),
+      };
+
+      const newArray = rulesEditor.addComboRule(
+        valuesSet,
+        mainPartType,
+        mainPartId,
+        conditionRule,
+      );
+      await persistPartTypeArray(mainPartType, newArray);
+      setAddPartContext(null);
+      return;
+    }
+
     if (!hasCombo) {
       // Simple case: just set/update this part's base value. Any rule-set
       // it already had stays exactly as it was.
@@ -334,15 +377,25 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
   }
 
   async function handleMoveChip(entry, direction) {
-    if (entry.label) return; // only base (non-bonus) chips can move tiers
-
     const newValue = entry.value + (direction === "up" ? 1 : -1);
-    const newArray = rulesEditor.changePartValueTier(
-      valuesSet,
-      entry.partType,
-      entry.partId,
-      newValue,
-    );
+
+    // Bonus/condition chips (combo rules or plain toggle conditions) only
+    // move that one specific rule's value in RTDB — the part's base
+    // value and every other rule on it stay exactly as they were.
+    const newArray = entry.label
+      ? rulesEditor.changeRuleValueTier(
+          valuesSet,
+          entry.partType,
+          entry.partId,
+          entry,
+          newValue,
+        )
+      : rulesEditor.changePartValueTier(
+          valuesSet,
+          entry.partType,
+          entry.partId,
+          newValue,
+        );
 
     await persistPartTypeArray(entry.partType, newArray);
   }
@@ -354,6 +407,7 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     if (!partData) return null;
 
     const isActive = activeChipKey === key;
+    const isEditable = isEditMode && !entry.isRetoolVariant;
 
     function handleActionClick(event, action) {
       event.stopPropagation();
@@ -364,10 +418,12 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
     return (
       <div className={classes_names["chip"]} key={key}>
         <div
-          className={classes_names["chip-frame"]}
+          className={`${classes_names["chip-frame"]} ${
+            entry.isRetoolVariant ? classes_names["variant-chip"] : ""
+          }`}
           data-chip-key={key}
           onClick={() =>
-            isEditMode &&
+            isEditable &&
             setActiveChipKey((prev) => (prev === key ? null : key))
           }
         >
@@ -378,36 +434,30 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
           />
         </div>
 
-        {isEditMode && (
+        {isEditable && (
           <div
             className={`${classes_names["chip-actions"]} ${
               isActive ? classes_names["force-visible"] : ""
             }`}
           >
-            {!entry.label && (
-              <>
-                <button
-                  type="button"
-                  title="Move up a point"
-                  onClick={(event) =>
-                    handleActionClick(event, () => handleMoveChip(entry, "up"))
-                  }
-                >
-                  <ion-icon name="arrow-up-outline"></ion-icon>
-                </button>
-                <button
-                  type="button"
-                  title="Move down a point"
-                  onClick={(event) =>
-                    handleActionClick(event, () =>
-                      handleMoveChip(entry, "down"),
-                    )
-                  }
-                >
-                  <ion-icon name="arrow-down-outline"></ion-icon>
-                </button>
-              </>
-            )}
+            <button
+              type="button"
+              title="Move up a point"
+              onClick={(event) =>
+                handleActionClick(event, () => handleMoveChip(entry, "up"))
+              }
+            >
+              <ion-icon name="arrow-up-outline"></ion-icon>
+            </button>
+            <button
+              type="button"
+              title="Move down a point"
+              onClick={(event) =>
+                handleActionClick(event, () => handleMoveChip(entry, "down"))
+              }
+            >
+              <ion-icon name="arrow-down-outline"></ion-icon>
+            </button>
             <button
               type="button"
               title="Remove"
@@ -570,9 +620,40 @@ const RulesPointValues = ({ additionalstyles, ...props }) => {
         </div>
       )}
 
+      <div className={classes_names["search-bar"]}>
+        <ion-icon name="search-outline"></ion-icon>
+        <input
+          type="text"
+          value={searchTerm}
+          placeholder={t("search-placeholder")}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          onKeyDown={(event) => {
+            // keydown fires before the browser applies the pressed key to
+            // the input's value, so defer a tick to read the up-to-date
+            // value — this is on top of onChange, not instead of it, as a
+            // redundant path in case a keystroke doesn't fire a change
+            // event (e.g. some IME/mobile keyboard flows).
+            const input = event.currentTarget;
+            setTimeout(() => setSearchTerm(input.value), 0);
+          }}
+        />
+        {searchTerm && (
+          <ion-icon
+            name="close-outline"
+            onClick={() => setSearchTerm("")}
+          ></ion-icon>
+        )}
+      </div>
+
       <div className={classes_names["content"]} ref={contentRef}>
         {entries.length === 0 && (
           <p className={classes_names["empty-state"]}>{t("empty-state")}</p>
+        )}
+
+        {entries.length > 0 && filteredEntries.length === 0 && (
+          <p className={classes_names["empty-state"]}>
+            {t("no-search-results")}
+          </p>
         )}
 
         {viewMode === "point" && isEditMode && (

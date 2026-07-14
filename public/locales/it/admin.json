@@ -1,23 +1,23 @@
 {
   "edit-button": "Modifica",
-  "access-title": "Accesso Amministratore",
+  "access-title": "Area Amministratore",
   "password-label": "Password",
-  "access-denied": "Non sei autorizzato",
-  "submit-button": "Sono un Amministratore",
+  "access-denied": "Non hai i permessi per accedere a questa sezione",
+  "submit-button": "Accedi come Amministratore",
   "duplicate": {
-    "title": "Scegli la data del torneo a cui applicare i nuovi valori",
-    "description": "Questo copia i valori che stai visualizzando in un nuovo torneo. Le modifiche avvengono sempre sul nuovo torneo: quello precedente rimane invariato.",
-    "date-label": "Nuova Data",
-    "submit-button": "Crea e Modifica",
-    "block-edit-button": "Blocca Modifica",
-    "already-exists": "Questa data esiste già per questo club.",
-    "generic-error": "Qualcosa è andato storto. Riprova."
+    "title": "Seleziona la data del torneo a cui applicare questi valori",
+    "description": "I valori che stai visualizzando verranno copiati in un nuovo torneo. Le modifiche verranno applicate solo al nuovo torneo: quello originale resterà invariato.",
+    "date-label": "Data del Nuovo Torneo",
+    "submit-button": "Crea Torneo",
+    "block-edit-button": "Blocca Modifiche",
+    "already-exists": "Esiste già un set di valori per questa data e questo club.",
+    "generic-error": "Si è verificato un errore. Riprova."
   },
-  "add-point-value-button": "Aggiungi nuovo valore punto",
-  "create-new-set-button": "Crea un nuovo set di punteggi",
+  "add-point-value-button": "Aggiungi un nuovo punteggio",
+  "create-new-set-button": "Crea un nuovo set di valori per un altro torneo",
   "new-point-value": {
-    "title": "Nuovo Valore Punto",
-    "value-label": "Valore Punto",
+    "title": "Nuovo Punteggio",
+    "value-label": "Punteggio",
     "submit-button": "Aggiungi"
   },
   "edit-part": {
@@ -25,10 +25,16 @@
     "part-type-label": "Tipo di Pezzo",
     "part-label": "Pezzo",
     "value-label": "Valore",
-    "rule-set-checkbox": "Questo pezzo ha un bonus combo del regolamento",
+    "ban-checkbox": "Segna come Bandito",
+    "ban-badge": "Bandito",
+    "rule-set-checkbox": "Questo pezzo ha un bonus combo previsto dal regolamento",
     "combo-type-label": "Combo con",
-    "combo-part-label": "Pezzo combo",
-    "combo-value-label": "Valore bonus",
+    "combo-part-label": "Pezzo abbinato",
+    "combo-hint": "Se abbinato al pezzo sottostante, questa combo avrà un valore di {{value}}. Se la lama ha già un proprio valore base e regole specifiche, queste restano invariate: si tratta solo di una regola aggiuntiva.",
+    "condition-checkbox": "Questo pezzo ha una condizione speciale",
+    "condition-label-label": "Nome della condizione",
+    "condition-label-placeholder": "es. Usurato",
+    "condition-value-label": "Valore se la condizione è soddisfatta",
     "submit-button": "Salva",
     "cancel-button": "Annulla"
   }

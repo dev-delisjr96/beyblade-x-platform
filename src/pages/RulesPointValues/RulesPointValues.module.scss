@@ -241,6 +241,48 @@
 
 // --- Content ---------------------------------------------------------------
 
+.search-bar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--ds-accent-border);
+  border-radius: var(--ds-radius-pill);
+  padding: 0.6rem 1rem;
+  background: var(--ds-surface-alt);
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.6rem;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:focus-within {
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
+
+  ion-icon {
+    font-size: 1.05rem;
+    color: var(--ds-text-dim);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--ds-text);
+    font-family: main.$doona_font;
+
+    &::placeholder {
+      color: var(--ds-text-faint);
+    }
+  }
+}
+
 .content {
   position: relative;
   z-index: 1;
@@ -373,6 +415,15 @@
   background: var(--ds-bg-elevated);
   @include main.flexBox(row, center, center);
   overflow: hidden;
+
+  // Synthesized retool variants (see modules/utilities.js
+  // pushRetoolVariantEntries) share their original's value but have no
+  // RTDB entry of their own — dashed to signal there's nothing real to
+  // click-edit here.
+  &.variant-chip {
+    border-style: dashed;
+    opacity: 0.85;
+  }
 }
 
 // Floating toolbar above the chip, NOT nested inside .chip-frame — that

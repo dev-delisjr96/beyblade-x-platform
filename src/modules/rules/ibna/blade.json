@@ -78,16 +78,6 @@
   },
   {
     "part": "blade",
-    "name": "collab-jurassicworld-t-rex",
-    "value": 3
-  },
-  {
-    "part": "blade",
-    "name": "collab-marvel-red-hulk",
-    "value": 3
-  },
-  {
-    "part": "blade",
     "name": "dran-strike",
     "value": 3
   },
@@ -133,16 +123,6 @@
   },
   {
     "part": "blade",
-    "name": "tyranno-roar",
-    "value": 2
-  },
-  {
-    "part": "blade",
-    "name": "collab-jurassicworld-spinosaurus",
-    "value": 2
-  },
-  {
-    "part": "blade",
     "name": "heavens-ring",
     "value": 2
   },
@@ -178,22 +158,12 @@
   },
   {
     "part": "blade",
-    "name": "venom",
-    "value": 1
-  },
-  {
-    "part": "blade",
     "name": "hells-scythe",
     "value": 1
   },
   {
     "part": "blade",
     "name": "shark-edge",
-    "value": 1
-  },
-  {
-    "part": "blade",
-    "name": "collab-transformers-optimus-primal",
     "value": 1
   },
   {

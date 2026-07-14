@@ -31,6 +31,10 @@
     "combo-type-label": "Combo with",
     "combo-part-label": "Combo part",
     "combo-hint": "When paired with the part below, the value for this combo will be {{value}}. If the blade in this combo already has its own base value and rules, they're kept as-is — this just adds one more rule.",
+    "condition-checkbox": "This part has a special condition",
+    "condition-label-label": "Condition label",
+    "condition-label-placeholder": "e.g. Worn",
+    "condition-value-label": "Value when met",
     "submit-button": "Save",
     "cancel-button": "Cancel"
   }
