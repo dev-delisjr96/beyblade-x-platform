@@ -146,6 +146,29 @@
   }
 }
 
+.edit-limits-button {
+  @include ds.pill-button($filled: false);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  height: fit-content;
+  align-self: flex-end;
+  margin-bottom: 1px;
+
+  ion-icon {
+    font-size: 1rem;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    box-shadow: none;
+  }
+
+  &:disabled:hover {
+    box-shadow: none;
+  }
+}
+
 // --- Entries -------------------------------------------------------------
 
 .entries-container {

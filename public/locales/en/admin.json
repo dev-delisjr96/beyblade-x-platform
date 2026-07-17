@@ -37,5 +37,17 @@
     "condition-value-label": "Value when met",
     "submit-button": "Save",
     "cancel-button": "Cancel"
+  },
+  "edit-limits": {
+    "title": "Edit Rules",
+    "allow-same-play-type": "Allow builds to share a play type",
+    "allowed-play-types": "Allowed play types",
+    "play-type": {
+      "attack": "Attack",
+      "balance": "Balance",
+      "stamina": "Stamina",
+      "defense": "Defense"
+    },
+    "submit-button": "Save"
   }
 }

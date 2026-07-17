@@ -20,3 +20,11 @@ export const same_parts_not_allowed = {
   type: ERRORS_TYPE.deck.validation,
   message: "same_parts_not_allowed",
 };
+export const play_type_not_allowed = {
+  type: ERRORS_TYPE.deck.validation,
+  message: "play_type_not_allowed",
+};
+export const same_play_type_not_allowed = {
+  type: ERRORS_TYPE.deck.validation,
+  message: "same_play_type_not_allowed",
+};

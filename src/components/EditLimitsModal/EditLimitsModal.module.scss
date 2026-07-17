@@ -1,0 +1,119 @@
+@use "../../styles/main.scss";
+@use "../../styles/design-system" as ds;
+
+.overlay {
+  @include ds.overlay;
+}
+
+.modal {
+  @include ds.theme;
+  @include ds.panel($glow: true);
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  color: var(--ds-text);
+  font-family: main.$doona_font;
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 1.25rem;
+}
+
+.close-btn {
+  @include ds.close-button;
+}
+
+.title {
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-wide);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding-right: 1.5rem;
+}
+
+.checkbox-row {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.6rem;
+  cursor: pointer;
+  font-size: var(--font-p-large);
+  color: var(--ds-text-dim);
+
+  input {
+    accent-color: var(--ds-accent);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+}
+
+.field {
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 0.5rem;
+}
+
+.field-label {
+  @include ds.label;
+}
+
+.play-type-options {
+  @include main.flexBox(row, flex-start, stretch);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.play-type-option {
+  @include main.flexBox(row, center, center);
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-surface-alt);
+  color: var(--ds-text-dim);
+  cursor: pointer;
+  font-family: var(--ds-font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-tracking-mid);
+  font-size: 0.72rem;
+  font-weight: 700;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  input {
+    display: none;
+  }
+
+  img {
+    @include main.size(18px);
+    object-fit: contain;
+  }
+
+  &:hover {
+    color: var(--ds-text);
+  }
+
+  &.active {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
+}
+
+.submit-btn {
+  @include ds.pill-button($filled: true);
+  @include main.flexBox(row, center, center);
+  gap: 0.5rem;
+  border: none;
+
+  ion-icon {
+    font-size: 1.1rem;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    box-shadow: none;
+  }
+}

@@ -90,4 +90,30 @@ export async function updateRuleSetPartValues(
   );
 }
 
+/**
+ * Patches one or more keys under a rule set's `deck.limits` (e.g.
+ * `allowSamePlayType`, `allowedPlayTypes` for play-type formats) without
+ * touching any of its siblings — same multi-path `update()` approach as
+ * updateRuleSetPartValues.
+ *
+ * @param {Object} limitsPatch - e.g. { allowSamePlayType: false, allowedPlayTypes: [...] }
+ */
+export async function updateRuleSetLimits(
+  tournamentFormat,
+  club,
+  date,
+  limitsPatch,
+) {
+  const updates = {};
+  Object.entries(limitsPatch).forEach(([key, value]) => {
+    updates[`deck/limits/${key}`] = value;
+  });
+
+  await updateData(
+    `tournaments-formats/${tournamentFormat}/clubs/${club}`,
+    date,
+    updates,
+  );
+}
+
 export { subscribeToData, readData };

@@ -37,5 +37,17 @@
     "condition-value-label": "Valore se la condizione è soddisfatta",
     "submit-button": "Salva",
     "cancel-button": "Annulla"
+  },
+  "edit-limits": {
+    "title": "Modifica Regolamento",
+    "allow-same-play-type": "Permetti alle build di condividere lo stesso tipo di gioco",
+    "allowed-play-types": "Tipi di gioco consentiti",
+    "play-type": {
+      "attack": "Attacco",
+      "balance": "Equilibrio",
+      "stamina": "Resistenza",
+      "defense": "Difesa"
+    },
+    "submit-button": "Salva"
   }
 }

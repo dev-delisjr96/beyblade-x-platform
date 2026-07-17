@@ -1,5 +1,6 @@
 {
   "check-part-values": "Controlla i valori dei pezzi",
+  "edit-rules-button": "Modifica Regolamento",
   "rule-set-label": "Regolamento",
   "club-label": "Club",
   "date-label": "Data",
@@ -65,6 +66,8 @@
     "too_many": "Troppe voci nel deck",
     "not_enough": "Voci insufficienti nel deck",
     "over_cap_value": "Il deck supera il valore massimo consentito",
-    "same_parts_not_allowed": "I pezzi duplicati non sono consentiti in questo regolamento"
+    "same_parts_not_allowed": "I pezzi duplicati non sono consentiti in questo regolamento",
+    "play_type_not_allowed": "Una o più build usano un tipo di gioco non consentito in questo regolamento",
+    "same_play_type_not_allowed": "Ogni build deve usare un tipo di gioco diverso in questo regolamento"
   }
 }

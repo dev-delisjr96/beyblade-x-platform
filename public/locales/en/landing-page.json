@@ -1,5 +1,6 @@
 {
   "check-part-values": "Check the part values",
+  "edit-rules-button": "Edit Rules",
   "rule-set-label": "Rule Set",
   "club-label": "Club",
   "date-label": "Date",
@@ -65,6 +66,8 @@
     "too_many": "Too many entries in the deck",
     "not_enough": "Not enough entries in the deck",
     "over_cap_value": "The deck exceeds the maximum allowed value",
-    "same_parts_not_allowed": "Duplicate parts are not allowed in this rule set"
+    "same_parts_not_allowed": "Duplicate parts are not allowed in this rule set",
+    "play_type_not_allowed": "One or more builds use a play type that isn't allowed in this rule set",
+    "same_play_type_not_allowed": "Each build must use a different play type in this rule set"
   }
 }

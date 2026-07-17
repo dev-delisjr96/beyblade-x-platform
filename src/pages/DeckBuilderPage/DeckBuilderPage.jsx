@@ -7,7 +7,14 @@ import * as saved_rules from "../../modules/rules/index.js";
 import * as utilities from "../../utilities/index.js";
 
 // RTDB
-import { subscribeToData, subscribeToRecord } from "../../modules/rtdb";
+import {
+  subscribeToData,
+  subscribeToRecord,
+  updateRuleSetLimits,
+} from "../../modules/rtdb";
+
+// Admin access
+import * as adminAccess from "../../modules/adminAccess";
 
 // Screenshot saving
 import * as beyXShare from "../../modules/share";
@@ -25,6 +32,8 @@ import { generateClassesNames } from "../../styles/utilities";
 import Dropdown from "../../components/Dropdown/Dropdown.jsx";
 import DeckEntryCard from "../../components/DeckEntryCard/DeckEntryCard.jsx";
 import DeckSummaryModal from "../../components/DeckSummaryModal/DeckSummaryModal.jsx";
+import AdminAccessModal from "../../components/AdminAccessModal/AdminAccessModal.jsx";
+import EditLimitsModal from "../../components/EditLimitsModal/EditLimitsModal.jsx";
 
 const INITIAL_ENTRIES_COUNT = 3;
 
@@ -86,6 +95,7 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
     "footer-actions",
     "confirm-button",
     "save-button",
+    "edit-limits-button",
     "spin-icon",
     "save-status",
     "success",
@@ -111,6 +121,9 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(() => adminAccess.isAdminSession());
+  const [showAdminModal, setShowAdminModal] = useState(false);
+  const [showEditLimitsModal, setShowEditLimitsModal] = useState(false);
   const entriesRef = useRef(null);
 
   // The format's own record — { label, icon, description, usesClubDate,
@@ -366,6 +379,36 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
   // "Check the part values" only makes sense for club/date formats — its
   // route needs a club + date in the URL.
   const canCheckPartValues = showValues && usesClubDate;
+  // The "Edit Rules" admin panel (allowSamePlayType / allowedPlayTypes —
+  // see components/EditLimitsModal) applies to any club/date format whose
+  // limits actually carry those fields, not just a hardcoded format id —
+  // e.g. a future "play-type" format alongside "point-buy" and "default".
+  const currentLimits = ruleSetSelected?.deck?.limits;
+  const canEditLimits = Boolean(
+    usesClubDate &&
+      currentLimits &&
+      ("allowSamePlayType" in currentLimits ||
+        "allowedPlayTypes" in currentLimits),
+  );
+
+  function handleEditLimitsClick() {
+    if (!isAdmin) {
+      setShowAdminModal(true);
+    } else {
+      setShowEditLimitsModal(true);
+    }
+  }
+
+  function handleAdminSuccess() {
+    setIsAdmin(true);
+    setShowAdminModal(false);
+    setShowEditLimitsModal(true);
+  }
+
+  async function handleSaveLimits(limitsPatch) {
+    await updateRuleSetLimits(tournament_format, club, date, limitsPatch);
+    setShowEditLimitsModal(false);
+  }
 
   async function handleSaveDeck() {
     if (!entriesRef.current || isSaving) return;
@@ -461,6 +504,18 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
             >
               <ion-icon name="list-outline"></ion-icon>
               {t("check-part-values")}
+            </button>
+          )}
+
+          {canEditLimits && (
+            <button
+              type="button"
+              className={classes_names["edit-limits-button"]}
+              disabled={!isReady}
+              onClick={handleEditLimitsClick}
+            >
+              <ion-icon name="options-outline"></ion-icon>
+              {t("edit-rules-button")}
             </button>
           )}
         </div>
@@ -582,6 +637,19 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
           />
         </>
       )}
+
+      <AdminAccessModal
+        open={showAdminModal}
+        onClose={() => setShowAdminModal(false)}
+        onSuccess={handleAdminSuccess}
+      />
+
+      <EditLimitsModal
+        open={showEditLimitsModal}
+        currentLimits={currentLimits}
+        onClose={() => setShowEditLimitsModal(false)}
+        onSave={handleSaveLimits}
+      />
     </div>
   );
 };
