@@ -34,10 +34,11 @@ import { generateClassesNames } from "styles/utilities";
  * and each part's value — leaving just images, names and titles for
  * formats that don't score by points.
  *
- * Regardless of `showValues`, each part also shows its stats (see
- * data/*.json → "stats" and modules/partStats.js), and each column ends
- * with that build's "Total Stats" — same rules as DeckEntryCard: missing/
- * null values count as 0, weight is summed in grams.
+ * Regardless of `showValues`, each column ends with that build's "Total
+ * Stats" (see data/*.json → "stats" and modules/partStats.js) — same
+ * rules as DeckEntryCard: missing/null values count as 0, weight is
+ * summed in grams. Individual parts don't show their own stats here
+ * (kept in DeckEntryCard only) to keep this summary readable.
  *
  * The saved image always matches the desktop 3-column layout, even when
  * saved from a mobile device — see captureElementAsDesktopPng.
@@ -75,7 +76,6 @@ const DeckSummaryModal = ({
     "part-img",
     "part-caption",
     "part-value",
-    "part-stats",
     "column-total-stats",
     "column-total-stats-label",
     "modal-footer",
@@ -249,10 +249,6 @@ const DeckSummaryModal = ({
                         partId,
                         { buildEntry: entry, toggles: entryToggles },
                       );
-                      const partStats = beyXUtilities.getPartStats(
-                        partType,
-                        partId,
-                      );
 
                       return (
                         <div
@@ -276,12 +272,6 @@ const DeckSummaryModal = ({
                                   : partValue}
                             </span>
                           )}
-                          <PartStatsBar
-                            additionalstyles={{
-                              root: classes_names["part-stats"],
-                            }}
-                            stats={partStats}
-                          />
                         </div>
                       );
                     })}
