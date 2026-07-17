@@ -30,6 +30,18 @@
     }
   },
   "duplicate-warning": "This build shares a part with another entry",
+  "see-pre-builds": "See pre builds",
+  "pre-builds": {
+    "title": "Pre Builds",
+    "tabs": {
+      "popular": "Popular",
+      "family": "Family"
+    },
+    "empty-popular": "No popular builds saved for this part yet.",
+    "empty-family": "No family builds saved for this part yet.",
+    "coming-soon": "Family builds are coming soon.",
+    "build-number": "Build {{index}}"
+  },
   "spin": {
     "left": "Left",
     "right": "Right"

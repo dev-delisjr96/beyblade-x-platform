@@ -244,9 +244,9 @@
         "phoenix-rudder"
       ],
       "popular": [
-        { "ratchet": "5-60", "bit": "point" },
-        { "ratchet": "1-60", "bit": "low-rush" },
-        { "ratchet": "9-60", "bit": "ball" }
+        { "ratchet": "3-60", "bit": "rush" },
+        { "ratchet": "3-60", "bit": "low-rush" },
+        { "ratchet": "9-60", "bit": "rush" }
       ]
     },
     "play_type": "attack"
@@ -364,8 +364,9 @@
       ],
       "popular": [
         { "ratchet": "1-60", "bit": "hexa" },
-        { "ratchet": "3-60", "bit": "ball" },
-        { "ratchet": "9-60", "bit": "ball" }
+        { "ratchet": "1-60", "bit": "free-ball" },
+        { "ratchet": "9-60", "bit": "free-ball" },
+        { "ratchet": "6-60", "bit": "hexa" }
       ]
     },
     "play_type": "stamina"
@@ -381,8 +382,8 @@
     "builds": {
       "family": ["tyranno-beat", "tyranno-roar"],
       "popular": [
-        { "ratchet": "3-60", "bit": "spike" },
-        { "ratchet": "7-70", "bit": "point" }
+        { "ratchet": "1-70", "bit": "kick" },
+        { "ratchet": "7-70", "bit": "kick" }
       ]
     },
     "play_type": "attack"
@@ -429,8 +430,8 @@
     "builds": {
       "family": ["cobalt-dragoon", "dragoon-storm", "meteor-dragoon"],
       "popular": [
-        { "ratchet": "5-60", "bit": "elevate" },
-        { "ratchet": "1-60", "bit": "elevate" }
+        { "ratchet": "9-60", "bit": "elevate" },
+        { "ratchet": "5-60", "bit": "elevate" }
       ]
     },
     "play_type": "attack"
@@ -489,8 +490,9 @@
         "storm-pegasis"
       ],
       "popular": [
-        { "ratchet": "7-60", "bit": "level" },
-        { "ratchet": "1-70", "bit": "low-rush" }
+        { "ratchet": "9-60", "bit": "kick" },
+        { "ratchet": "9-60", "bit": "rush" },
+        { "ratchet": "1-60", "bit": "kick" }
       ]
     },
     "play_type": "attack"
@@ -530,8 +532,9 @@
     "builds": {
       "family": ["lock-chip-wolf", "cx-main-blade-hunt", "silver-wolf"],
       "popular": [
-        { "ratchet": "9-60", "bit": "under-needle" },
-        { "ratchet": "9-60", "bit": "ball" }
+        { "ratchet": "9-60", "bit": "free-ball" },
+        { "ratchet": "9-70", "bit": "free-ball" },
+        { "ratchet": "1-60", "bit": "hexa" }
       ]
     },
     "play_type": "stamina"
@@ -549,7 +552,10 @@
         "knight-lance",
         "knight-mail"
       ],
-      "popular": [{ "ratchet": "9-60", "bit": "ball" }]
+      "popular": [
+        { "ratchet": "7-60", "bit": "hexa" },
+        { "ratchet": "1-60", "bit": "free-ball" }
+      ]
     },
     "play_type": "defense"
   },
@@ -625,7 +631,14 @@
     "name": "Golem Rock",
     "img": "/parts/golem-rock.png",
     "full_name": { "takara-tomy": "Golem Rock", "hasbro": "" },
-    "builds": { "popular": [{ "ratchet": "9-60", "bit": "orb" }] },
+    "builds": {
+      "popular": [
+        { "ratchet": "9-60", "bit": "dot" },
+        { "ratchet": "7-60", "bit": "rush" },
+        { "ratchet": "1-60", "bit": "under-needle" },
+        { "ratchet": "9-60", "bit": "wedge" }
+      ]
+    },
     "play_type": "defense"
   },
   {
@@ -766,6 +779,27 @@
     "play_type": "attack"
   },
   {
+    "id": "hells-nether",
+    "name": "Hells Nether Z",
+    "img": "/parts/hells-nether.png",
+    "full_name": {
+      "takara-tomy": "Hells Nether Z",
+      "hasbro": ""
+    },
+    "ratchetIntegrated": true,
+    "builds": {
+      "family": [
+        "hells-scythe",
+        "hells-chain",
+        "hells-hammer",
+        "hells-nether",
+        "lock-chip-hells"
+      ],
+      "popular": [{ "bit": "point" }]
+    },
+    "play_type": "balance"
+  },
+  {
     "id": "shark-scale",
     "name": "Shark Scale",
     "img": "/parts/shark-scale.png",
@@ -774,9 +808,9 @@
       "family": ["shark-edge", "shark-scale", "gill-shark"],
       "popular": [
         { "ratchet": "1-70", "bit": "low-rush" },
-        { "ratchet": "3-60", "bit": "low-rush" },
-        { "ratchet": "9-60", "bit": "low-rush" },
-        { "ratchet": "3-60", "bit": "rush" }
+        { "ratchet": "1-60", "bit": "low-rush" },
+        { "ratchet": "3-60", "bit": "rush" },
+        { "ratchet": "3-60", "bit": "low-orb" }
       ]
     },
     "play_type": "attack"
@@ -823,7 +857,11 @@
     "spin": "left",
     "builds": {
       "family": ["cobalt-dragoon", "dragoon-storm", "meteor-dragoon"],
-      "popular": [{ "ratchet": "9-60", "bit": "elevate" }]
+      "popular": [
+        { "ratchet": "7-60", "bit": "level" },
+        { "ratchet": "7-70", "bit": "level" },
+        { "ratchet": "9-60", "bit": "elevate" }
+      ]
     },
     "play_type": "attack"
   },
@@ -850,7 +888,11 @@
         "dran-buster",
         "dran-strike"
       ],
-      "popular": [{ "ratchet": "4-50", "bit": "flat" }]
+      "popular": [
+        { "ratchet": "3-60", "bit": "jolt" },
+        { "ratchet": "9-70", "bit": "kick" },
+        { "ratchet": "3-60", "bit": "point" }
+      ]
     },
     "play_type": "attack"
   },
@@ -859,7 +901,11 @@
     "name": "Scorpio Spear",
     "img": "/parts/scorpio-spear.png",
     "full_name": { "takara-tomy": "Scorpio Spear", "hasbro": "" },
-    "builds": { "popular": [{ "ratchet": "3-60", "bit": "point" }] },
+    "builds": { "popular": [
+        { "ratchet": "9-60", "bit": "kick" },
+        { "ratchet": "9-60", "bit": "rush" },
+        { "ratchet": "9-60", "bit": "free-ball" },
+        { "ratchet": "7-60", "bit": "free-ball" }] },
     "play_type": "attack"
   },
   {
@@ -867,7 +913,14 @@
     "name": "Clock Mirage",
     "img": "/parts/clock-mirage.png",
     "full_name": { "takara-tomy": "Clock Mirage", "hasbro": "" },
-    "builds": { "popular": [{ "ratchet": "9-60", "bit": "orb" }] },
+    "builds": {
+      "popular": [
+        { "ratchet": "4-55", "bit": "free-ball" },
+        { "ratchet": "7-55", "bit": "free-ball" },
+        { "ratchet": "4-55", "bit": "under-needle" },
+        { "ratchet": "3-85", "bit": "ignition" }
+      ]
+    },
     "play_type": "stamina"
   },
   {
@@ -877,7 +930,11 @@
     "full_name": { "takara-tomy": "Samurai Calibur", "hasbro": "" },
     "builds": {
       "family": ["samurai-saber", "samurai-calibur"],
-      "popular": [{ "ratchet": "9-60", "bit": "ball" }]
+      "popular": [
+        { "ratchet": "6-60", "bit": "level" },
+        { "ratchet": "1-70", "bit": "level" },
+        { "ratchet": "1-60", "bit": "low-rush" }
+      ]
     },
     "play_type": "attack"
   },
@@ -937,7 +994,13 @@
     "name": "Curse Mummy",
     "img": "/parts/curse-mummy.png",
     "full_name": { "takara-tomy": "Curse Mummy", "hasbro": "" },
-    "builds": { "popular": [{ "ratchet": "9-60", "bit": "orb" }] },
+    "builds": {
+      "popular": [
+        { "ratchet": "9-60", "bit": "dot" },
+        { "ratchet": "7-60", "bit": "rush" },
+        { "ratchet": "1-60", "bit": "under-needle" }
+      ]
+    },
     "play_type": "defense"
   },
   {

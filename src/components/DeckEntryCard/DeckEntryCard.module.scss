@@ -238,6 +238,29 @@
   }
 }
 
+.pre-builds-link {
+  align-self: flex-start;
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.4rem;
+  cursor: pointer;
+  color: var(--ds-accent);
+  font-weight: 600;
+  font-size: var(--font-p-large);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+
+  ion-icon {
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: var(--ds-text);
+  }
+}
+
 .duplicate-warning {
   @include main.flexBox(row, flex-start, center);
   gap: 0.4rem;

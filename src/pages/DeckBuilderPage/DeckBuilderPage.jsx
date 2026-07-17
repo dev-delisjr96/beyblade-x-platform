@@ -310,6 +310,38 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
     );
   }
 
+  // Auto-fills every field a "pre-build" combo carries (see
+  // components/PreBuildsModal) at once, keeping whatever else was already
+  // on the entry (its build type stays the same; the combo always
+  // includes the source blade/main-blade it was opened from).
+  function handleApplyPreBuild(entryIndex, combo) {
+    let updatedEntry = {
+      ...deck.entries[entryIndex],
+      ...combo,
+    };
+
+    if (
+      updatedEntry.blade &&
+      beyXUtilities.isRatchetIntegratedBlade(updatedEntry.blade)
+    ) {
+      updatedEntry = { ...updatedEntry, ratchet: undefined };
+    }
+    if (
+      updatedEntry["main-blade"] &&
+      !beyXUtilities.mainBladeAllowsOverBlade(updatedEntry["main-blade"])
+    ) {
+      updatedEntry = { ...updatedEntry, "over-blade": undefined };
+    }
+
+    const newEntries = utilities.replaceAtIndex(
+      deck.entries,
+      entryIndex,
+      updatedEntry,
+    );
+
+    recalcDeck(newEntries, ruleSetSelected?.deck?.values, ruleSetSelected);
+  }
+
   const duplicateEntryIndexes = new Set(
     Object.values(deck.sameParts).flatMap((occurrences) =>
       occurrences.map((occurrence) => occurrence.index),
@@ -347,10 +379,7 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
         { backgroundColor: "#060a0c" },
       );
 
-      beyXShare.downloadBlob(
-        blob,
-        `beyblade-x-deck-${tournament_format}.png`,
-      );
+      beyXShare.downloadBlob(blob, `beyblade-x-deck-${tournament_format}.png`);
       setSaveStatus({ type: "success", message: t("save-status.saved") });
     } catch (err) {
       // eslint-disable-next-line no-console
@@ -457,6 +486,7 @@ const DeckBuilderPage = ({ additionalstyles, ...props }) => {
                 onTypeChange={handleTypeChange}
                 onPartChange={handlePartChange}
                 onToggleChange={handleToggleChange}
+                onApplyPreBuild={handleApplyPreBuild}
               />
             ))}
           </div>

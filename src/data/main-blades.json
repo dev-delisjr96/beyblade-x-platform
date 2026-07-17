@@ -136,14 +136,26 @@
         {
           "lockChip": "lock-chip-emperor",
           "assistBlade": "assist-blade-heavy",
-          "ratchet": "7-60",
-          "bit": "rush"
+          "ratchet": "9-60",
+          "bit": "kick"
+        },
+        {
+          "lockChip": "lock-chip-dran",
+          "assistBlade": "assist-blade-heavy",
+          "ratchet": "9-60",
+          "bit": "jolt"
+        },
+        {
+          "lockChip": "lock-chip-emperor",
+          "assistBlade": "assist-blade-wheel",
+          "ratchet": "9-60",
+          "bit": "kick"
         },
         {
           "lockChip": "lock-chip-pegasus",
-          "assistBlade": "assist-blade-assault",
-          "ratchet": "Turbo (Ratchet-Integrated Bit)",
-          "bit": "turbo-ratchet-integrated-bit"
+          "assistBlade": "assist-blade-heavy",
+          "ratchet": "9-60",
+          "bit": "low-rush"
         }
       ]
     }
@@ -352,10 +364,18 @@
       "family": ["lock-chip-unicorn", "cx-main-blade-delta", "unicorn-sting"],
       "popular": [
         {
+          "lockChip": "lock-chip-emperor",
+          "overBlade": "over-blade-peak",
+          "assistBlade": "assist-blade-heavy",
+          "ratchet": "9-60",
+          "bit": "kick"
+        },
+        {
           "lockChip": "lock-chip-unicorn",
           "overBlade": "over-blade-peak",
-          "ratchet": "3-60",
-          "bit": "gear-unite"
+          "assistBlade": "assist-blade-heavy",
+          "ratchet": "1-50",
+          "bit": "kick"
         }
       ]
     }

@@ -30,6 +30,18 @@
     }
   },
   "duplicate-warning": "Questa build condivide un pezzo con un'altra voce",
+  "see-pre-builds": "Vedi build predefinite",
+  "pre-builds": {
+    "title": "Build Predefinite",
+    "tabs": {
+      "popular": "Popolari",
+      "family": "Famiglia"
+    },
+    "empty-popular": "Nessuna build popolare salvata per questo pezzo.",
+    "empty-family": "Nessuna build di famiglia salvata per questo pezzo.",
+    "coming-soon": "Le build di famiglia arriveranno presto.",
+    "build-number": "Build {{index}}"
+  },
   "spin": {
     "left": "Sinistra",
     "right": "Destra"

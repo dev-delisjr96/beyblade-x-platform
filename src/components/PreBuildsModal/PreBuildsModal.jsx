@@ -19,10 +19,14 @@ const TABS = ["popular", "family"];
  * "See pre builds" popup — shown when the blade (simple builds) or
  * main-blade (CX builds) currently selected in a deck entry has a
  * `builds` property in its catalog data (see data/blades.json,
- * data/main-blades.json). A top tab bar picks between "Popular" (fully
- * wired up: real combos, each clickable to auto-fill the build) and
- * "Family" (visual placeholder for now — same data shape, not built out
- * yet).
+ * data/main-blades.json). A top tab bar picks between:
+ *  - "Popular": real ratchet/bit (+lock-chip/over-blade/assist-blade for
+ *    CX) combos, each clickable to auto-fill the whole build at once.
+ *  - "Family": `builds.family` is a mixed list of ids (blade, lock-chip,
+ *    and main-blade ids all together, since it describes a whole product
+ *    line) — this tab filters that down to just the blade ids and shows
+ *    each as a single-image card; clicking one just swaps the entry's
+ *    blade, leaving ratchet/bit as they were.
  *
  * Each popular-build card is rendered like a mini Deck Summary column —
  * a title plus a stack of circular part images — reusing the same visual
@@ -81,14 +85,23 @@ const PreBuildsModal = ({
   );
   const popularBuilds = sourcePartData?.builds?.popular || [];
   const familyIds = sourcePartData?.builds?.family || [];
+  // `family` mixes blade, lock-chip, and main-blade ids together (it
+  // describes a whole product line) — only the blade ones apply here.
+  const familyBlades = familyIds
+    .map((id) => PARTS.blade?.find((part) => part.id === id))
+    .filter(Boolean);
 
-  function handleApply(rawCombo) {
+  function handleApplyCombo(rawCombo) {
     const normalized = beyXUtilities.normalizeBuildCombo(rawCombo);
     onApply({ ...normalized, [sourcePartType]: sourcePartId });
   }
 
+  function handleApplyFamilyBlade(bladeId) {
+    onApply({ blade: bladeId });
+  }
+
   return (
-    <div className={classes_names["overlay"]} onMouseDown={onClose} {...props}>
+    <div className={classes_names["overlay"]} {...props}>
       <div
         className={classes_names["modal"]}
         onMouseDown={(event) => event.stopPropagation()}
@@ -101,9 +114,7 @@ const PreBuildsModal = ({
 
         <div className={classes_names["header"]}>
           <h2 className={classes_names["title"]}>{t("pre-builds.title")}</h2>
-          <p className={classes_names["subtitle"]}>
-            {sourcePartData?.name}
-          </p>
+          <p className={classes_names["subtitle"]}>{sourcePartData?.name}</p>
         </div>
 
         <div className={classes_names["tabs"]}>
@@ -129,7 +140,8 @@ const PreBuildsModal = ({
             ) : (
               <div className={classes_names["grid"]}>
                 {popularBuilds.map((rawCombo, index) => {
-                  const normalized = beyXUtilities.normalizeBuildCombo(rawCombo);
+                  const normalized =
+                    beyXUtilities.normalizeBuildCombo(rawCombo);
                   const fields = beyXUtilities.buildComboDisplayFields(
                     entryType,
                     sourcePartType,
@@ -146,7 +158,7 @@ const PreBuildsModal = ({
                     <div
                       className={classes_names["card"]}
                       key={`pre-build-${index}`}
-                      onClick={() => handleApply(rawCombo)}
+                      onClick={() => handleApplyCombo(rawCombo)}
                     >
                       <p className={classes_names["card-title"]}>{title}</p>
                       <div className={classes_names["card-parts"]}>
@@ -180,14 +192,33 @@ const PreBuildsModal = ({
             ))}
 
           {activeTab === "family" &&
-            (familyIds.length === 0 ? (
+            (familyBlades.length === 0 ? (
               <p className={classes_names["empty-state"]}>
                 {t("pre-builds.empty-family")}
               </p>
             ) : (
-              <p className={classes_names["empty-state"]}>
-                {t("pre-builds.coming-soon")}
-              </p>
+              <div className={classes_names["grid"]}>
+                {familyBlades.map((bladePart) => (
+                  <div
+                    className={classes_names["card"]}
+                    key={`family-blade-${bladePart.id}`}
+                    onClick={() => handleApplyFamilyBlade(bladePart.id)}
+                  >
+                    <p className={classes_names["card-title"]}>
+                      {bladePart.name}
+                    </p>
+                    <div className={classes_names["card-parts"]}>
+                      <div className={classes_names["part-frame"]}>
+                        <img
+                          className={classes_names["part-img"]}
+                          src={bladePart.img}
+                          alt={bladePart.name}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             ))}
         </div>
       </div>
