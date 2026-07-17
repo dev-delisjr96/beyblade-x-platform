@@ -7,7 +7,13 @@
       "takara-tomy": "Slash",
       "hasbro": "Slash"
     },
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 20,
+      "defense": 10,
+      "stamina": 10,
+      "weight": "4.7"
+    }
   },
   {
     "id": "assist-blade-round",
@@ -17,7 +23,13 @@
       "takara-tomy": "Round",
       "hasbro": "Round"
     },
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 10,
+      "defense": 10,
+      "stamina": 20,
+      "weight": "4.7"
+    }
   },
   {
     "id": "assist-blade-bumper",
@@ -26,6 +38,12 @@
     "full_name": {
       "takara-tomy": "Bumper",
       "hasbro": "Bumper"
+    },
+    "stats": {
+      "attack": 10,
+      "defense": 20,
+      "stamina": 10,
+      "weight": "5.3"
     },
     "play_type": "defense"
   },
@@ -37,6 +55,12 @@
       "takara-tomy": "Turn",
       "hasbro": "Turn"
     },
+    "stats": {
+      "attack": 10,
+      "defense": 10,
+      "stamina": 20,
+      "weight": "5.8"
+    },
     "play_type": "balance"
   },
   {
@@ -46,6 +70,12 @@
     "full_name": {
       "takara-tomy": "Charge",
       "hasbro": "Charge"
+    },
+    "stats": {
+      "attack": 15,
+      "defense": 20,
+      "stamina": 5,
+      "weight": "5.0"
     },
     "play_type": "attack"
   },
@@ -57,6 +87,12 @@
       "takara-tomy": "Jaggy",
       "hasbro": "Jaggy"
     },
+    "stats": {
+      "attack": 20,
+      "defense": 15,
+      "stamina": 5,
+      "weight": "4.9"
+    },
     "play_type": "attack"
   },
   {
@@ -66,6 +102,12 @@
     "full_name": {
       "takara-tomy": "Assault",
       "hasbro": "Assault"
+    },
+    "stats": {
+      "attack": 25,
+      "defense": 10,
+      "stamina": 5,
+      "weight": "5.0"
     },
     "play_type": "attack"
   },
@@ -77,6 +119,12 @@
       "takara-tomy": "Wheel",
       "hasbro": "Wheel"
     },
+    "stats": {
+      "attack": 5,
+      "defense": 15,
+      "stamina": 20,
+      "weight": "7.2"
+    },
     "play_type": "stamina"
   },
   {
@@ -86,6 +134,12 @@
     "full_name": {
       "takara-tomy": "Massive",
       "hasbro": ""
+    },
+    "stats": {
+      "attack": 15,
+      "defense": 15,
+      "stamina": 10,
+      "weight": "5.3"
     },
     "play_type": "defense"
   },
@@ -97,6 +151,12 @@
       "takara-tomy": "Dual",
       "hasbro": ""
     },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "5.9"
+    },
     "play_type": "balance"
   },
   {
@@ -106,6 +166,12 @@
     "full_name": {
       "takara-tomy": "Free",
       "hasbro": ""
+    },
+    "stats": {
+      "attack": 5,
+      "defense": 20,
+      "stamina": 25,
+      "weight": "5.8"
     },
     "play_type": "stamina"
   },
@@ -117,6 +183,12 @@
       "takara-tomy": "Heavy",
       "hasbro": "Heavy"
     },
+    "stats": {
+      "attack": 17,
+      "defense": 17,
+      "stamina": 11,
+      "weight": "7.8"
+    },
     "play_type": "defense"
   },
   {
@@ -126,6 +198,12 @@
     "full_name": {
       "takara-tomy": "Zillion",
       "hasbro": ""
+    },
+    "stats": {
+      "attack": 22,
+      "defense": 15,
+      "stamina": 3,
+      "weight": "6.6"
     },
     "play_type": "defense"
   },
@@ -137,6 +215,12 @@
       "takara-tomy": "Knuckle",
       "hasbro": ""
     },
+    "stats": {
+      "attack": 30,
+      "defense": 5,
+      "stamina": 5,
+      "weight": "4.9"
+    },
     "play_type": "attack"
   },
   {
@@ -146,6 +230,12 @@
     "full_name": {
       "takara-tomy": "Vertical",
       "hasbro": ""
+    },
+    "stats": {
+      "attack": 10,
+      "defense": 25,
+      "stamina": 5,
+      "weight": "5.3"
     },
     "play_type": "attack"
   },
@@ -157,6 +247,12 @@
       "takara-tomy": "Erase",
       "hasbro": ""
     },
+    "stats": {
+      "attack": 10,
+      "defense": 5,
+      "stamina": 25,
+      "weight": "6.0"
+    },
     "play_type": "attack"
   },
   {
@@ -166,6 +262,12 @@
     "full_name": {
       "takara-tomy": "Gravity",
       "hasbro": ""
+    },
+    "stats": {
+      "attack": 37,
+      "defense": 9,
+      "stamina": 4,
+      "weight": "11.6"
     },
     "play_type": "defense"
   }

@@ -13,6 +13,12 @@
         "dran-buster",
         "dran-strike"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -27,6 +33,12 @@
         "wizard-arrow",
         "wizard-rod"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -42,6 +54,12 @@
         "hells-chain",
         "hells-hammer"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -49,21 +67,39 @@
     "name": "Lock Chip - Perseus",
     "img": "/parts/lock-chip-perseus.png",
     "full_name": { "takara-tomy": "Perseus", "hasbro": "Perseus" },
-    "builds": { "family": ["lock-chip-perseus", "cx-main-blade-dark"] }
+    "builds": { "family": ["lock-chip-perseus", "cx-main-blade-dark"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-fox",
     "name": "Lock Chip - Fox",
     "img": "/parts/lock-chip-fox.png",
     "full_name": { "takara-tomy": "Fox", "hasbro": "Fox" },
-    "builds": { "family": ["lock-chip-fox", "cx-main-blade-brush"] }
+    "builds": { "family": ["lock-chip-fox", "cx-main-blade-brush"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-rhino",
     "name": "Lock Chip - Rhino",
     "img": "/parts/lock-chip-rhino.png",
     "full_name": { "takara-tomy": "Rhino", "hasbro": "" },
-    "builds": { "family": ["lock-chip-rhino", "rhino-horn"] }
+    "builds": { "family": ["lock-chip-rhino", "rhino-horn"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-sol",
@@ -76,6 +112,12 @@
         "cx-main-blade-eclipse",
         "cx-main-blade-eclipse-upper"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -83,21 +125,39 @@
     "name": "Lock Chip - Kraken",
     "img": "/parts/lock-chip-kraken.png",
     "full_name": { "takara-tomy": "Kraken", "hasbro": "Kraken" },
-    "builds": { "family": ["lock-chip-kraken", "cx-main-blade-wriggle"] }
+    "builds": { "family": ["lock-chip-kraken", "cx-main-blade-wriggle"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-bahamut",
     "name": "Lock Chip - Bahamut",
     "img": "/parts/lock-chip-bahamut.png",
     "full_name": { "takara-tomy": "Bahamut", "hasbro": "" },
-    "builds": { "family": ["lock-chip-bahamut", "cx-main-blade-blitz"] }
+    "builds": { "family": ["lock-chip-bahamut", "cx-main-blade-blitz"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-emperor",
     "name": "Lock Chip - Emperor",
     "img": "/parts/lock-chip-emperor.png",
     "full_name": { "takara-tomy": "Emperor", "hasbro": "" },
-    "builds": { "family": ["lock-chip-emperor", "cx-main-blade-might"] }
+    "builds": { "family": ["lock-chip-emperor", "cx-main-blade-might"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "4.7"
+    }
   },
   {
     "id": "lock-chip-valkyrie",
@@ -112,6 +172,12 @@
         "valkyrie-volt",
         "glory-valkyrie"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "5.6"
     }
   },
   {
@@ -126,6 +192,12 @@
         "aero-pegasus",
         "storm-pegasis"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -133,14 +205,26 @@
     "name": "Lock Chip - Cerberus",
     "img": "/parts/lock-chip-cerberus.png",
     "full_name": { "takara-tomy": "Cerberus", "hasbro": "Cerberus" },
-    "builds": {}
+    "builds": {},
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-whale",
     "name": "Lock Chip - Whale",
     "img": "/parts/lock-chip-whale.png",
     "full_name": { "takara-tomy": "Whale", "hasbro": "" },
-    "builds": { "family": ["lock-chip-whale", "whale-wave"] }
+    "builds": { "family": ["lock-chip-whale", "whale-wave"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-wolf",
@@ -149,6 +233,12 @@
     "full_name": { "takara-tomy": "Wolf", "hasbro": "" },
     "builds": {
       "family": ["lock-chip-wolf", "cx-main-blade-hunt", "silver-wolf"]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -164,6 +254,12 @@
         "phoenix-wing",
         "phoenix-rudder"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -179,6 +275,12 @@
         "knight-lance",
         "knight-mail"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -186,7 +288,13 @@
     "name": "Lock Chip - Ragna",
     "img": "/parts/lock-chip-ragna.png",
     "full_name": { "takara-tomy": "Ragna", "hasbro": "Ragna" },
-    "builds": { "family": ["lock-chip-ragna", "cx-main-blade-rage"] }
+    "builds": { "family": ["lock-chip-ragna", "cx-main-blade-rage"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-unicorn",
@@ -195,6 +303,12 @@
     "full_name": { "takara-tomy": "Unicorn", "hasbro": "" },
     "builds": {
       "family": ["lock-chip-unicorn", "cx-main-blade-delta", "unicorn-sting"]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -202,7 +316,13 @@
     "name": "Lock Chip - Brachio",
     "img": "/parts/lock-chip-brachio.png",
     "full_name": { "takara-tomy": "Brachio", "hasbro": "" },
-    "builds": { "family": ["lock-chip-brachio", "cx-main-blade-whip"] }
+    "builds": { "family": ["lock-chip-brachio", "cx-main-blade-whip"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-drake",
@@ -216,6 +336,12 @@
         "impact-drake",
         "shelter-drake"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -223,14 +349,26 @@
     "name": "Lock Chip - Hornet",
     "img": "/parts/lock-chip-hornet.png",
     "full_name": { "takara-tomy": "Hornet", "hasbro": "Hornet" },
-    "builds": { "family": ["lock-chip-hornet", "cx-main-blade-fort"] }
+    "builds": { "family": ["lock-chip-hornet", "cx-main-blade-fort"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-bucks",
     "name": "Lock Chip - Bucks",
     "img": "",
     "full_name": { "takara-tomy": "Bucks", "hasbro": "" },
-    "builds": { "family": ["lock-chip-bucks", "cx-main-blade-antler"] }
+    "builds": { "family": ["lock-chip-bucks", "cx-main-blade-antler"] },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   },
   {
     "id": "lock-chip-leon",
@@ -244,6 +382,12 @@
         "leon-claw",
         "leon-crest"
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
     }
   },
   {
@@ -251,6 +395,12 @@
     "name": "Lock Chip - Stag",
     "img": "/parts/lock-chip-stag.png",
     "full_name": { "takara-tomy": "", "hasbro": "Stag" },
-    "builds": {}
+    "builds": {},
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "1.7"
+    }
   }
 ]

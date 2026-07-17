@@ -22,6 +22,12 @@
           "bit": "vortex"
         }
       ]
+    },
+    "stats": {
+      "attack": 40,
+      "defense": 10,
+      "stamina": 10,
+      "weight": "31.2"
     }
   },
   {
@@ -45,6 +51,12 @@
           "bit": "low-orb"
         }
       ]
+    },
+    "stats": {
+      "attack": 10,
+      "defense": 10,
+      "stamina": 40,
+      "weight": "29.2"
     }
   },
   {
@@ -69,6 +81,12 @@
           "bit": "flat"
         }
       ]
+    },
+    "stats": {
+      "attack": 10,
+      "defense": 40,
+      "stamina": 10,
+      "weight": "30.3"
     }
   },
   {
@@ -99,6 +117,12 @@
           "bit": "dot"
         }
       ]
+    },
+    "stats": {
+      "attack": 25,
+      "defense": 10,
+      "stamina": 25,
+      "weight": "29.0"
     }
   },
   {
@@ -117,6 +141,12 @@
           "bit": "gear-rush"
         }
       ]
+    },
+    "stats": {
+      "attack": 40,
+      "defense": 15,
+      "stamina": 5,
+      "weight": "30.3"
     }
   },
   {
@@ -158,6 +188,12 @@
           "bit": "low-rush"
         }
       ]
+    },
+    "stats": {
+      "attack": 50,
+      "defense": 10,
+      "stamina": 15,
+      "weight": "32.8"
     }
   },
   {
@@ -181,6 +217,12 @@
           "bit": "high-taper"
         }
       ]
+    },
+    "stats": {
+      "attack": 5,
+      "defense": 15,
+      "stamina": 40,
+      "weight": "28.5"
     }
   },
   {
@@ -203,6 +245,12 @@
           "bit": "trans-kick"
         }
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "32.3"
     }
   },
   {
@@ -225,6 +273,12 @@
           "bit": "trans-kick"
         }
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "32.3"
     }
   },
   {
@@ -243,6 +297,12 @@
           "bit": "disc-ball"
         }
       ]
+    },
+    "stats": {
+      "attack": 20,
+      "defense": 10,
+      "stamina": 30,
+      "weight": "31.6"
     }
   },
   {
@@ -261,6 +321,12 @@
           "bit": "operate-ratchet-integrated-bit"
         }
       ]
+    },
+    "stats": {
+      "attack": 25,
+      "defense": 25,
+      "stamina": 25,
+      "weight": "33.1"
     }
   },
   {
@@ -285,6 +351,12 @@
           "bit": "wall-wedge"
         }
       ]
+    },
+    "stats": {
+      "attack": 25,
+      "defense": 40,
+      "stamina": 10,
+      "weight": "31.1"
     }
   },
   {
@@ -305,6 +377,12 @@
           "bit": "ignition"
         }
       ]
+    },
+    "stats": {
+      "attack": 25,
+      "defense": 10,
+      "stamina": 5,
+      "weight": "29.6"
     }
   },
   {
@@ -331,6 +409,12 @@
           "bit": "under-needle"
         }
       ]
+    },
+    "stats": {
+      "attack": 10,
+      "defense": 20,
+      "stamina": 10,
+      "weight": "27.5"
     }
   },
   {
@@ -351,6 +435,12 @@
           "bit": "yielding"
         }
       ]
+    },
+    "stats": {
+      "attack": 10,
+      "defense": 10,
+      "stamina": 20,
+      "weight": "27.2"
     }
   },
   {
@@ -378,6 +468,12 @@
           "bit": "kick"
         }
       ]
+    },
+    "stats": {
+      "attack": 15,
+      "defense": 15,
+      "stamina": 10,
+      "weight": "27.9"
     }
   },
   {
@@ -398,6 +494,12 @@
           "bit": "narrow"
         }
       ]
+    },
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "29.6"
     }
   },
   {
@@ -416,6 +518,12 @@
           "bit": "taper"
         }
       ]
+    },
+    "stats": {
+      "attack": 24,
+      "defense": 12,
+      "stamina": 24,
+      "weight": "29.0"
     }
   },
   {
@@ -434,6 +542,12 @@
           "bit": "dot"
         }
       ]
+    },
+    "stats": {
+      "attack": 8,
+      "defense": 15,
+      "stamina": 37,
+      "weight": "29.1"
     }
   },
   {
@@ -452,6 +566,12 @@
           "bit": "orb"
         }
       ]
+    },
+    "stats": {
+      "attack": 8,
+      "defense": 12,
+      "stamina": 40,
+      "weight": "29.3"
     }
   },
   {
@@ -475,6 +595,12 @@
           "bit": "accel"
         }
       ]
+    },
+    "stats": {
+      "attack": 35,
+      "defense": 10,
+      "stamina": 15,
+      "weight": "30.4"
     }
   },
   {
@@ -505,6 +631,12 @@
           "bit": "vortex"
         }
       ]
+    },
+    "stats": {
+      "attack": 45,
+      "defense": 15,
+      "stamina": 15,
+      "weight": "31"
     }
   }
 ]

@@ -3,312 +3,728 @@
     "id": "flat",
     "name": "Flat (F)",
     "img": "/parts/flat.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 40,
+      "defense": 15,
+      "stamina": 10,
+      "weight": "2.2",
+      "dash": 35,
+      "burstResistance": 80
+    }
   },
   {
     "id": "low-flat",
     "name": "Low Flat (LF)",
     "img": "/parts/low-flat.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 45,
+      "defense": 5,
+      "stamina": 10,
+      "weight": "2.1",
+      "dash": 40,
+      "burstResistance": 80
+    }
   },
   {
     "id": "taper",
     "name": "Taper (T)",
     "img": "/parts/taper.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 35,
+      "defense": 20,
+      "stamina": 20,
+      "weight": "2.2",
+      "dash": 25,
+      "burstResistance": 80
+    }
   },
   {
     "id": "high-taper",
     "name": "High Taper (HT)",
     "img": "/parts/high-taper.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 30,
+      "defense": 25,
+      "stamina": 20,
+      "weight": "2.2",
+      "dash": 25,
+      "burstResistance": 80
+    }
   },
   {
     "id": "ball",
     "name": "Ball (B)",
     "img": "/parts/ball.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 15,
+      "defense": 25,
+      "stamina": 50,
+      "weight": "2.1",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "free-ball",
     "name": "Free Ball (FB)",
     "img": "/parts/free-ball.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 10,
+      "defense": 25,
+      "stamina": 60,
+      "weight": "1.9",
+      "dash": 5,
+      "burstResistance": 30
+    }
   },
   {
     "id": "gear-ball",
     "name": "Gear Ball (GB)",
     "img": "/parts/gear-ball.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 10,
+      "defense": 15,
+      "stamina": 45,
+      "weight": "2.0",
+      "dash": 30,
+      "burstResistance": 30
+    }
   },
   {
     "id": "disc-ball",
     "name": "Disc Ball (DB)",
     "img": "/parts/disc-ball.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 15,
+      "defense": 20,
+      "stamina": 55,
+      "weight": "3.2",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "needle",
     "name": "Needle (N)",
     "img": "/parts/needle.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 10,
+      "defense": 50,
+      "stamina": 30,
+      "weight": "2.0",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "high-needle",
     "name": "High Needle (HN)",
     "img": "/parts/high-needle.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 15,
+      "defense": 55,
+      "stamina": 20,
+      "weight": "2.2",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "metal-needle",
     "name": "Metal Needle (MN)",
     "img": "/parts/metal-needle.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 8,
+      "defense": 57,
+      "stamina": 30,
+      "weight": "2.8",
+      "dash": 5,
+      "burstResistance": 30
+    }
   },
   {
     "id": "gear-needle",
     "name": "Gear Needle (GN)",
     "img": "/parts/gear-needle.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 20,
+      "defense": 40,
+      "stamina": 10,
+      "weight": "2.0",
+      "dash": 30,
+      "burstResistance": 30
+    }
   },
   {
     "id": "under-needle",
     "name": "Under Needle (UN)",
     "img": "/parts/under-needle.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 10,
+      "defense": 60,
+      "stamina": 20,
+      "weight": "1.9",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "orb",
     "name": "Orb (O)",
     "img": "/parts/orb.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 10,
+      "defense": 30,
+      "stamina": 50,
+      "weight": "2.0",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "low-orb",
     "name": "Low Orb (LO)",
     "img": "/parts/low-orb.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 5,
+      "defense": 25,
+      "stamina": 55,
+      "weight": "1.9",
+      "dash": 15,
+      "burstResistance": 30
+    }
   },
   {
     "id": "point",
     "name": "Point (P)",
     "img": "/parts/point.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 25,
+      "defense": 25,
+      "stamina": 25,
+      "weight": "2.2",
+      "dash": 25,
+      "burstResistance": 80
+    }
   },
   {
     "id": "gear-point",
     "name": "Gear Point (GP)",
     "img": "/parts/gear-point.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 30,
+      "defense": 25,
+      "stamina": 15,
+      "weight": "2.3",
+      "dash": 30,
+      "burstResistance": 80
+    }
   },
   {
     "id": "trans-point",
     "name": "Trans Point (TP)",
     "img": "/parts/trans-point.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 35,
+      "defense": 25,
+      "stamina": 25,
+      "weight": "2.2",
+      "dash": 15,
+      "burstResistance": 80
+    }
   },
   {
     "id": "spike",
     "name": "Spike (S)",
     "img": "/parts/spike.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 10,
+      "defense": 45,
+      "stamina": 35,
+      "weight": "2.0",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "bound-spike",
     "name": "Bound Spike (BS)",
     "img": "/parts/bound-spike.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 5,
+      "defense": 60,
+      "stamina": 30,
+      "weight": "2.0",
+      "dash": 5,
+      "burstResistance": 30
+    }
   },
   {
     "id": "rush",
     "name": "Rush (R)",
     "img": "/parts/rush.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 40,
+      "defense": 10,
+      "stamina": 20,
+      "weight": "2.1",
+      "dash": 30,
+      "burstResistance": 80
+    }
   },
   {
     "id": "low-rush",
     "name": "Low Rush (LR)",
     "img": "/parts/low-rush.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 45,
+      "defense": 5,
+      "stamina": 15,
+      "weight": "1.9",
+      "dash": 35,
+      "burstResistance": 80
+    }
   },
   {
     "id": "gear-rush",
     "name": "Gear Rush (GR)",
     "img": "/parts/gear-rush.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 45,
+      "defense": 10,
+      "stamina": 10,
+      "weight": "2.1",
+      "dash": 35,
+      "burstResistance": 80
+    }
   },
   {
     "id": "gear-flat",
     "name": "Gear Flat (GF)",
     "img": "/parts/gear-flat.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 50,
+      "defense": 5,
+      "stamina": 5,
+      "weight": "2.3",
+      "dash": 40,
+      "burstResistance": 80
+    }
   },
   {
     "id": "accel",
     "name": "Accel (A)",
     "img": "/parts/accel.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 40,
+      "defense": 10,
+      "stamina": 10,
+      "weight": "2.6",
+      "dash": 40,
+      "burstResistance": 80
+    }
   },
   {
     "id": "rubber-accel",
     "name": "Rubber Accel (RA)",
     "img": "/parts/rubber-accel.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "3.1",
+      "dash": null,
+      "burstResistance": null
+    }
   },
   {
     "id": "hexa",
     "name": "Hexa (H)",
     "img": "/parts/hexa.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 30,
+      "defense": 35,
+      "stamina": 20,
+      "weight": "2.6",
+      "dash": 15,
+      "burstResistance": 80
+    }
   },
   {
     "id": "quake",
     "name": "Quake (Q)",
     "img": "/parts/quake.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 55,
+      "defense": 15,
+      "stamina": 5,
+      "weight": "2.2",
+      "dash": 25,
+      "burstResistance": 80
+    }
   },
   {
     "id": "unite",
     "name": "Unite (U)",
     "img": "/parts/unite.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 25,
+      "defense": 25,
+      "stamina": 30,
+      "weight": "2.1",
+      "dash": 20,
+      "burstResistance": 80
+    }
   },
   {
     "id": "dot",
     "name": "Dot (D)",
     "img": "/parts/dot.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 10,
+      "defense": 55,
+      "stamina": 25,
+      "weight": "2.0",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "cyclone",
     "name": "Cyclone (C)",
     "img": "/parts/cyclone.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 40,
+      "defense": 5,
+      "stamina": 10,
+      "weight": "2.1",
+      "dash": 45,
+      "burstResistance": 80
+    }
   },
   {
     "id": "vortex",
     "name": "Vortex (V)",
     "img": "/parts/vortex.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 45,
+      "defense": 10,
+      "stamina": 5,
+      "weight": "2.2",
+      "dash": 40,
+      "burstResistance": 80
+    }
   },
   {
     "id": "glide",
     "name": "Glide (G)",
     "img": "/parts/glide.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 20,
+      "defense": 10,
+      "stamina": 55,
+      "weight": "2.5",
+      "dash": 15,
+      "burstResistance": 30
+    }
   },
   {
     "id": "elevate",
     "name": "Elevate (E)",
     "img": "/parts/elevate.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 30,
+      "defense": 15,
+      "stamina": 20,
+      "weight": "3.2",
+      "dash": 35,
+      "burstResistance": 30
+    }
   },
   {
     "id": "level",
     "name": "Level (L)",
     "img": "/parts/level.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 40,
+      "defense": 5,
+      "stamina": 15,
+      "weight": "2.7",
+      "dash": 40,
+      "burstResistance": 80
+    }
   },
   {
     "id": "kick",
     "name": "Kick (K)",
     "img": "/parts/kick.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 35,
+      "defense": 25,
+      "stamina": 15,
+      "weight": "2.2",
+      "dash": 25,
+      "burstResistance": 80
+    }
   },
   {
     "id": "wedge",
     "name": "Wedge (W)",
     "img": "/parts/wedge.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 5,
+      "defense": 55,
+      "stamina": 30,
+      "weight": "1.8",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "zap",
     "name": "Zap (Z)",
     "img": "/parts/zap.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 30,
+      "defense": 20,
+      "stamina": 15,
+      "weight": "2.5",
+      "dash": 35,
+      "burstResistance": 80
+    }
   },
   {
     "id": "disc-spike",
     "name": "Disc Spike (DS)",
     "img": "/parts/disc-spike.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 5,
+      "defense": 55,
+      "stamina": 40,
+      "weight": "3.1",
+      "dash": 10,
+      "burstResistance": 20
+    }
   },
   {
     "id": "free-flat",
     "name": "Free Flat (FF)",
     "img": "/parts/free-flat.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 40,
+      "defense": 15,
+      "stamina": 15,
+      "weight": "2.3",
+      "dash": 30,
+      "burstResistance": 80
+    }
   },
   {
     "id": "gear-unite",
     "name": "Gear Unite (GU)",
     "img": "/parts/gear-unite.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 30,
+      "defense": 20,
+      "stamina": 20,
+      "weight": "2.3",
+      "dash": 30,
+      "burstResistance": 80
+    }
   },
   {
     "id": "ignition",
     "name": "Ignition (I)",
     "img": "/parts/ignition.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 50,
+      "defense": 15,
+      "stamina": 5,
+      "weight": "2.4",
+      "dash": 30,
+      "burstResistance": 80
+    }
   },
   {
     "id": "jolt",
     "name": "Jolt (J)",
     "img": "/parts/jolt.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 35,
+      "defense": 10,
+      "stamina": 15,
+      "weight": "2.6",
+      "dash": 40,
+      "burstResistance": 80
+    }
   },
   {
     "id": "merge",
     "name": "Merge (M)",
     "img": "/parts/merge.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 50,
+      "defense": 20,
+      "stamina": 10,
+      "weight": "3.4",
+      "dash": 20,
+      "burstResistance": 80
+    }
   },
   {
     "id": "narrow",
     "name": "Narrow (Nr)",
     "img": "/parts/narrow.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 15,
+      "defense": 20,
+      "stamina": 60,
+      "weight": "1.7",
+      "dash": 5,
+      "burstResistance": 30
+    }
   },
   {
     "id": "trans-kick",
     "name": "Trans Kick (TK)",
     "img": "/parts/trans-kick.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 35,
+      "defense": 30,
+      "stamina": 20,
+      "weight": "2.3",
+      "dash": 15,
+      "burstResistance": 80
+    }
   },
   {
     "id": "under-flat",
     "name": "Under Flat (UF)",
     "img": "/parts/under-flat.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 55,
+      "defense": 5,
+      "stamina": 5,
+      "weight": "2.0",
+      "dash": 35,
+      "burstResistance": 80
+    }
   },
   {
     "id": "wall-ball",
     "name": "Wall Ball (WB)",
     "img": "/parts/wall-ball.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 15,
+      "defense": 30,
+      "stamina": 45,
+      "weight": "2.2",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "wall-wedge",
     "name": "Wall Wedge (WW)",
     "img": "/parts/wall-wedge.png",
-    "play_type": "defense"
+    "play_type": "defense",
+    "stats": {
+      "attack": 5,
+      "defense": 60,
+      "stamina": 25,
+      "weight": "2.4",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "yielding",
     "name": "Yielding (Y)",
     "img": "/parts/yielding.png",
-    "play_type": "stamina"
+    "play_type": "stamina",
+    "stats": {
+      "attack": 10,
+      "defense": 15,
+      "stamina": 65,
+      "weight": "4.2",
+      "dash": 10,
+      "burstResistance": 30
+    }
   },
   {
     "id": "operate",
     "name": "Operate (Op)",
     "img": "/parts/operate.png",
-    "play_type": "balance"
+    "play_type": "balance",
+    "stats": {
+      "attack": 35,
+      "defense": 40,
+      "stamina": 30,
+      "weight": "14.1",
+      "dash": 20,
+      "burstResistance": 30
+    }
   },
   {
     "id": "turbo",
     "name": "Turbo (Tr)",
     "img": "/parts/turbo.png",
-    "play_type": "attack"
+    "play_type": "attack",
+    "stats": {
+      "attack": 45,
+      "defense": 25,
+      "stamina": 30,
+      "weight": "12.7",
+      "dash": 25,
+      "burstResistance": 30
+    }
   }
 ]

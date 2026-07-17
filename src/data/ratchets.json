@@ -3,6 +3,12 @@
     "id": "0-60",
     "name": "0-60",
     "img": "/parts/0-60.png",
+    "stats": {
+      "attack": 3,
+      "defense": 14,
+      "stamina": 13,
+      "weight": "6.8"
+    },
     "full_name": {
       "takara-tomy": "0-60",
       "hasbro": "0-60"
@@ -12,6 +18,12 @@
     "id": "0-70",
     "name": "0-70",
     "img": "/parts/0-70.png",
+    "stats": {
+      "attack": 3,
+      "defense": null,
+      "stamina": 14,
+      "weight": "7.0"
+    },
     "full_name": {
       "takara-tomy": "0-70",
       "hasbro": "0-70"
@@ -21,6 +33,12 @@
     "id": "0-80",
     "name": "0-80",
     "img": "/parts/0-80.png",
+    "stats": {
+      "attack": 3,
+      "defense": 12,
+      "stamina": 15,
+      "weight": "7.6"
+    },
     "full_name": {
       "takara-tomy": "0-80",
       "hasbro": "0-80"
@@ -30,6 +48,12 @@
     "id": "1-50",
     "name": "1-50",
     "img": "/parts/1-50.png",
+    "stats": {
+      "attack": 18,
+      "defense": 9,
+      "stamina": 3,
+      "weight": "5.7"
+    },
     "full_name": {
       "takara-tomy": "1-50",
       "hasbro": "1-50"
@@ -39,6 +63,12 @@
     "id": "1-60",
     "name": "1-60",
     "img": "/parts/1-60.png",
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "6.0"
+    },
     "full_name": {
       "takara-tomy": "1-60",
       "hasbro": "1-60"
@@ -48,6 +78,12 @@
     "id": "1-70",
     "name": "1-70",
     "img": "/parts/1-70.png",
+    "stats": {
+      "attack": 17,
+      "defense": 6,
+      "stamina": 7,
+      "weight": "6.1"
+    },
     "full_name": {
       "takara-tomy": "1-70",
       "hasbro": "1-70"
@@ -57,6 +93,12 @@
     "id": "1-80",
     "name": "1-80",
     "img": "/parts/1-80.png",
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "6.7"
+    },
     "full_name": {
       "takara-tomy": "1-80",
       "hasbro": "1-80"
@@ -66,6 +108,12 @@
     "id": "2-60",
     "name": "2-60",
     "img": "/parts/2-60.png",
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "6.2"
+    },
     "full_name": {
       "takara-tomy": "2-60",
       "hasbro": "2-60"
@@ -75,6 +123,12 @@
     "id": "2-70",
     "name": "2-70",
     "img": "/parts/2-70.png",
+    "stats": {
+      "attack": 10,
+      "defense": 12,
+      "stamina": 8,
+      "weight": "6.3"
+    },
     "full_name": {
       "takara-tomy": "2-70",
       "hasbro": "2-70"
@@ -84,6 +138,12 @@
     "id": "2-80",
     "name": "2-80",
     "img": "/parts/2-80.png",
+    "stats": {
+      "attack": 10,
+      "defense": 11,
+      "stamina": 9,
+      "weight": "6.9"
+    },
     "full_name": {
       "takara-tomy": "2-80",
       "hasbro": "2-80"
@@ -93,6 +153,12 @@
     "id": "3-60",
     "name": "3-60",
     "img": "/parts/3-60.png",
+    "stats": {
+      "attack": 15,
+      "defense": 9,
+      "stamina": 6,
+      "weight": "6.4"
+    },
     "full_name": {
       "takara-tomy": "3-60",
       "hasbro": "3-60"
@@ -102,6 +168,12 @@
     "id": "3-70",
     "name": "3-70",
     "img": "/parts/3-70.png",
+    "stats": {
+      "attack": 15,
+      "defense": 8,
+      "stamina": 7,
+      "weight": "6.4"
+    },
     "full_name": {
       "takara-tomy": "3-70",
       "hasbro": "3-70"
@@ -111,6 +183,12 @@
     "id": "3-80",
     "name": "3-80",
     "img": "/parts/3-80.png",
+    "stats": {
+      "attack": 15,
+      "defense": 7,
+      "stamina": 8,
+      "weight": "7.1"
+    },
     "full_name": {
       "takara-tomy": "3-80",
       "hasbro": "3-80"
@@ -120,6 +198,12 @@
     "id": "3-85",
     "name": "3-85",
     "img": "/parts/3-85.png",
+    "stats": {
+      "attack": 5,
+      "defense": 15,
+      "stamina": 10,
+      "weight": "4.7"
+    },
     "full_name": {
       "takara-tomy": "3-85",
       "hasbro": "3-85"
@@ -129,6 +213,12 @@
     "id": "4-50",
     "name": "4-50",
     "img": "/parts/4-50.png",
+    "stats": {
+      "attack": 12,
+      "defense": 13,
+      "stamina": 5,
+      "weight": "5.9"
+    },
     "full_name": {
       "takara-tomy": "4-50",
       "hasbro": "4-50"
@@ -138,6 +228,12 @@
     "id": "4-55",
     "name": "4-55",
     "img": "/parts/4-55.png",
+    "stats": {
+      "attack": 7,
+      "defense": 11,
+      "stamina": 12,
+      "weight": "4.8"
+    },
     "full_name": {
       "takara-tomy": "4-55",
       "hasbro": "4-55"
@@ -147,6 +243,12 @@
     "id": "4-60",
     "name": "4-60",
     "img": "/parts/4-60.png",
+    "stats": {
+      "attack": 11,
+      "defense": 13,
+      "stamina": 6,
+      "weight": "6.3"
+    },
     "full_name": {
       "takara-tomy": "4-60",
       "hasbro": "4-60"
@@ -156,6 +258,12 @@
     "id": "4-70",
     "name": "4-70",
     "img": "/parts/4-70.png",
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "6.4"
+    },
     "full_name": {
       "takara-tomy": "4-70",
       "hasbro": "4-70"
@@ -165,6 +273,12 @@
     "id": "4-80",
     "name": "4-80",
     "img": "/parts/4-80.png",
+    "stats": {
+      "attack": 11,
+      "defense": 11,
+      "stamina": 8,
+      "weight": "7.0"
+    },
     "full_name": {
       "takara-tomy": "4-80",
       "hasbro": "4-80"
@@ -174,6 +288,12 @@
     "id": "5-50",
     "name": "5-50",
     "img": "",
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": null
+    },
     "full_name": {
       "takara-tomy": "5-50",
       "hasbro": "5-50"
@@ -183,6 +303,12 @@
     "id": "5-60",
     "name": "5-60",
     "img": "/parts/5-60.png",
+    "stats": {
+      "attack": 12,
+      "defense": 9,
+      "stamina": 9,
+      "weight": "6.6"
+    },
     "full_name": {
       "takara-tomy": "5-60",
       "hasbro": "5-60"
@@ -192,6 +318,12 @@
     "id": "5-70",
     "name": "5-70",
     "img": "/parts/5-70.png",
+    "stats": {
+      "attack": 12,
+      "defense": 8,
+      "stamina": 10,
+      "weight": "6.7"
+    },
     "full_name": {
       "takara-tomy": "5-70",
       "hasbro": "5-70"
@@ -201,6 +333,12 @@
     "id": "5-80",
     "name": "5-80",
     "img": "/parts/5-80.png",
+    "stats": {
+      "attack": 12,
+      "defense": 8,
+      "stamina": 10,
+      "weight": "7.3"
+    },
     "full_name": {
       "takara-tomy": "5-80",
       "hasbro": "5-80"
@@ -210,6 +348,12 @@
     "id": "6-60",
     "name": "6-60",
     "img": "/parts/6-60.png",
+    "stats": {
+      "attack": 14,
+      "defense": 8,
+      "stamina": 8,
+      "weight": "6.1"
+    },
     "full_name": {
       "takara-tomy": "6-60",
       "hasbro": "6-60"
@@ -219,6 +363,12 @@
     "id": "6-70",
     "name": "6-70",
     "img": "/parts/6-70.png",
+    "stats": {
+      "attack": 14,
+      "defense": 7,
+      "stamina": 9,
+      "weight": "6.3"
+    },
     "full_name": {
       "takara-tomy": "6-70",
       "hasbro": "6-70"
@@ -228,6 +378,12 @@
     "id": "6-80",
     "name": "6-80",
     "img": "/parts/6-80.png",
+    "stats": {
+      "attack": 14,
+      "defense": 6,
+      "stamina": 10,
+      "weight": "6.9"
+    },
     "full_name": {
       "takara-tomy": "6-80",
       "hasbro": "6-80"
@@ -237,6 +393,12 @@
     "id": "7-55",
     "name": "7-55",
     "img": "/parts/7-55.png",
+    "stats": {
+      "attack": 6,
+      "defense": 14,
+      "stamina": 10,
+      "weight": "5.2"
+    },
     "full_name": {
       "takara-tomy": "7-55",
       "hasbro": "7-55"
@@ -246,6 +408,12 @@
     "id": "7-60",
     "name": "7-60",
     "img": "/parts/7-60.png",
+    "stats": {
+      "attack": null,
+      "defense": null,
+      "stamina": null,
+      "weight": "7.1"
+    },
     "full_name": {
       "takara-tomy": "7-60",
       "hasbro": "7-60"
@@ -255,6 +423,12 @@
     "id": "7-70",
     "name": "7-70",
     "img": "/parts/7-70.png",
+    "stats": {
+      "attack": 8,
+      "defense": 12,
+      "stamina": 10,
+      "weight": "7.3"
+    },
     "full_name": {
       "takara-tomy": "7-70",
       "hasbro": "7-70"
@@ -264,6 +438,12 @@
     "id": "7-80",
     "name": "7-80",
     "img": "/parts/7-80.png",
+    "stats": {
+      "attack": 7,
+      "defense": 14,
+      "stamina": 9,
+      "weight": "7.8"
+    },
     "full_name": {
       "takara-tomy": "7-80",
       "hasbro": "7-80"
@@ -273,6 +453,12 @@
     "id": "8-70",
     "name": "8-70",
     "img": "/parts/8-70.png",
+    "stats": {
+      "attack": 8,
+      "defense": 10,
+      "stamina": 12,
+      "weight": "7.7"
+    },
     "full_name": {
       "takara-tomy": "8-70",
       "hasbro": "8-70"
@@ -282,6 +468,12 @@
     "id": "9-60",
     "name": "9-60",
     "img": "/parts/9-60.png",
+    "stats": {
+      "attack": 13,
+      "defense": 10,
+      "stamina": 7,
+      "weight": "6.2"
+    },
     "full_name": {
       "takara-tomy": "9-60",
       "hasbro": "9-60"
@@ -291,6 +483,12 @@
     "id": "9-65",
     "name": "9-65",
     "img": "/parts/9-65.png",
+    "stats": {
+      "attack": 13,
+      "defense": 10,
+      "stamina": 7,
+      "weight": "4.5"
+    },
     "full_name": {
       "takara-tomy": "9-65",
       "hasbro": "9-65"
@@ -300,6 +498,12 @@
     "id": "9-70",
     "name": "9-70",
     "img": "/parts/9-70.png",
+    "stats": {
+      "attack": 13,
+      "defense": 10,
+      "stamina": 7,
+      "weight": "6.3"
+    },
     "full_name": {
       "takara-tomy": "9-70",
       "hasbro": "9-70"
@@ -309,6 +513,12 @@
     "id": "9-80",
     "name": "9-80",
     "img": "/parts/9-80.png",
+    "stats": {
+      "attack": 13,
+      "defense": 10,
+      "stamina": 7,
+      "weight": "6.9"
+    },
     "full_name": {
       "takara-tomy": "9-80",
       "hasbro": "9-80"
@@ -318,6 +528,12 @@
     "id": "M-85",
     "name": "M-85",
     "img": "/parts/M-85.png",
+    "stats": {
+      "attack": 8,
+      "defense": 19,
+      "stamina": 13,
+      "weight": "10.6"
+    },
     "full_name": {
       "takara-tomy": "M-85",
       "hasbro": "M-85"
