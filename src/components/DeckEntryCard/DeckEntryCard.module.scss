@@ -261,6 +261,17 @@
   }
 }
 
+.total-stats {
+  padding-top: 1rem;
+  border-top: 1px solid var(--ds-accent-border);
+  @include main.flexBox(column, flex-start, stretch);
+  gap: 0.5rem;
+}
+
+.total-stats-label {
+  @include ds.label;
+}
+
 .duplicate-warning {
   @include main.flexBox(row, flex-start, center);
   gap: 0.4rem;

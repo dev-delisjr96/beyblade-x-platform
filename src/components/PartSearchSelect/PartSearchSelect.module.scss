@@ -12,6 +12,81 @@
   @include ds.label;
 }
 
+// --- Sort filter panel (Name A-Z/Z-A text chips + icon-only stat chips)
+// — lives in the same collapsible-toggle row as Play Type/Point Value.
+
+.sort-filter {
+  @include main.flexBox(row, flex-start, center);
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.sort-chip {
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-surface-alt);
+  color: var(--ds-text-dim);
+  font-family: var(--ds-font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    color: var(--ds-text);
+  }
+
+  &.active {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
+}
+
+.sort-icon-chip {
+  @include main.flexBox(row, center, center);
+  gap: 0.25rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-surface-alt);
+  color: var(--ds-text-dim);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  img {
+    @include main.size(16px);
+    object-fit: contain;
+  }
+
+  ion-icon {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    color: var(--ds-text);
+  }
+
+  &.active {
+    background: var(--ds-accent);
+    color: var(--ds-bg);
+    border-color: var(--ds-accent-border-strong);
+    box-shadow: var(--ds-glow-xs);
+  }
+}
+
+.sort-icon {
+  font-size: 0.8rem;
+}
+
 // --- Circular image frame (shared by selected + option rows) ---------------
 
 .img-frame {

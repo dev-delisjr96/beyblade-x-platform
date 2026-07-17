@@ -147,6 +147,29 @@ export function getAvailablePlayTypes(catalog = []) {
   return PLAY_TYPES.filter((type) => found.has(type));
 }
 
+/**
+ * A part's raw "stats" object (see modules/partStats.js), if it has one
+ * — attack/defense/stamina/weight on almost every part, plus dash/
+ * burstResistance on bits only. Individual values may be `null`.
+ */
+export function getPartStats(partType, partId) {
+  if (!partId) return null;
+  const partData = findPartData(partType, partId);
+  return partData?.stats || null;
+}
+
+/**
+ * Every visible part's raw stats object for a build entry, in schema
+ * order — ready to pass to modules/partStats.js sumStats() for the
+ * entry's total. Parts with no stats data are simply skipped.
+ */
+export function getEntryStatsList(entryType = "simple", entry = {}) {
+  const visibleFields = getVisibleEntryFields(entryType, entry);
+  return visibleFields
+    .map((partType) => getPartStats(partType, entry?.[partType]))
+    .filter(Boolean);
+}
+
 export function getDataFileByPart(part) {
   const globalized_part = utilities.globalizeString(part, "-");
   const isCxPart = getCXPart(globalized_part);

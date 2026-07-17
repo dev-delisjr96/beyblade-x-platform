@@ -11,6 +11,10 @@ import * as beyXUtilities from "../../modules/utilities";
 import * as beyXHandlers from "../../modules/handlers";
 import * as beyXShare from "../../modules/share";
 import { getPlayTypeIcon } from "../../modules/playType";
+import { sumStats } from "../../modules/partStats";
+
+// Components
+import PartStatsBar from "../PartStatsBar/PartStatsBar";
 
 // Styles
 import styles from "./DeckSummaryModal.module.scss";
@@ -29,6 +33,11 @@ import { generateClassesNames } from "styles/utilities";
  * every point-value badge — the deck total, each column's build value,
  * and each part's value — leaving just images, names and titles for
  * formats that don't score by points.
+ *
+ * Regardless of `showValues`, each part also shows its stats (see
+ * data/*.json → "stats" and modules/partStats.js), and each column ends
+ * with that build's "Total Stats" — same rules as DeckEntryCard: missing/
+ * null values count as 0, weight is summed in grams.
  *
  * The saved image always matches the desktop 3-column layout, even when
  * saved from a mobile device — see captureElementAsDesktopPng.
@@ -66,6 +75,9 @@ const DeckSummaryModal = ({
     "part-img",
     "part-caption",
     "part-value",
+    "part-stats",
+    "column-total-stats",
+    "column-total-stats-label",
     "modal-footer",
     "save-btn",
     "spin-icon",
@@ -198,6 +210,9 @@ const DeckSummaryModal = ({
                 "bit",
                 entry.bit,
               );
+              const entryTotalStats = sumStats(
+                beyXUtilities.getEntryStatsList(entryType, entry),
+              );
 
               return (
                 <div
@@ -234,6 +249,10 @@ const DeckSummaryModal = ({
                         partId,
                         { buildEntry: entry, toggles: entryToggles },
                       );
+                      const partStats = beyXUtilities.getPartStats(
+                        partType,
+                        partId,
+                      );
 
                       return (
                         <div
@@ -257,9 +276,22 @@ const DeckSummaryModal = ({
                                   : partValue}
                             </span>
                           )}
+                          <PartStatsBar
+                            additionalstyles={{
+                              root: classes_names["part-stats"],
+                            }}
+                            stats={partStats}
+                          />
                         </div>
                       );
                     })}
+                  </div>
+
+                  <div className={classes_names["column-total-stats"]}>
+                    <p className={classes_names["column-total-stats-label"]}>
+                      {t("total-stats-label")}
+                    </p>
+                    <PartStatsBar stats={entryTotalStats} />
                   </div>
                 </div>
               );

@@ -17,11 +17,22 @@
     "filter-ban": "Bandito",
     "play-type-label": "Tipo di Gioco",
     "point-value-label": "Valore Punti",
+    "sort-label": "Ordina",
     "play-type": {
       "attack": "Attacco",
       "balance": "Equilibrio",
       "stamina": "Resistenza",
       "defense": "Difesa"
+    },
+    "sort": {
+      "a-z": "A-Z",
+      "z-a": "Z-A",
+      "attack": "Attacco",
+      "defense": "Difesa",
+      "stamina": "Resistenza",
+      "weight": "Peso",
+      "dash": "Scatto",
+      "burstResistance": "Resistenza Burst"
     }
   }
 }

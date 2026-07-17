@@ -1,0 +1,54 @@
+@use "../../styles/main.scss";
+@use "../../styles/design-system" as ds;
+
+.root {
+  @include main.flexBox(row, flex-start, center);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stat {
+  @include main.flexBox(row, center, center);
+  gap: 0.25rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-bg-elevated);
+  border: 1px solid var(--ds-accent-border);
+}
+
+.stat-icon {
+  @include main.size(13px);
+  object-fit: contain;
+  color: var(--ds-text-dim);
+  font-size: 13px;
+}
+
+.stat-value {
+  font-family: var(--ds-font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ds-text);
+}
+
+.null-value {
+  font-size: 0.75rem;
+  color: var(--ds-text-faint);
+}
+
+// Bigger variant for totals (see DeckEntryCard, DeckSummaryModal).
+.root.large {
+  gap: 0.6rem;
+
+  .stat {
+    padding: 0.3rem 0.65rem;
+  }
+
+  .stat-icon {
+    @include main.size(16px);
+    font-size: 16px;
+  }
+
+  .stat-value {
+    font-size: 0.82rem;
+  }
+}

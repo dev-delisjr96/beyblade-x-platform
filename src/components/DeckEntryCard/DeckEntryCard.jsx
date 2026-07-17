@@ -16,9 +16,13 @@ import * as beyXUtilities from "../../modules/utilities";
 // Play type (attack/balance/stamina/defense) icons.
 import { getPlayTypeIcon } from "../../modules/playType";
 
+// Part stats (attack/defense/stamina/weight/dash/burstResistance)
+import { sumStats } from "../../modules/partStats";
+
 // Components
 import PartSearchSelect from "../PartSearchSelect/PartSearchSelect";
 import PreBuildsModal from "../PreBuildsModal/PreBuildsModal";
+import PartStatsBar from "../PartStatsBar/PartStatsBar";
 
 // Styles
 import styles from "./DeckEntryCard.module.scss";
@@ -92,6 +96,11 @@ function summarizeRules(rules, partName, context) {
  * appears after every part selector, opening PreBuildsModal — picking one
  * of its combos calls `onApplyPreBuild` with the whole combo at once.
  *
+ * At the bottom, a "Total Stats" bar sums every visible part's raw stats
+ * (see data/*.json → "stats" and modules/partStats.js) — attack, defense,
+ * stamina, weight (in grams), and (bits only) dash/burst resistance.
+ * Missing/null stat values count as 0 in the total, same rule everywhere.
+ *
  * Parts whose value depends on a rule-set combo get an extra row: a
  * checkbox for combos the player controls (e.g. "Worn"), or a read-only
  * badge for combos derived from another selected part (e.g. Bullet Griffon
@@ -137,6 +146,8 @@ const DeckEntryCard = ({
     "spin-left",
     "spin-right",
     "pre-builds-link",
+    "total-stats",
+    "total-stats-label",
     "duplicate-warning",
     "handle",
   ];
@@ -174,6 +185,12 @@ const DeckEntryCard = ({
 
   const visibleFields = useMemo(
     () => beyXUtilities.getVisibleEntryFields(entryType, entry),
+    [entryType, entry],
+  );
+
+  const totalStats = useMemo(
+    () =>
+      sumStats(beyXUtilities.getEntryStatsList(entryType, entry)),
     [entryType, entry],
   );
 
@@ -343,6 +360,13 @@ const DeckEntryCard = ({
           {t("see-pre-builds")}
         </p>
       )}
+
+      <div className={classes_names["total-stats"]}>
+        <p className={classes_names["total-stats-label"]}>
+          {t("total-stats-label")}
+        </p>
+        <PartStatsBar stats={totalStats} size="lg" />
+      </div>
 
       {hasDuplicate && (
         <p className={classes_names["duplicate-warning"]}>

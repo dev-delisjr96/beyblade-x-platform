@@ -17,11 +17,22 @@
     "filter-ban": "Ban",
     "play-type-label": "Play Type",
     "point-value-label": "Point Value",
+    "sort-label": "Sort",
     "play-type": {
       "attack": "Attack",
       "balance": "Balance",
       "stamina": "Stamina",
       "defense": "Defense"
+    },
+    "sort": {
+      "a-z": "A-Z",
+      "z-a": "Z-A",
+      "attack": "Attack",
+      "defense": "Defense",
+      "stamina": "Stamina",
+      "weight": "Weight",
+      "dash": "Dash",
+      "burstResistance": "Burst Resistance"
     }
   }
 }
