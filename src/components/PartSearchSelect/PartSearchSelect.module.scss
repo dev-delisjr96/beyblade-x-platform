@@ -243,31 +243,39 @@
 .filters-bar {
   position: relative;
   z-index: 25;
+  margin-bottom: 0.6rem;
   @include main.flexBox(row, flex-start, flex-start);
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
 }
 
 .filter-group {
   position: relative;
+  flex-shrink: 0;
 }
 
 .filter-toggle {
   @include main.flexBox(row, flex-start, center);
-  gap: 0.4rem;
-  padding: 0.35rem 0.7rem;
+  gap: 0.3rem;
+  padding: 0.35rem 0.6rem;
   border-radius: var(--ds-radius-pill);
   border: 1px solid var(--ds-accent-border);
   background: var(--ds-surface-alt);
   cursor: pointer;
+  white-space: nowrap;
   transition:
     border-color 0.15s ease,
     box-shadow 0.15s ease;
 
   ion-icon {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--ds-text-dim);
     flex-shrink: 0;
+  }
+
+  @include main.max(sm) {
+    gap: 0.2rem;
+    padding: 0.3rem 0.45rem;
   }
 
   &:hover {
@@ -284,13 +292,8 @@
   }
 }
 
-.filter-toggle-label {
-  font-family: var(--ds-font-display);
-  text-transform: uppercase;
-  letter-spacing: var(--ds-tracking-mid);
-  font-size: 0.66rem;
-  font-weight: 700;
-  color: var(--ds-text-dim);
+.filter-toggle-icon {
+  font-size: 1rem !important;
 }
 
 .filter-toggle-value {
@@ -298,15 +301,19 @@
   font-size: 0.68rem;
   font-weight: 600;
   color: var(--ds-accent);
-  max-width: 140px;
+  max-width: 90px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @include main.max(sm) {
+    max-width: 54px;
+  }
 }
 
 .filter-panel {
   position: absolute;
-  z-index: 60;
+  z-index: 500;
   top: calc(100% + 6px);
   left: 0;
   min-width: 260px;

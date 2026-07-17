@@ -32,7 +32,9 @@
   },
   "duplicate-warning": "Questa build condivide un pezzo con un'altra voce",
   "total-stats-label": "Statistiche Totali",
-  "see-pre-builds": "Vedi build predefinite",
+  "show-stats-button": "+ Statistiche",
+  "hide-stats-button": "- Statistiche",
+  "see-pre-builds": "Pre-Builds",
   "pre-builds": {
     "title": "Build Predefinite",
     "tabs": {

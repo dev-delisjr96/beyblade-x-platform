@@ -32,6 +32,8 @@
   },
   "duplicate-warning": "This build shares a part with another entry",
   "total-stats-label": "Total Stats",
+  "show-stats-button": "Show Stats",
+  "hide-stats-button": "Hide Stats",
   "see-pre-builds": "See pre builds",
   "pre-builds": {
     "title": "Pre Builds",

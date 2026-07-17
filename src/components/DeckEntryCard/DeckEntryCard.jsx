@@ -84,11 +84,12 @@ function summarizeRules(rules, partName, context) {
  * entirely (see components/PartSearchSelect).
  *
  * Any selected part that carries a "play type" (attack/balance/stamina/
- * defense — see modules/playType.js) shows its icon right under that
- * part's selector; the blade slot shows it alongside the spin badge in a
- * row. The build's own play-type badge (top-right, next to the entry
- * number) is determined by the bit's play type only, regardless of build
- * type — that's the deliberate rule, not a bug.
+ * defense — see modules/playType.js) shows an icon-only badge in the same
+ * row as that part's label (e.g. "Blade"); the blade slot also shows its
+ * spin direction there, with its text kept (unlike the play-type badge).
+ * The build's own play-type badge (top-right, next to the entry number) is
+ * determined by the bit's play type only, regardless of build type —
+ * that's the deliberate rule, not a bug.
  *
  * If the current build's "source" part (the blade for simple builds, the
  * main-blade for CX builds) has a `builds` property in its catalog data
@@ -108,6 +109,7 @@ function summarizeRules(rules, partName, context) {
  * with no values (e.g. non-point-buy formats), no extra flag needed.
  */
 /* eslint-disable-next-line no-unused-vars */
+/* million-ignore */
 const DeckEntryCard = ({
   additionalstyles,
   entryIndex = 0,
@@ -133,9 +135,13 @@ const DeckEntryCard = ({
     "type-toggle",
     "type-option",
     "active",
+    "actions-row",
+    "stats-toggle",
     "parts",
     "part",
-    "blade-meta-row",
+    "part-label-row",
+    "part-label",
+    "part-label-badges",
     "play-type-badge",
     "conditions",
     "condition-toggle",
@@ -160,6 +166,7 @@ const DeckEntryCard = ({
   const { t } = useTranslation("landing-page");
 
   const [showPreBuilds, setShowPreBuilds] = useState(false);
+  const [showPartStats, setShowPartStats] = useState(false);
 
   const valuesSet = ruleSet?.deck?.values || {};
   const context = { buildEntry: entry, toggles };
@@ -179,8 +186,8 @@ const DeckEntryCard = ({
   );
   const hasPreBuilds = Boolean(
     sourcePartData?.builds &&
-      ((sourcePartData.builds.popular?.length ?? 0) > 0 ||
-        (sourcePartData.builds.family?.length ?? 0) > 0),
+    ((sourcePartData.builds.popular?.length ?? 0) > 0 ||
+      (sourcePartData.builds.family?.length ?? 0) > 0),
   );
 
   const visibleFields = useMemo(
@@ -189,8 +196,7 @@ const DeckEntryCard = ({
   );
 
   const totalStats = useMemo(
-    () =>
-      sumStats(beyXUtilities.getEntryStatsList(entryType, entry)),
+    () => sumStats(beyXUtilities.getEntryStatsList(entryType, entry)),
     [entryType, entry],
   );
 
@@ -198,7 +204,6 @@ const DeckEntryCard = ({
     return (
       <div className={classes_names["play-type-badge"]} key={key}>
         <img src={getPlayTypeIcon(playType)} alt={playType} />
-        <span>{t(`play-type.${playType}`)}</span>
       </div>
     );
   }
@@ -235,6 +240,29 @@ const DeckEntryCard = ({
         </div>
       </div>
 
+      <div className={classes_names["actions-row"]}>
+        <button
+          type="button"
+          className={`${classes_names["stats-toggle"]} ${
+            showPartStats ? classes_names["active"] : ""
+          }`}
+          onClick={() => setShowPartStats((prev) => !prev)}
+        >
+          {showPartStats ? t("hide-stats-button") : t("show-stats-button")}
+        </button>
+
+        {hasPreBuilds && (
+          <button
+            type="button"
+            className={classes_names["pre-builds-link"]}
+            onClick={() => setShowPreBuilds(true)}
+          >
+            <ion-icon name="albums-outline"></ion-icon>
+            {t("see-pre-builds")}
+          </button>
+        )}
+      </div>
+
       <div className={classes_names["parts"]}>
         {visibleFields.map((partType) => {
           const selectedName = entry[partType];
@@ -254,22 +282,13 @@ const DeckEntryCard = ({
               className={classes_names["part"]}
               key={`entry-${entryIndex}-part-${partType}`}
             >
-              <PartSearchSelect
-                partType={partType}
-                label={t(`parts.${partType}`)}
-                selectedId={selectedName}
-                valuesSet={valuesSet}
-                context={context}
-                showValues={showValues}
-                onSelect={(partName) => {
-                  return onPartChange(entryIndex, partType, partName);
-                }}
-              />
-
-              {partType === "blade" ? (
-                (bladeSpin || partPlayType) && (
-                  <div className={classes_names["blade-meta-row"]}>
-                    {bladeSpin && (
+              <div className={classes_names["part-label-row"]}>
+                <p className={classes_names["part-label"]}>
+                  {t(`parts.${partType}`)}
+                </p>
+                {(partPlayType || (partType === "blade" && bladeSpin)) && (
+                  <div className={classes_names["part-label-badges"]}>
+                    {partType === "blade" && bladeSpin && (
                       <div
                         className={`${classes_names["spin-badge"]} ${
                           bladeSpin === "left"
@@ -287,10 +306,20 @@ const DeckEntryCard = ({
                     )}
                     {partPlayType && renderPlayTypeBadge(partPlayType)}
                   </div>
-                )
-              ) : (
-                partPlayType && renderPlayTypeBadge(partPlayType)
-              )}
+                )}
+              </div>
+
+              <PartSearchSelect
+                partType={partType}
+                selectedId={selectedName}
+                valuesSet={valuesSet}
+                context={context}
+                showValues={showValues}
+                showStats={showPartStats}
+                onSelect={(partName) => {
+                  return onPartChange(entryIndex, partType, partName);
+                }}
+              />
 
               {rules.length > 0 && (
                 <div className={classes_names["conditions"]}>
@@ -351,13 +380,10 @@ const DeckEntryCard = ({
         })}
       </div>
 
-      {hasPreBuilds && (
-        <p
-          className={classes_names["pre-builds-link"]}
-          onClick={() => setShowPreBuilds(true)}
-        >
-          <ion-icon name="albums-outline"></ion-icon>
-          {t("see-pre-builds")}
+      {hasDuplicate && (
+        <p className={classes_names["duplicate-warning"]}>
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          {t("duplicate-warning")}
         </p>
       )}
 
@@ -367,13 +393,6 @@ const DeckEntryCard = ({
         </p>
         <PartStatsBar stats={totalStats} size="lg" />
       </div>
-
-      {hasDuplicate && (
-        <p className={classes_names["duplicate-warning"]}>
-          <ion-icon name="alert-circle-outline"></ion-icon>
-          {t("duplicate-warning")}
-        </p>
-      )}
 
       <span className={classes_names["handle"]} />
 

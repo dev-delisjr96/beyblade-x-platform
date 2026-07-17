@@ -52,6 +52,7 @@ const PartSearchSelect = ({
   valuesSet = {},
   context = {},
   showValues = true,
+  showStats = true,
   onSelect = () => {},
   ...props
 }) => {
@@ -69,7 +70,7 @@ const PartSearchSelect = ({
     "filters-bar",
     "filter-group",
     "filter-toggle",
-    "filter-toggle-label",
+    "filter-toggle-icon",
     "filter-toggle-value",
     "open",
     "filter-panel",
@@ -339,7 +340,7 @@ const PartSearchSelect = ({
               ></ion-icon>
             </div>
           </div>
-          <PartStatsBar stats={selectedStats} />
+          <PartStatsBar stats={showStats ? selectedStats : null} />
         </>
       ) : (
         <div className={classes_names["search"]}>
@@ -353,9 +354,11 @@ const PartSearchSelect = ({
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => toggleFilterPanel("sort")}
               >
-                <span className={classes_names["filter-toggle-label"]}>
-                  {t("part-search.sort-label")}
-                </span>
+                <ion-icon
+                  className={classes_names["filter-toggle-icon"]}
+                  name="swap-vertical-outline"
+                  title={t("part-search.sort-label")}
+                ></ion-icon>
                 <span className={classes_names["filter-toggle-value"]}>
                   {sortSummary}
                 </span>
@@ -461,9 +464,11 @@ const PartSearchSelect = ({
                   onMouseDown={(event) => event.preventDefault()}
                   onClick={() => toggleFilterPanel("playType")}
                 >
-                  <span className={classes_names["filter-toggle-label"]}>
-                    {t("part-search.play-type-label")}
-                  </span>
+                  <ion-icon
+                    className={classes_names["filter-toggle-icon"]}
+                    name="shapes-outline"
+                    title={t("part-search.play-type-label")}
+                  ></ion-icon>
                   <span className={classes_names["filter-toggle-value"]}>
                     {playTypeSummary}
                   </span>
@@ -530,9 +535,11 @@ const PartSearchSelect = ({
                   onMouseDown={(event) => event.preventDefault()}
                   onClick={() => toggleFilterPanel("pointValue")}
                 >
-                  <span className={classes_names["filter-toggle-label"]}>
-                    {t("part-search.point-value-label")}
-                  </span>
+                  <ion-icon
+                    className={classes_names["filter-toggle-icon"]}
+                    name="pricetag-outline"
+                    title={t("part-search.point-value-label")}
+                  ></ion-icon>
                   <span className={classes_names["filter-toggle-value"]}>
                     {tierSummary}
                   </span>
